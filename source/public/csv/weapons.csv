@@ -1,8 +1,0 @@
-id,name,ammo,action,detachableMagazine
-browning-1911,.45 pistol,45,semi,true
-long-rifle,Long bolt rifle,762,bolt,true
-fn-fal,Battle rifle,76251,semi,true
-ar-4,Light AR,556,semi,true
-sig-sg-550,Sig,556,auto,true
-ak-47,AK,76239,semi,true
-ak-74,Light AK,545,semi,true

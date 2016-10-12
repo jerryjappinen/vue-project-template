@@ -1,5 +1,0 @@
-id,name,tagsString,weight,isConsumable,uses,description
-medkit-small,"Medkit, small","medical",150,1,1,"Can be used to heal small wounds and gain a little vitality."
-medkit-medium,"Medkit, medium-sized","medical",250,1,1,"Can be used to heal most wounds and gain some vitality."
-medkit-large,"Medkit, large","medical",400,1,2,"Can be used to heal even serious wounds and gain a lot of vitality."
-axe,"Axe","tool,weapon",400,0,2,"Can be used to break fortifications and beats bare knuckles in a fight."

@@ -5,7 +5,7 @@ V.services.paths = {
 		return {
 
 			public: 'public/',
-			dataFolderPath: 'public/csv/',
+			dataFolderPath: 'public/data/',
 			svg: 'public/sprite.svg',
 			images: 'public/images/',
 			audio: 'public/audio/',
