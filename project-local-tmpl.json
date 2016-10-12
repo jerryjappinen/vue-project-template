@@ -1,0 +1,21 @@
+{
+
+	// Put local overrides of project config in this file
+	// Copy this file as project-local.json and the config will take effect btu won't be committed to repo
+
+	"appConfig": {
+		"base": {
+			"debug": false,
+			"router": {
+				"root": "/foo/window"
+			},
+			"routes": {
+				"/console": {
+					"name": "console",
+					"component": "console"
+				}
+			}
+		}
+	}
+
+}

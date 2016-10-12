@@ -1,0 +1,14 @@
+
+// NOTE: order is important: blockiest classes last last so they override inliny classes
+
+.inline {
+	display: inline;
+}
+
+.inline-block {
+	display: inline-block;
+}
+
+.block {
+	display: block;
+}

@@ -1,0 +1,22 @@
+
+<div class="view-frame" :class="classes">
+
+	<!-- Global elements -->
+	<!-- <network-indicator :online="state.online"></network-indicator> -->
+
+	<!-- Top-level router outlet switches between splash and main view -->
+	<!-- <router-link class="button" :to="{ name: 'home' }">Foooo</router-link>
+	<div class="view-frame-content">
+		<transition appear>
+			<router-view></router-view>
+		</transition>
+	</div> -->
+
+	<div class="view-frame-content">
+		<transition appear>
+			<splash v-if="shouldRenderSplash"></splash>
+			<home v-if="shouldRenderHome"></home>
+		</transition>
+	</div>
+
+</div>

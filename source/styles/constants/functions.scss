@@ -1,0 +1,33 @@
+
+
+
+// Make translucent
+@function transparent ($color) {
+	@return rgba($color, 0);
+}
+
+
+
+// Make color translucent
+@function hint ($color) {
+
+	// FIXME: should return 0.1 for black, 0.25 for light values
+
+	@return rgba($color, 0.25);
+
+}
+
+	// FIXME: should adjust based on hue
+	@function hint-light ($color) {
+		@return rgba($color, 0.5);
+	}
+
+	// FIXME: should adjust based on hue
+	@function hint-verylight ($color) {
+		@return rgba($color, 0.9);
+	}
+
+// Make color darker
+@function hue ($color) {
+	@return saturate(darken($color, 15%), 10%);
+}

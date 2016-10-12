@@ -1,0 +1,172 @@
+
+// Brand
+$color-airbnb: #fd5c63;
+$color-android: #a4c639;
+$color-facebook: #4267B2;
+$color-googleplay: #689f38;
+$color-instagram: #3f729b;
+$color-instapaper: #428bca;
+$color-ios: #007AFF;
+$color-messenger: #007AFF;
+$color-pinterest: #bd081c;
+$color-twitter: #55acee;
+$color-whatsapp: #25d366;
+// $color-whatsapp: #075e54;
+// $color-whatsapp: #128c7e;
+
+
+
+// Greyscale
+$color-white: 				#ffffff;
+$color-verylightgrey: 		#f6f7f9;
+$color-lightgrey: 			#e7eaee;
+$color-grey: 				#8b8e92;
+$color-dark: 				#585A5F;
+$color-verydark: 			#2D333D;
+$color-black: 				#000000;
+
+
+
+// Colors
+$color-blue-light: 			#6DB6EC;
+$color-blue: 				$color-ios;
+$color-blue-dark: 			#1F80CA;
+$color-blue-verydark: 		#1263A0;
+
+$color-green: 				rgba(96, 220, 192, 1);
+$color-yellow: 				#FFF500;
+$color-red: 				#FF3B30;
+
+
+
+// Z stack
+$z-splash: 1;
+$z-main: 2;
+$z-secondary: 5;
+$z-tertiary: 8;
+$z-debug: 400;
+
+// $z-titlebar: 10;
+$z-panel: 20;
+$z-overlay: 30;
+$z-tabbar: 40;
+$z-controls: 50;
+$z-tour: 80;
+$z-indicators: 100;
+$z-os: 100;
+
+
+
+// Fonts
+$font-ios: '-apple-system', 'BlinkMacSystemFont', 'SF UI Text', 'Helvetica Neue', 'HelveticaNeue', sans-serif;
+$font-android: 'Roboto', 'Droid Sans', 'Helvetica Neue', 'HelveticaNeue', sans-serif;
+$font-windows: 'Segoe UI', 'Helvetica Neue', 'HelveticaNeue', sans-serif;
+
+// Font usage
+$font-mono: 'Roboto Mono', 'Menlo', 'Monaco', 'Segoe UI Mono', 'Consolas', monospace;
+$font-sans: $font-ios, 'Segoe UI', 'Segoe WP', 'Arial', sans-serif;
+$font-serif: 'Georgia', 'Roboto Slab', serif;
+$font-display: $font-sans;
+
+// Font sizes
+$font-size-default: 14px;
+$font-size-display: 1.2em;
+$font-size-small: 0.75em;
+$font-size-uppercase: 0.65em;
+$font-size-mono: 0.85em;
+
+// Scaling
+$font-size-default-over-tiny: 16px;
+
+// Line heights
+$line-height-tight: 1.25;
+$line-height: 1.4;
+$line-height-loose: 1.6;
+	$line-height-tight-unit: 1.25em;
+	$line-height-unit: 1.4em;
+	$line-height-loose-unit: 1.6em;
+
+// Radiuses
+$radius-tight: 3px;
+$radius: 6px;
+$radius-loose: 10px;
+
+
+
+// Pads
+$pad-vertical: 6px;
+$pad-horizontal: 12px;
+
+$flex-tight: 1em;
+	$flex-tight-margin: 1em;
+$flex: 2rem;
+	$flex-margin: 2.5rem;
+$flex-loose: 4rem;
+	$flex-loose-margin: 5rem;
+
+$buffer-verytight: 5px;
+$buffer-tight: $buffer-verytight * 2;
+$buffer: $buffer-tight * 2;
+$buffer-loose: $buffer * 2;
+
+$buffer-relative-tight: 2%;
+$buffer-relative: 6%;
+
+
+
+// Transition durations
+$transition-veryveryfast: 50ms;
+$transition-veryfast: 100ms;
+$transition-fast: 200ms;
+$transition-medium: 400ms;
+$transition-slow: 600ms;
+$transition-slowish: 900ms;
+$transition-veryslow: 1200ms;
+$transition-veryveryslow: 1600ms;
+
+// Easing functions
+$easing-ease: ease;
+$easing-snap: cubic-bezier(0, 0.5, 0.5, 1);
+$easing-bounce: cubic-bezier(0, 0.5, 0.5, 1.05);
+$easing-smooth: cubic-bezier(0.19, 1, 0.22, 1);
+
+// Perspectives
+$perspective: 600px;
+
+
+
+// Some additional dimensions
+$height-statusbar: 20px;
+$height-tabbar: 45px;
+$height-titlebar: 60px;
+$height-smartbanner: 68px;
+
+$height-status-header: 100px;
+$height-card-header: 40px;
+$height-map-cell: 20px;
+
+// Defined screen widths in portrait
+$width-iphone4: 320px;
+$width-iphone5: $width-iphone4;
+$width-iphone6: 375px;
+$width-iphone6plus: 414px;
+$width-ipad: 768px;
+$width-ipadpro: 1024px;
+
+// Defined screen widths in portrait
+$height-iphone4: 480px;
+$height-iphone5: 568px;
+$height-iphone6: 667px;
+$height-iphone6plus: 736px;
+$height-ipad: 1024px;
+$height-ipadpro: 1366px;
+
+// Breakpoints
+$breakpoint-tiny: $width-iphone6 + 1px;
+$breakpoint-small: min($height-iphone5, $width-iphone6); // Ensure iPhone 5 users will get this experience in landscape
+$breakpoint-smallish: $width-iphone6plus;
+$breakpoint-medium: $height-iphone6;
+$breakpoint-large: $width-ipad;
+$breakpoint-verylarge: min($height-ipad, $width-ipadpro);
+
+

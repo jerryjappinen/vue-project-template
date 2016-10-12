@@ -1,0 +1,79 @@
+
+html {
+	color: $color-verydark;
+	font-family: $font-sans;
+	font-size: $font-size-default;
+
+	@include viewport-over-tiny {
+		font-size: $font-size-default-over-tiny;
+	}
+
+}
+
+body {
+	color: $color-white;
+	background-color: $color-black;
+}
+
+blockquote,
+q {
+	@include type-serif;
+}
+
+
+
+// Headings
+h1 {
+	@include type-h1;
+}
+
+h2 {
+	@include type-h2;
+}
+
+h3 {
+	@include type-h3;
+}
+
+h4 {
+	@include type-h4;
+}
+
+// th,
+dt,
+h5 {
+	@include type-h4;
+}
+
+
+
+// Inline
+
+a {
+	color: inherit;
+}
+
+// a {
+// 	color: $color-blue;
+// 	&:focus,
+// 	&:hover {
+// 		color: hue($color-blue);
+// 	}
+// }
+
+
+
+
+// Code
+code {
+	white-space: nowrap;
+}
+pre code {
+	white-space: inherit;
+}
+pre,
+code,
+kbd,
+samp {
+	@include type-mono;
+}

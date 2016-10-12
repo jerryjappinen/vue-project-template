@@ -1,0 +1,41 @@
+
+.view-pic {
+	// background-color: $color-lightgrey;
+	display: inline-block;
+	overflow: hidden;
+
+	background-size: cover;
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+
+	&.block {
+		display: block;
+	}
+
+	img {
+		display: block;
+	}
+
+	// No img inside
+	&.has-background {
+	}
+
+
+
+	// State transition
+	transition-property: opacity, transform, background-color;
+	transition-duration: $transition-veryslow;
+
+	opacity: 0;
+	&.is-loaded,
+	&.is-failed {
+		opacity: 1;
+	}
+
+	&.is-failed {
+		img {
+			opacity: 0;
+		}
+	}
+
+}

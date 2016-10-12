@@ -1,0 +1,122 @@
+
+// Fixed-fluid column layout
+
+// Global default dimensions
+@include toolchain-flex($flex, $flex-margin);
+@include toolchain-flex-reverse($flex, $flex-margin);
+@include toolchain-flex($flex-tight, $flex-tight-margin, 'tight');
+@include toolchain-flex-reverse($flex-tight, $flex-tight-margin, 'tight');
+@include toolchain-flex($flex-loose, $flex-loose-margin, 'loose');
+@include toolchain-flex-reverse($flex-loose, $flex-loose-margin, 'loose');
+
+
+
+// Responsive versions
+// NOTE: these increase the file size of the final CSS file significantly
+@include viewport-over-tiny {
+	@include toolchain-flex($flex, $flex-margin, false, 'over-tiny');
+	@include toolchain-flex-reverse($flex, $flex-margin, false, 'over-tiny');
+	@include toolchain-flex($flex-tight, $flex-tight-margin, 'tight', 'over-tiny');
+	@include toolchain-flex-reverse($flex-tight, $flex-tight-margin, 'tight', 'over-tiny');
+	@include toolchain-flex($flex-loose, $flex-loose-margin, 'loose', 'over-tiny');
+	@include toolchain-flex-reverse($flex-loose, $flex-loose-margin, 'loose', 'over-tiny');
+}
+
+	@include viewport-under-tiny {
+		@include toolchain-flex($flex, $flex-margin, false, 'under-tiny');
+		@include toolchain-flex-reverse($flex, $flex-margin, false, 'under-tiny');
+		@include toolchain-flex($flex-tight, $flex-tight-margin, 'tight', 'under-tiny');
+		@include toolchain-flex-reverse($flex-tight, $flex-tight-margin, 'tight', 'under-tiny');
+		@include toolchain-flex($flex-loose, $flex-loose-margin, 'loose', 'under-tiny');
+		@include toolchain-flex-reverse($flex-loose, $flex-loose-margin, 'loose', 'under-tiny');
+	}
+
+@include viewport-over-small {
+	@include toolchain-flex($flex, $flex-margin, false, 'over-small');
+	@include toolchain-flex-reverse($flex, $flex-margin, false, 'over-small');
+	@include toolchain-flex($flex-tight, $flex-tight-margin, 'tight', 'over-small');
+	@include toolchain-flex-reverse($flex-tight, $flex-tight-margin, 'tight', 'over-small');
+	@include toolchain-flex($flex-loose, $flex-loose-margin, 'loose', 'over-small');
+	@include toolchain-flex-reverse($flex-loose, $flex-loose-margin, 'loose', 'over-small');
+}
+
+	@include viewport-under-small {
+		@include toolchain-flex($flex, $flex-margin, false, 'under-small');
+		@include toolchain-flex-reverse($flex, $flex-margin, false, 'under-small');
+		@include toolchain-flex($flex-tight, $flex-tight-margin, 'tight', 'under-small');
+		@include toolchain-flex-reverse($flex-tight, $flex-tight-margin, 'tight', 'under-small');
+		@include toolchain-flex($flex-loose, $flex-loose-margin, 'loose', 'under-small');
+		@include toolchain-flex-reverse($flex-loose, $flex-loose-margin, 'loose', 'under-small');
+	}
+
+@include viewport-over-smallish {
+	@include toolchain-flex($flex, $flex-margin, false, 'over-smallish');
+	@include toolchain-flex-reverse($flex, $flex-margin, false, 'over-smallish');
+	@include toolchain-flex($flex-tight, $flex-tight-margin, 'tight', 'over-smallish');
+	@include toolchain-flex-reverse($flex-tight, $flex-tight-margin, 'tight', 'over-smallish');
+	@include toolchain-flex($flex-loose, $flex-loose-margin, 'loose', 'over-smallish');
+	@include toolchain-flex-reverse($flex-loose, $flex-loose-margin, 'loose', 'over-smallish');
+}
+
+	@include viewport-under-smallish {
+		@include toolchain-flex($flex, $flex-margin, false, 'under-smallish');
+		@include toolchain-flex-reverse($flex, $flex-margin, false, 'under-smallish');
+		@include toolchain-flex($flex-tight, $flex-tight-margin, 'tight', 'under-smallish');
+		@include toolchain-flex-reverse($flex-tight, $flex-tight-margin, 'tight', 'under-smallish');
+		@include toolchain-flex($flex-loose, $flex-loose-margin, 'loose', 'under-smallish');
+		@include toolchain-flex-reverse($flex-loose, $flex-loose-margin, 'loose', 'under-smallish');
+	}
+
+@include viewport-over-medium {
+	@include toolchain-flex($flex, $flex-margin, false, 'over-medium');
+	@include toolchain-flex-reverse($flex, $flex-margin, false, 'over-medium');
+	@include toolchain-flex($flex-tight, $flex-tight-margin, 'tight', 'over-medium');
+	@include toolchain-flex-reverse($flex-tight, $flex-tight-margin, 'tight', 'over-medium');
+	@include toolchain-flex($flex-loose, $flex-loose-margin, 'loose', 'over-medium');
+	@include toolchain-flex-reverse($flex-loose, $flex-loose-margin, 'loose', 'over-medium');
+}
+
+	@include viewport-under-medium {
+		@include toolchain-flex($flex, $flex-margin, false, 'under-medium');
+		@include toolchain-flex-reverse($flex, $flex-margin, false, 'under-medium');
+		@include toolchain-flex($flex-tight, $flex-tight-margin, 'tight', 'under-medium');
+		@include toolchain-flex-reverse($flex-tight, $flex-tight-margin, 'tight', 'under-medium');
+		@include toolchain-flex($flex-loose, $flex-loose-margin, 'loose', 'under-medium');
+		@include toolchain-flex-reverse($flex-loose, $flex-loose-margin, 'loose', 'under-medium');
+	}
+
+@include viewport-over-large {
+	@include toolchain-flex($flex, $flex-margin, false, 'over-large');
+	@include toolchain-flex-reverse($flex, $flex-margin, false, 'over-large');
+	@include toolchain-flex($flex-tight, $flex-tight-margin, 'tight', 'over-large');
+	@include toolchain-flex-reverse($flex-tight, $flex-tight-margin, 'tight', 'over-large');
+	@include toolchain-flex($flex-loose, $flex-loose-margin, 'loose', 'over-large');
+	@include toolchain-flex-reverse($flex-loose, $flex-loose-margin, 'loose', 'over-large');
+}
+
+	@include viewport-under-large {
+		@include toolchain-flex($flex, $flex-margin, false, 'under-large');
+		@include toolchain-flex-reverse($flex, $flex-margin, false, 'under-large');
+		@include toolchain-flex($flex-tight, $flex-tight-margin, 'tight', 'under-large');
+		@include toolchain-flex-reverse($flex-tight, $flex-tight-margin, 'tight', 'under-large');
+		@include toolchain-flex($flex-loose, $flex-loose-margin, 'loose', 'under-large');
+		@include toolchain-flex-reverse($flex-loose, $flex-loose-margin, 'loose', 'under-large');
+	}
+
+@include viewport-over-verylarge {
+	@include toolchain-flex($flex, $flex-margin, false, 'over-verylarge');
+	@include toolchain-flex-reverse($flex, $flex-margin, false, 'over-verylarge');
+	@include toolchain-flex($flex-tight, $flex-tight-margin, 'tight', 'over-verylarge');
+	@include toolchain-flex-reverse($flex-tight, $flex-tight-margin, 'tight', 'over-verylarge');
+	@include toolchain-flex($flex-loose, $flex-loose-margin, 'loose', 'over-verylarge');
+	@include toolchain-flex-reverse($flex-loose, $flex-loose-margin, 'loose', 'over-verylarge');
+}
+
+	@include viewport-under-verylarge {
+		@include toolchain-flex($flex, $flex-margin, false, 'under-verylarge');
+		@include toolchain-flex-reverse($flex, $flex-margin, false, 'under-verylarge');
+		@include toolchain-flex($flex-tight, $flex-tight-margin, 'tight', 'under-verylarge');
+		@include toolchain-flex-reverse($flex-tight, $flex-tight-margin, 'tight', 'under-verylarge');
+		@include toolchain-flex($flex-loose, $flex-loose-margin, 'loose', 'under-verylarge');
+		@include toolchain-flex-reverse($flex-loose, $flex-loose-margin, 'loose', 'under-verylarge');
+	}

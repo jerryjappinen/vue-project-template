@@ -1,0 +1,8 @@
+id,abbr,name,min,max,isReverse
+stamina,stmn,Stamina,0,10,0
+vitality,vtlty,Vitality,0,10,0
+sleep,sleep,Sleep,0,10,0
+sanity,snty,Sanity,0,10,0
+hunger,hngr,Hunger,0,10,1
+thirst,thrst,Thirst,0,10,1
+alcohol,alchl,Alcohol level,0,10,1

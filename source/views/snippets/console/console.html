@@ -1,0 +1,21 @@
+<div class="view-console">
+
+	<ul class="list">
+		<li class="list-item link" @click="testLoop">Test loop {{ loopIndex }}</li>
+		<li class="list-item link" @click="testSound">Test sound</li>
+		<li class="list-item"><a href="/esa">Internal link</a></li>
+		<li class="list-item"><a href="http://eiskis.net/">iamlegendapp.com</a></li>
+		<li class="list-item link" @click="reset">Reset game</li>
+	</ul>
+
+	<table>
+
+		<!-- Platform stuff -->
+		<tr v-for="(value, key) in platformInfo">
+			<th>{{ key }}</th>
+			<td>{{ value }}</td>
+		</tr>
+
+	</table>
+
+</div>

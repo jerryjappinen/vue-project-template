@@ -1,0 +1,20 @@
+<div class="view-swiper swiper" :class="{ 'is-loaded': isLoaded }">
+
+	<!-- Loop the slide data -->
+	<div class="view-swiper-wrapper swiper-wrapper">
+
+		<!-- Print each slide as defined by parent, with Swiper's wrapper class -->
+		<div class="view-swiper-slide swiper-slide" v-for="(slide, index) in slides">
+
+			<!-- Support passing one component id and data for each slide, or objects that define component per slide -->
+			<component
+				:is="component ? component : slide.component"
+				:data="component ? slide : slide.data"></component>
+
+		</div>
+
+	</div>
+
+	<!-- Extra elements -->
+    <div class="view-swiper-pagination swiper-pagination"></div>
+</div>

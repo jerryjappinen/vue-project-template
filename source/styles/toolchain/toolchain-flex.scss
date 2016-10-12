@@ -1,0 +1,96 @@
+
+// Fixed-fluid column layout
+
+// This prints out the base utility classes based on the arguments given
+@mixin toolchain-flex ($width, $margin: $width, $sizing: false, $suffix: false) {
+
+	// E.g. 'tight', 'loose' (width variations)
+	@if $sizing {
+		$sizing: "-#{$sizing}";
+	} @else {
+		$sizing: "";
+	}
+
+	// E.g. 'over-small', 'under-verylarge' (responsive utility class names)
+	@if $suffix {
+		$suffix: "-#{$suffix}";
+	} @else {
+		$suffix: "";
+	}
+
+	.flex#{$sizing}-fluid#{$suffix},
+	.flex#{$sizing}-fixed#{$suffix} {
+		box-sizing: border-box;
+	}
+
+	.flex#{$sizing}-fluid#{$suffix} {
+		clear: none;
+		float: left;
+		width: 100%;
+		margin-left: 0;
+		margin-right: 0;
+
+		> .flex-content {
+			margin-left: 0;
+			margin-right: $margin;
+		}
+
+	}
+
+	.flex#{$sizing}-fixed#{$suffix} {
+		float: right;
+
+		clear: none;
+		margin-right: 0;
+		margin-left: -100%;
+		width: $width;
+	}
+
+}
+
+// This prints out the base utility classes based on the arguments given for the reversely ordered version
+@mixin toolchain-flex-reverse ($width, $margin: $width, $sizing: false, $suffix: false) {
+
+	// E.g. 'tight', 'loose' (width variations)
+	@if $sizing {
+		$sizing: "-#{$sizing}";
+	} @else {
+		$sizing: "";
+	}
+
+	// E.g. 'over-small', 'under-verylarge' (responsive utility class names)
+	@if $suffix {
+		$suffix: "-#{$suffix}";
+	} @else {
+		$suffix: "";
+	}
+
+	.flex#{$sizing}-reverse-fluid#{$suffix},
+	.flex#{$sizing}-reverse-fixed#{$suffix} {
+		box-sizing: border-box;
+	}
+
+	.flex#{$sizing}-reverse-fluid#{$suffix} {
+		clear: none;
+		float: left;
+		width: 100%;
+		margin-left: 0;
+		margin-right: 0;
+
+		> .flex-content {
+			margin-right: 0;
+			margin-left: $margin;
+		}
+
+	}
+
+	.flex#{$sizing}-reverse-fixed#{$suffix} {
+		float: left;
+
+		clear: none;
+		margin-right: 0;
+		margin-left: -100%;
+		width: $width;
+	}
+
+}

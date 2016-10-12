@@ -1,0 +1,28 @@
+
+.view-home {
+	max-width: $width-iphone6plus;
+	@include fill;
+	@include keep-horizontal-center;
+
+
+
+	// Transitions
+	// enter: start state for enter transition
+	// leave-active: end state for leave transition
+	&.v-enter,
+	&.v-leave-active {
+
+		// Something something
+
+	}
+
+
+
+	h1 {
+		color: $color-red;
+	}
+
+	// When not dealing with view enter/leave, cards should animate in fast from under overlays
+	// &:not(.v-enter-active):not(.v-leave-active) {}
+
+}

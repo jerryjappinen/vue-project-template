@@ -1,0 +1,4 @@
+
+V.views['splash'] = {
+	props: []
+};

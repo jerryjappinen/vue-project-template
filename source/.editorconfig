@@ -1,0 +1,27 @@
+
+# top-most EditorConfig file
+root = true
+
+# Unix-style newlines with a newline ending every file
+[*]
+end_of_line = lf
+insert_final_newline = true
+charset = utf-8
+indent_style = tab
+
+# Matches multiple files with brace expansion notation
+# Set default charset
+
+# Swig templates
+[*.{swig,html}]
+insert_final_newline = false
+
+# [*.{js,ts}]
+
+# [*.{css,scss,less}]
+
+# [*.{csv}]
+# insert_final_newline = false
+
+# [*.{json}]
+insert_final_newline = false

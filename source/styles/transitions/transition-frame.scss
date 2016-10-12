@@ -1,0 +1,11 @@
+
+// Vue transition: top-level router (only 'main' for now so never used)
+// FLAG: should this be generic, not specific to a view? Or is it ok to have both?
+
+.transition-frame-enter {}
+
+.transition-frame-enter-active {}
+
+.transition-frame-leave {}
+
+.transition-frame-leave-active {}

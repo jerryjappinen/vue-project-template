@@ -1,0 +1,650 @@
+{
+
+	// App meta data (used to build mobile projects, manifests etc.)
+	"meta": {
+		"title": "My App Name",
+		"company": "My Company Name",
+		"url": "http://myappname.com",
+		"appStartUrl": "http://myappname.com/app",
+		"email": "info@myappname.com",
+		"description": "Meaningful description for this app called My App Name.",
+		"languageCode": "en",
+		"languageCodeCountry": "EN",
+		"themeColor": "#007AFF",
+		"darkStatusBarContent": false,
+		"id": "myappname",
+		"com": "mycompanyname",
+		"version": "0.0.1",
+
+		// Windows app
+		// "windowsStore": {
+		// 	"id": "12345678"
+		// },
+
+		// iOS app
+		"appStore": {
+			"appName": "myappname", // App Store app's safe name, used in iTunes URLs
+			// "affiliate": "foo",
+			// "appargument": "bar",
+			"id": "12345678" // App Store app ID of the native version
+		},
+
+		// Android app
+		"googlePlay": {
+			"id": "tv.myappname.android"
+		}
+
+	},
+
+	// Client-side configs
+	// NOTE:
+	// 	- the final config object will be `base` merged with env-specific settings, with the following added:
+	// 		- `env` ('cordova' or --'web'-- 'window')
+	// 		- `debug` will be added (boolean)
+	// 		- `meta` will be added (see above)
+	"clientConfig": {
+		"base": {
+
+			// init.js will initialize everything on this event
+			"initEvent": "DOMContentLoaded",
+
+			// Global plugins (JS objects under `window`) to be imported to `app.plugins`
+			// NOTE: init callbacks go under `P.js`
+			"plugins": {
+				"log": "log",
+				"modernizr": "Modernizr",
+				"hello": "Hello",
+				"pizzicato": "Pizzicato"
+			},
+
+			// Rendering
+			"appContainer": "#vueapp",
+			"mainVariableName": "app",
+			"mainComponent": "frame",
+
+			// Desktop
+			"defaultWindowWidth": 375,
+			"defaultWindowHeight": 667,
+
+			// Routes
+			"routes": [
+
+				// Debugging console
+				{
+					"path": "/console",
+					"name": "console",
+					"component": "console"
+				},
+
+				// Splash screen, start state
+				{
+					"path": "/",
+					"name": "splash",
+					"component": "splash"
+				},
+
+				// Root
+				{
+					"path": "/home",
+					"name": "home",
+					"component": "home"
+				}
+
+			],
+
+			// Auth service
+			"auth": {
+				"services": {
+					"google": {}
+				}
+			},
+
+			// Service: browser (only relevant on cordova)
+			"browser": {
+
+				// Location bar hidden?
+				// See: https://www.npmjs.com/package/cordova-plugin-inappbrowser
+				// NOTE: use booleans for "yes"/"no"
+				"location": true
+
+			},
+
+			// Service: router
+			"routerOptions": {
+				"hashbang": true,
+				// "history": true, // Requires server configuration
+				// "abstract": true,
+				"root": "/myappname/window",
+				"saveScrollPosition": true,
+				"transitionOnLoad": true,
+				// "suppressTransitionError": true,
+				"linkActiveClass": "is-active"
+			}
+
+		},
+
+		"electron": {
+		},
+
+		"web": {
+
+			// Web-only plugins
+			"plugins": {
+				"smartBanner": "SmartBanner"
+			},
+
+			// Auth service
+			"auth": {
+				"services": {
+					"google": {
+						"clientId": "12345678-12345678901234567890.apps.googleusercontent.com"
+					}
+				}
+			}
+
+		},
+
+		// Environment-specific client config
+		// FIXME: should be able to set each platform separately
+		"cordova": {
+
+			// init.js will initialize everything on this event
+			"initEvent": "deviceready",
+
+			// Cordova plugins
+			// NOTE: which plugins is actually available in app packages is determined below
+			"plugins": {
+				"browser": "cordova.InAppBrowser",
+				"compass": "navigator.compass",
+				"connection": "navigator.connection",
+				"device": "device",
+				"geolocation": "navigator.geolocation",
+				"globalization": "navigator.globalization",
+				"nativeAudio": "plugins.NativeAudio",
+				"notification": "navigator.notification",
+				"notificationBadge": "cordova.plugins.notification.badge",
+				"splashScreen": "navigator.splashscreen",
+				"statusBar": "StatusBar"
+			},
+
+			"routerOptions": {
+				// "abstract": true,
+				"root": ""
+			}
+
+		}
+
+	},
+
+	// Misc build settings
+	"buildOptions": {
+
+		// Electron (for desktop)
+		"electron": {
+
+			"version": "1.4.3",
+
+			"platforms": [
+				// "win32-ia32",
+				"darwin-x64"
+			]
+
+		},
+
+		// Cordova
+		// NOTE: Cordova tools are very delicate - please ensure you know what you're doing with these
+		"cordova": {
+			"id": "",
+
+
+
+			// Mobile projects
+			"paths": {
+
+				// Project will be generated under "this/this/" and then unwrapped by build scripts
+				"root": "cordova/",
+
+				// These are relative to app bundle folder
+				// Where mac app icons are in the Xcode project (under Cordova, not Electron)
+				"osx": {
+					"appIcons": "Images.xcassets/AppIcon.appiconset/"
+				},
+
+				// These are relative to android platform project folder
+				"android": {
+
+					// Static assets, including app icons
+					"res": "res/"
+
+				},
+
+				// These are relative to app bundle folder
+				// Example: cordova/platforms/ios/Foo Bar/
+				"ios": {
+
+					// Where iOS app icons are in the Xcode project
+					"appIcons": "Images.xcassets/AppIcon.appiconset/",
+					"launchImages": "Images.xcassets/LaunchImage.launchimage/"
+
+				}
+
+			},
+
+			// These need to be IDs that Cordova recognises
+			"platforms": [
+				// "osx",
+				"ios",
+				"android"
+			],
+
+			// Engines conf to be passed to config.xml
+			// FLAG: does this matter? Init will install platforms without specifying version
+			// See https://cordova.apache.org/docs/en/latest/config_ref/index.html
+			"engines": {
+				// "osx": "^4.0.1",
+				"ios": "^4.2.1",
+				"android": "^5.2.2"
+			},
+
+			// Android build options
+			// FLAG: currently unused
+			// https://cordova.apache.org/docs/en/latest/guide/platforms/android/
+			// NOTE: gulp script treats these as strings
+			// "gradle": {
+
+			// 	// If this is set, then multiple APK files will be generated: One per native platform supported by library projects (x86, ARM, etc). This can be important if your project uses large native libraries, which can drastically increase the size of the generated APK. If not set, then a single APK will be generated which can be used on all devices
+			// 	// "cdvBuildMultipleApks": false,
+
+			// 	// Overrides the versionCode set in AndroidManifest.xml
+			// 	// "cdvVersionCode": "",
+
+			// 	// Default: release-signing.properties
+			// 	// Path to a .properties file that contains signing information for release builds (see Signing an App)
+			// 	// "cdvReleaseSigningPropertiesFile": "",
+
+			// 	// Default: debug-signing.properties
+			// 	// Path to a .properties file that contains signing information for debug builds (see Signing an App). Useful when you need to share a signing key with other developers
+			// 	// "cdvDebugSigningPropertiesFile": "",
+
+			// 	// Overrides the value of minSdkVersion set in AndroidManifest.xml. Useful when creating multiple APKs based on SDK version
+			// 	"cdvMinSdkVersion": "24",
+
+			// 	// Overrides the automatically detected android.buildToolsVersion value
+			// 	"cdvBuildToolsVersion": "24.0.1",
+
+			// 	// Overrides the automatically detected android.compileSdkVersion value
+			// 	"cdvCompileSdkVersion": "24"
+
+			// },
+
+			// These need to be plugins that Cordova recognises
+			"plugins": [
+
+				// NOTE: we might also use this via the JavaScript plugin
+				// https://github.com/samzilverberg/cordova-mixpanel-plugin
+				// "cordova-plugin-mixpanel",
+
+				// https://www.npmjs.com/package/cordova-plugin-inappbrowser
+				"cordova-plugin-inappbrowser",
+
+				// https://www.npmjs.com/package/cordova-plugin-network-information
+				"cordova-plugin-network-information",
+
+				// https://www.npmjs.com/package/cordova-plugin-dialogs
+				"cordova-plugin-dialogs",
+
+				// https://github.com/apache/cordova-plugin-device-orientation
+				"cordova-plugin-device-orientation",
+
+				// https://cordova.apache.org/docs/en/latest/reference/cordova-plugin-globalization/index.html
+				// "cordova-plugin-globalization",
+
+				// https://www.npmjs.com/package/cordova-plugin-geolocation
+				// https://cordova.apache.org/docs/en/latest/reference/cordova-plugin-geolocation/index.html
+				// "cordova-plugin-geolocation",
+
+				// https://github.com/leecrossley/cordova-plugin-background-task
+				// "cordova-plugin-background-task",
+
+				// NOTE: BE CAREFUL WITH THIS!
+				// https://github.com/katzer/cordova-plugin-badge/wiki
+				// "de.appplant.cordova.plugin.badge"
+				// "cordova-plugin-badge",
+
+				// https://github.com/floatinghotpot/cordova-plugin-nativeaudio
+				// NOTE: this might pause music/podcast playback on iOS
+				"cordova-plugin-nativeaudio",
+
+
+
+				// https://cordova.apache.org/docs/en/latest/reference/cordova-plugin-battery-status/
+				"cordova-plugin-battery-status",
+
+				// WKWebView - newer webview with some caveats
+				// https://github.com/apache/cordova-plugin-wkwebview-engine
+				// http://plugins.telerik.com/cordova/plugin/wkwebview
+				// "cordova-plugin-wkwebview-engine",
+				// "https://github.com/Telerik-Verified-Plugins/WKWebView",
+
+				// https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+				"cordova-plugin-whitelist",
+
+				// https://www.npmjs.com/package/cordova-plugin-statusbar
+				"cordova-plugin-statusbar",
+
+				// https://github.com/apache/cordova-plugin-splashscreen
+				"cordova-plugin-splashscreen",
+
+				// https://www.npmjs.com/package/cordova-plugin-device
+				"cordova-plugin-device"
+
+			],
+
+			// https://cordova.apache.org/docs/en/latest/config_ref/#feature
+			// "features": {
+
+			// 	// Feature name
+			// 	"CDVWKWebViewEngine": {
+
+			// 		// Params for this feature
+			// 		"ios-package": "CDVWKWebViewEngine"
+
+			// 	}
+
+			// },
+
+			// Native preferences conf to be passed to config.xml
+			// See https://cordova.apache.org/docs/en/latest/config_ref/index.html
+			"preferences": {
+
+				// Generic preferences
+				"DisallowOverscroll": true,
+				"Fullscreen": true,
+				"BackgroundColor": "0xff000000",
+				"HideKeyboardFormAccessoryBar": true,
+				"Orientation": "portrait",
+
+				// iOS only preferences
+				// "EnableViewportScale": true,
+				// "MediaPlaybackAllowsAirPlay": "false",
+				// "MediaPlaybackRequiresUserAction": true,
+
+				//For this to work, add the webkit-playsinline attribute to any <video> elements.
+				"AllowInlineMediaPlayback": true,
+
+				"BackupWebStorage": "none",
+				"TopActivityIndicator": "white",
+				// "SuppressesIncrementalRendering": true,
+				// "GapBetweenPages": "0",
+				// "PageLength": "0",
+				// "PaginationBreakingMode": "page",
+				// "PaginationMode": "leftToRight",
+				// "UIWebViewDecelerationSpeed": "fast",
+				// "ErrorUrl": "myErrorPage.html",
+				// "OverrideUserAgent": "Mozilla/5.0 My Browser",
+				// "AppendUserAgent": "My Browser",
+				"target-device": "universal",
+				// "deployment-target": "7.0",
+				// "CordovaWebViewEngine": "CDVUIWebViewEngine",
+
+				// "SuppressesLongPressGesture": true,
+				// "Suppresses3DTouchGesture": true,
+
+				// // Android only preferences
+				// "KeepRunning": "false",
+				// "LoadUrlTimeoutValue": "10000",
+				// "InAppBrowserStorageEnabled": true,
+				// "LoadingDialog": "My Title,My Message",
+				// "ErrorUrl": "myErrorPage.html",
+				// "ShowTitle": true,
+				// "LogLevel": "VERBOSE",
+				// "AndroidLaunchMode": "singleTop",
+				// "DefaultVolumeStream": "call",
+				// "OverrideUserAgent": "Mozilla/5.0 My Browser",
+				// "AppendUserAgent": "My Browser",
+
+				// // Windows only preferences
+				// "windows-phone-target-version": "8.1",
+				// "windows-target-version": "8.1",
+				// "Windows.Universal": "10.0.10240.0",
+				// "WindowsDefaultUriPrefix": "ms-appx://",
+				// "Windows.Mobile-MaxVersionTested": "10.0.10031.0",
+				// "Windows.Universal-MinVersion": "10.0.0.0",
+				// "WindowsStoreIdentityName": "Cordova.Example.ApplicationDataSample",
+				// "WindowsStorePublisherName": "CN=Contoso Corp, O=Contoso Corp, L=Redmond, S=Washington, C=US",
+				// "WindowsToastCapable": true,
+
+				// // BlackBerry only preferences
+				// "ChildBrowser": "disable",
+				// "PopupBlocker": "enable",
+				// "WebSecurity": "disable",
+
+				// // OS X only preferences
+				// "HideMousePointer": "5",
+				// "OSXLocalStoragePath": "~/.myapp/database",
+				"WindowSize": "414x736",
+				"EnableWebGL": true,
+
+
+
+				// Plugins
+
+				// plugin-splashscreen
+				"AutoHideSplashScreen": true,
+				"SplashScreenDelay": 450, // Delay before automatically hiding splash, in ms, including fade
+				"FadeSplashScreen": false,
+				"FadeSplashScreenDuration": 150,
+				"ShowSplashScreenSpinner": false,
+				"SplashMaintainAspectRatio": true, // Android only
+				"SplashShowOnlyFirstTime": true, // Android only
+
+				// wkwebview-engine
+				// "CordovaWebViewEngine": "CDVWKWebViewEngine",
+
+				// plugin-statusbar
+				"StatusBarOverlaysWebView": true,
+				// "StatusBarBackgroundColor": "#689cf0",
+
+				// "lightcontent" is white text
+				// "blacktranslucent" is white text
+				// "default" is dark text
+				"StatusBarStyle": "blacktranslucent"
+
+			}
+
+		},
+
+		// SCG sprite compilation options
+		"svg": {
+			"svgo": false, // Pass source files through an extra layer of optimization
+			"spriteFileName": "sprite"
+		},
+
+		// CSS minifying options
+		"cleanCss": {
+			"advanced": false,
+			"aggressiveMerging": false,
+			"keepSpecialComments": 0,
+			"mediaMerging": false,
+			"processImport": false,
+			"rebase": false,
+			// "relativeTo": "",
+			"relativeTo": "",
+			"restructuring": false,
+			// "root": "",
+			"roundingPrecision": -1,
+			"shorthandCompacting": false
+		},
+
+		"jsNewLine": ";\n",
+
+		// Define which when autoprefixer goes through CSS
+		// See https://github.com/ai/browserslist
+		"browserslist": "last 2 version, > 2%, Last 3 Android version, ExplorerMobile 10",
+
+		// Specify files to use from bower plugins' directory
+		// Passed as configuration option to "mainBowerFiles" plugin
+		"bowerOverrides": {},
+
+		// Coding
+		"cssPreProcessor": "scss",
+
+		// Where core assets are stored relative to main file in build targets
+		"coreAssetPath": "public/",			// e.g. assets/
+		"coreAssetPathBacktrack": "../",	// should match the above, e.g. ../
+
+		// Used by js-beautify if JS needs reformatting in debug builds
+		"jsDebugFormatting": {
+			"indentSize": 1,
+			"indentChar": "\t"
+		}
+
+	},
+
+	// Build target locations for the client web app
+	"targets": {
+
+		// Where core assets are dumped before beinf compiled to final build targets
+		"core": "core/",
+
+		// Where public assets are put in each build targets
+		"public": "public/",
+
+		// Environment target paths
+		"electron-release": "electron/release/",
+		"electron": "electron/www/",
+		"cordova": "cordova/www/",
+		"window": "window/"
+
+	},
+
+	// Source globbing
+	"source": {
+
+		// Static assets
+		"public": "source/public/",
+
+		// SVG content for compilation into a sprite
+		"svg": [
+			"source/svg/**/*.svg"
+		],
+
+		// Platform-specific paths: android static assets
+		"android": {
+			"res": "source/platforms/android/" // NOTE: this should be folder only
+		},
+
+		// Platform-specific paths
+		"ios": {
+			"appIcons": "source/platforms/ios/icons/**/*.png",
+			"launchImages": "source/platforms/ios/splash/**/*.{png,jpg}"
+		},
+
+		"osx": {
+			"appIconFile": "source/platforms/osx/icon.icns",
+			"appIcons": "source/platforms/osx/icons/**/*.png"
+		},
+
+		// Environment-specific index templates
+		"main": {
+			"electron-init": "source/main/electron.js.swig",
+			"electron-template": "source/main/electron.swig",
+			"cordova": "source/main/cordova.swig",
+			"window": "source/main/window.swig"
+		},
+
+		// Environment-specific index templates
+		"manifests": {
+			"electron": "source/manifests/electron.json.swig",
+			"cordova": "source/manifests/cordova.xml.swig",
+			"window": "source/manifests/window.json.swig"
+		},
+
+		// List dependencies of main files (where original swig files are) so we can listen for changes and trigger rebuild
+		"mainDependencies": [
+			"source/main/**/*.{swig,html}"
+		],
+
+		"html": [
+			"source/views/**/*.html"
+		],
+
+		// Bower's vendor scripts/styles
+		"bowerComponents": "bower_components",
+
+		// Locally included vendor script/styles
+		// NOTE: gulp scripts will pick CSS/SCSS/JS etc. files from these
+		"vendor": {
+
+			// Always included
+			"all": [
+				"source/vendor/all/"
+			],
+
+			// Included in dev builds (and watching)
+			"debug": [
+				"source/vendor/debug/"
+			],
+
+			// Included when debug is not on
+			"production": [
+				"source/vendor/production/"
+			]
+
+		},
+
+		// Globbing gives unreliable order, so I'll define everything here
+		"css": [
+
+			// Declarative stuff for SCSS (no printing here)
+			"source/styles/constants/**/*.{css,scss,less}",
+			"source/styles/mixins/**/*.{css,scss,less}",
+			"source/styles/toolchain/**/*.{css,scss,less}",
+
+			// Declarative stuff to print
+			"source/styles/webfonts/**/*.{css,scss,less}",
+
+			// Raw plus customized plugin styles
+			"source/vendor/**/*.{css,scss,less}",
+			"source/styles/plugins/**/*.{css,scss,less}",
+
+			// Normalization
+			"source/styles/normalize/normalize.{css,scss,less}",
+			"source/styles/normalize/defaults.{css,scss,less}",
+			"source/styles/normalize/scroll.{css,scss,less}",
+
+			// Actual style stuff
+			"source/styles/base/**/*.{css,scss,less}",
+			"source/styles/transitions/**/*.{css,scss,less}",
+			"source/styles/utilities-composed/**/*.{css,scss,less}",
+			"source/styles/utilities-base/**/*.{css,scss,less}",
+			"source/views/**/*.{css,scss,less}"
+
+		],
+
+		"js": [
+
+			// Bootstrap infra
+			"source/js/P.js",
+			"source/js/V.js",
+
+			// Vue app, inclusing services, views etc.
+			"source/js/plugins/**/*.js",
+			"source/js/app.js",
+			"source/js/services-core/**/*.js",
+			"source/js/services-app/**/*.js",
+			"source/js/content-types/**/*.js",
+			"source/views/**/*.js",
+
+			// This will Be run last
+			"source/js/init.js"
+
+		],
+
+		"vue": {
+			"templates": ["source/views/**/*.{swig,html}"]
+		}
+
+	}
+
+}

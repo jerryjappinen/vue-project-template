@@ -1,0 +1,79 @@
+
+// Grids with even-sized cells
+[class^="grid-"],
+[class*=" grid-"] {
+	@include clear-after;
+}
+.grid-cell {
+	float: left;
+	clear: none;
+	position: relative;
+	box-sizing: border-box;
+	width: 100%;
+
+	height: 10em; // Arbitrary default height (could be removed as well)
+}
+
+
+
+// Responsive versions and dimensions
+// NOTE: grids cannot cancel each other out, so we need to prepare more specific breakpoints than with columns
+// 	- not sure if this is a good set of breakpoints, but the naming convention stays consistent
+
+@include viewport-under-tiny {
+	@include toolchain-grid;
+}
+
+@include viewport-over-tiny {
+	@include toolchain-grid('over-tiny');
+}
+
+	@include viewport-over-tiny {
+		@include viewport-under-small {
+			@include toolchain-grid('over-tiny-under-small');
+		}
+	}
+
+@include viewport-over-small {
+	@include toolchain-grid('over-small');
+}
+
+	@include viewport-over-small {
+		@include viewport-under-smallish {
+			@include toolchain-grid('over-small-under-smallish');
+		}
+	}
+
+@include viewport-over-smallish {
+	@include toolchain-grid('over-smallish');
+}
+
+	@include viewport-over-smallish {
+		@include viewport-under-medium {
+			@include toolchain-grid('over-smallish-under-medium');
+		}
+	}
+
+@include viewport-over-medium {
+	@include toolchain-grid('over-medium');
+}
+
+	@include viewport-over-medium {
+		@include viewport-under-large {
+			@include toolchain-grid('over-medium-under-large');
+		}
+	}
+
+@include viewport-over-large {
+	@include toolchain-grid('over-large');
+}
+
+	@include viewport-over-large {
+		@include viewport-under-verylarge {
+			@include toolchain-grid('over-large-under-verylarge');
+		}
+	}
+
+@include viewport-over-verylarge {
+	@include toolchain-grid('over-verylarge');
+}

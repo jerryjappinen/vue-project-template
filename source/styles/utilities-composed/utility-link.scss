@@ -1,0 +1,25 @@
+
+.link {
+	box-sizing: border-box;
+	// display: inline-block;
+	@include cursor-pointer;
+
+	// Link color
+	color: $color-blue;
+	&:focus,
+	&:hover {
+		color: hue($color-blue);
+	}
+
+	// Disabled state
+	&.is-disabled,
+	&[disabled] {
+		@include cursor-default;
+		@include type-discreet;
+	}
+
+	// border-color: transparent;
+	@include transition-hover;
+	transition-property: transform, border-color, background-color, box-shadow, color;
+
+}

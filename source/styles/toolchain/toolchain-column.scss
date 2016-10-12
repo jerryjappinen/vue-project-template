@@ -1,0 +1,406 @@
+
+// This mixin builds the column utilities
+// NOTE:
+// 	- the strategy is to create a slightly bloaty styling here so that the end result in browser is very clean and lightweight, and free of elaborate specific declarations
+// 	- do we need .push-? It's always never used (and probably shouldn't be)
+// 	- do we need reverse columns? They're almost never used
+
+@mixin toolchain-columns($suffix: false) {
+	@if $suffix {
+		$suffix: "-#{$suffix}";
+	} @else {
+		$suffix: "";
+	}
+
+
+
+	// Base setup
+
+	// 1/12
+	.column-one#{$suffix},
+	.column-two#{$suffix},
+	.column-three#{$suffix},
+	.column-four#{$suffix},
+	.column-five#{$suffix},
+	.column-six#{$suffix},
+	.column-seven#{$suffix},
+	.column-eight#{$suffix},
+	.column-nine#{$suffix},
+	.column-ten#{$suffix},
+	.column-eleven#{$suffix},
+	.column-twelve#{$suffix},
+
+	// Fractional
+	.column-tenth#{$suffix},
+		.column-twotenths#{$suffix},
+		.column-threetenths#{$suffix},
+		.column-fourtenths#{$suffix},
+		.column-fivetenths#{$suffix},
+		.column-sixtenths#{$suffix},
+		.column-seventenths#{$suffix},
+		.column-eighttenths#{$suffix},
+		.column-ninetenths#{$suffix},
+	.column-sixth#{$suffix},
+		.column-twosixths#{$suffix},
+		.column-threesixths#{$suffix},
+		.column-foursixths#{$suffix},
+		.column-fivesixths#{$suffix},
+	.column-fifth#{$suffix},
+		.column-twofifths#{$suffix},
+		.column-threefifths#{$suffix},
+		.column-fourfifths#{$suffix},
+		.column-fivefifths#{$suffix},
+	.column-fourth#{$suffix},
+		.column-twofourths#{$suffix},
+		.column-threefourths#{$suffix},
+	.column-third#{$suffix},
+		.column-twothirds#{$suffix},
+	.column-half#{$suffix},
+	.column-full#{$suffix} {
+		float: left;
+		clear: none;
+		min-height: 1px;
+		box-sizing: border-box;
+	}
+
+	.column-reverse-tenth#{$suffix},
+		.column-reverse-twotenths#{$suffix},
+		.column-reverse-threetenths#{$suffix},
+		.column-reverse-fourtenths#{$suffix},
+		.column-reverse-fivetenths#{$suffix},
+		.column-reverse-sixtenths#{$suffix},
+		.column-reverse-seventenths#{$suffix},
+		.column-reverse-eighttenths#{$suffix},
+		.column-reverse-ninetenths#{$suffix},
+	.column-reverse-sixth#{$suffix},
+		.column-reverse-twosixths#{$suffix},
+		.column-reverse-threesixths#{$suffix},
+		.column-reverse-foursixths#{$suffix},
+		.column-reverse-fivesixths#{$suffix},
+	.column-reverse-fifth#{$suffix},
+		.column-reverse-twofifths#{$suffix},
+		.column-reverse-threefifths#{$suffix},
+		.column-reverse-fourfifths#{$suffix},
+		.column-reverse-fivefifths#{$suffix},
+	.column-reverse-fourth#{$suffix},
+		.column-reverse-twofourths#{$suffix},
+		.column-reverse-threefourths#{$suffix},
+	.column-reverse-third#{$suffix},
+		.column-reverse-twothirds#{$suffix},
+	.column-reverse-half#{$suffix},
+	.column-reverse-full#{$suffix} {
+		float: right;
+		clear: none;
+		min-height: 1px;
+		box-sizing: border-box;
+	}
+
+	// Columns that clear
+	.column-first#{$suffix},
+	.column-full#{$suffix},
+	.column-twelve#{$suffix},
+	.column-reverse-first#{$suffix},
+	.column-reverse-full#{$suffix},
+	.column-reverse-twelve#{$suffix} {
+		clear: both;
+	}
+
+
+
+	// Dimensions
+
+	.column-one#{$suffix},
+	.column-reverse-one#{$suffix} {
+		width: 8.3%;
+	}
+
+	.column-tenth#{$suffix},
+	.column-reverse-tenth#{$suffix} {
+		width: 10%;
+	}
+
+	.column-two#{$suffix},
+	.column-sixth#{$suffix},
+	.column-reverse-two#{$suffix},
+	.column-reverse-sixth#{$suffix} {
+		width: 16.65%;
+	}
+
+	.column-fifth#{$suffix},
+	.column-twotenths#{$suffix},
+	.column-reverse-fifth#{$suffix},
+	.column-reverse-twotenths#{$suffix} {
+		width: 20%;
+	}
+
+	.column-three#{$suffix},
+	.column-fourth#{$suffix},
+	.column-reverse-three#{$suffix},
+	.column-reverse-fourth#{$suffix} {
+		width: 25%;
+	}
+
+	.column-threetenths#{$suffix},
+	.column-reverse-threetenths#{$suffix} {
+		width: 30%;
+	}
+
+	.column-four#{$suffix},
+	.column-twosixths#{$suffix},
+	.column-third#{$suffix},
+	.column-reverse-four#{$suffix},
+	.column-reverse-twosixths#{$suffix},
+	.column-reverse-third#{$suffix} {
+		width: 33.3%;
+	}
+
+	.column-twofifths#{$suffix},
+	.column-fourtenths#{$suffix},
+	.column-reverse-twofifths#{$suffix},
+	.column-reverse-fourtenths#{$suffix} {
+		width: 40%;
+	}
+
+	.column-five#{$suffix},
+	.column-reverse-five#{$suffix} {
+		width: 41.65%;
+	}
+
+	.column-six#{$suffix},
+	.column-half#{$suffix},
+	.column-threesixths#{$suffix},
+	.column-twofourths#{$suffix},
+	.column-fivetenths#{$suffix},
+	.column-reverse-six#{$suffix},
+	.column-reverse-half#{$suffix},
+	.column-reverse-threesixths#{$suffix},
+	.column-reverse-twofourths#{$suffix},
+	.column-reverse-fivetenths#{$suffix} {
+		width: 50%;
+	}
+
+	.column-seven#{$suffix},
+	.column-reverse-seven#{$suffix} {
+		width: 58.3%;
+	}
+
+	.column-threefifths#{$suffix},
+	.column-sixtenths#{$suffix},
+	.column-reverse-threefifths#{$suffix},
+	.column-reverse-sixtenths#{$suffix} {
+		width: 60%;
+	}
+
+	.column-eight#{$suffix},
+	.column-foursixths#{$suffix},
+	.column-twothirds#{$suffix},
+	.column-reverse-eight#{$suffix},
+	.column-reverse-foursixths#{$suffix},
+	.column-reverse-twothirds#{$suffix} {
+		width: 66.6%;
+	}
+
+	.column-seventenths#{$suffix},
+	.column-reverse-seventenths#{$suffix} {
+		width: 70%;
+	}
+
+	.column-nine#{$suffix},
+	.column-threefourths#{$suffix},
+	.column-reverse-nine#{$suffix},
+	.column-reverse-threefourths#{$suffix} {
+		width: 75%;
+	}
+
+	.column-fourfifths#{$suffix},
+	.column-eighttenths#{$suffix},
+	.column-reverse-fourfifths#{$suffix},
+	.column-reverse-eighttenths#{$suffix} {
+		width: 80%;
+	}
+
+	.column-ten#{$suffix},
+	.column-fivesixths#{$suffix},
+	.column-reverse-ten#{$suffix},
+	.column-reverse-fivesixths#{$suffix} {
+		width: 83.35%;
+	}
+
+	.column-ninetenths#{$suffix},
+	.column-reverse-ninetenths#{$suffix} {
+		width: 90%;
+	}
+
+	.column-eleven#{$suffix},
+	.column-reverse-eleven#{$suffix} {
+		width: 91.7%;
+	}
+
+	.column-full#{$suffix},
+	.column-twelve#{$suffix},
+	.column-reverse-full#{$suffix},
+	.column-reverse-twelve#{$suffix} {
+		width: 100%;
+	}
+
+
+
+	// Shifting columns
+	.column-push-zero#{$suffix},
+	.column-push-none#{$suffix} {
+		margin-left: 0;
+	}
+	.column-push-one#{$suffix} {
+		margin-left: 8.3%;
+	}
+	.column-push-tenth#{$suffix} {
+		margin-left: 10%;
+	}
+	.column-push-two#{$suffix},
+	.column-push-sixth#{$suffix} {
+		margin-left: 16.65%;
+	}
+	.column-push-fifth#{$suffix},
+	.column-push-twotenths#{$suffix} {
+		margin-left: 20%;
+	}
+	.column-push-three#{$suffix},
+	.column-push-fourth#{$suffix} {
+		margin-left: 25%;
+	}
+	.column-push-threetenths#{$suffix} {
+		margin-left: 30%;
+	}
+	.column-push-four#{$suffix},
+	.column-push-twosixths#{$suffix},
+	.column-push-third#{$suffix} {
+		margin-left: 33.3%;
+	}
+	.column-push-twofifths#{$suffix},
+	.column-push-fourtenths#{$suffix} {
+		margin-left: 40%;
+	}
+	.column-push-five#{$suffix} {
+		margin-left: 41.65%;
+	}
+	.column-push-six#{$suffix},
+	.column-push-half#{$suffix},
+	.column-push-threesixths#{$suffix},
+	.column-push-twofourths#{$suffix},
+	.column-push-fivetenths#{$suffix} {
+		margin-left: 50%;
+	}
+	.column-push-seven#{$suffix} {
+		margin-left: 58.3%;
+	}
+	.column-push-threefifths#{$suffix},
+	.column-push-sixtenths#{$suffix} {
+		margin-left: 60%;
+	}
+	.column-push-eight#{$suffix},
+	.column-push-foursixths#{$suffix},
+	.column-push-twothirds#{$suffix} {
+		margin-left: 66.6%;
+	}
+	.column-push-seventenths#{$suffix} {
+		margin-left: 60%;
+	}
+	.column-push-nine#{$suffix},
+	.column-push-threefourths#{$suffix} {
+		margin-left: 75%;
+	}
+	.column-push-fourfifths#{$suffix},
+	.column-push-eighttenths#{$suffix} {
+		margin-left: 80%;
+	}
+	.column-push-ten#{$suffix},
+	.column-push-fivesixths#{$suffix} {
+		margin-left: 83.35%;
+	}
+	.column-push-ninetenths#{$suffix} {
+		margin-left: 90%;
+	}
+	.column-push-eleven#{$suffix} {
+		margin-left: 91.7%;
+	}
+
+	// Shifting reversed columns
+	.column-push-right-zero#{$suffix},
+	.column-push-right-none#{$suffix} {
+		margin-right: 0;
+	}
+	.column-push-right-one#{$suffix} {
+		margin-right: 8.3%;
+	}
+	.column-push-right-tenth#{$suffix} {
+		margin-right: 10%;
+	}
+	.column-push-right-two#{$suffix},
+	.column-push-right-sixth#{$suffix} {
+		margin-right: 16.65%;
+	}
+	.column-push-right-fifth#{$suffix},
+	.column-push-right-twotenths#{$suffix} {
+		margin-right: 20%;
+	}
+	.column-push-right-three#{$suffix},
+	.column-push-right-fourth#{$suffix} {
+		margin-right: 25%;
+	}
+	.column-push-right-threetenths#{$suffix} {
+		margin-right: 30%;
+	}
+	.column-push-right-four#{$suffix},
+	.column-push-right-twosixths#{$suffix},
+	.column-push-right-third#{$suffix} {
+		margin-right: 33.3%;
+	}
+	.column-push-right-twofifths#{$suffix},
+	.column-push-right-fourtenths#{$suffix} {
+		margin-right: 40%;
+	}
+	.column-push-right-five#{$suffix} {
+		margin-right: 41.65%;
+	}
+	.column-push-right-six#{$suffix},
+	.column-push-right-half#{$suffix},
+	.column-push-right-threesixths#{$suffix},
+	.column-push-right-twofourths#{$suffix},
+	.column-push-right-fivetenths#{$suffix} {
+		margin-right: 50%;
+	}
+	.column-push-right-seven#{$suffix} {
+		margin-right: 58.3%;
+	}
+	.column-push-right-threefifths#{$suffix},
+	.column-push-right-sixtenths#{$suffix} {
+		margin-right: 60%;
+	}
+	.column-push-right-eight#{$suffix},
+	.column-push-right-foursixths#{$suffix},
+	.column-push-right-twothirds#{$suffix} {
+		margin-right: 66.6%;
+	}
+	.column-push-right-seventenths#{$suffix} {
+		margin-right: 60%;
+	}
+	.column-push-right-nine#{$suffix},
+	.column-push-right-threefourths#{$suffix} {
+		margin-right: 75%;
+	}
+	.column-push-right-fourfifths#{$suffix},
+	.column-push-right-eighttenths#{$suffix} {
+		margin-right: 80%;
+	}
+	.column-push-right-ten#{$suffix},
+	.column-push-right-fivesixths#{$suffix} {
+		margin-right: 83.35%;
+	}
+	.column-push-right-ninetenths#{$suffix} {
+		margin-right: 90%;
+	}
+	.column-push-right-eleven#{$suffix} {
+		margin-right: 91.7%;
+	}
+
+}

@@ -1,0 +1,64 @@
+
+// This mizin is provided to easily CUSTOMIZE THE WIDTH of the containers controlled with the 'flex' utility classes
+// NOTE: this is broken into two on purpose. Only use what you need to avoid unnecessary declarations.
+
+// Use this to change the defaults (fluid on the left, fixed on the right)
+// Example: @include flex(3em, 3.5em);
+@mixin flex ($width, $margin: $width, $sizing: false, $suffix: false) {
+
+	// E.g. 'tight', 'loose' (width variations)
+	@if $sizing {
+		$sizing: "-#{$sizing}";
+	} @else {
+		$sizing: "";
+	}
+
+	// E.g. 'over-small', 'under-verylarge' (responsive utility class names)
+	@if $suffix {
+		$suffix: "-#{$suffix}";
+	} @else {
+		$suffix: "";
+	}
+
+	.flex#{$sizing}-fluid#{$suffix} {
+		> .flex-content {
+			margin-left: 0;
+			margin-right: $margin;
+		}
+	}
+
+	.flex#{$sizing}-fixed#{$suffix} {
+		width: $width;
+	}
+
+}
+
+// Use this to change the fixed column width for only the reversed version (fixed on the left, fluid on the right)
+@mixin flex-reverse ($width, $margin: $width, $sizing: false, $suffix: false) {
+
+	// E.g. 'tight', 'loose' (width variations)
+	@if $sizing {
+		$sizing: "-#{$sizing}";
+	} @else {
+		$sizing: "";
+	}
+
+	// E.g. 'over-small', 'under-verylarge' (responsive utility class names)
+	@if $suffix {
+		$suffix: "-#{$suffix}";
+	} @else {
+		$suffix: "";
+	}
+
+	.flex#{$sizing}-reverse-fluid#{$suffix} {
+		> .flex-content {
+			margin-right: 0;
+			margin-left: $margin;
+		}
+	}
+
+	.flex#{$sizing}-reverse-fixed#{$suffix} {
+		width: $width;
+	}
+
+}

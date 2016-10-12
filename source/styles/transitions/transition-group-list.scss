@@ -1,0 +1,36 @@
+
+// Vue transition
+// Intended for lists with move support, used with transition-group
+// NOTE: these are typically applied to .list-items, which might also sometimes be .links
+
+
+
+// Base
+
+.transition-group-list-enter-active,
+.transition-group-list-move,
+.transition-group-list-leave-active {
+	@include transition-hover;
+	transition-property: transform, border-color, background-color, box-shadow, color, opacity;
+}
+
+
+
+// States
+
+.transition-group-list-enter {
+	opacity: 0;
+	transform: scaleY(0) translate(30px, 0);
+}
+
+.transition-group-list-enter-active {}
+
+.transition-group-list-move {}
+
+.transition-group-list-leave {}
+
+.transition-group-list-leave-active {
+	position: absolute;
+	opacity: 0;
+	transform: scaleY(0.01) translate(30px, 0);
+}

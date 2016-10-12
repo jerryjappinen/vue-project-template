@@ -1,0 +1,153 @@
+
+@mixin toolchain-grid ($suffix: false) {
+	@if $suffix {
+		$suffix: "-#{$suffix}";
+	} @else {
+		$suffix: "";
+	}
+
+
+
+	// Half-width
+	.grid-half#{$suffix} .grid-cell {
+		width: 50%;
+	}
+		// Last orphan
+		.grid-half#{$suffix} .grid-cell:nth-child(2n+1):last-child {
+			margin-left: 25%;
+		}
+
+	// Third-width
+	.grid-third#{$suffix} .grid-cell {
+		width: 33%;
+	}
+		// Middle cell of each full row
+		.grid-third#{$suffix} .grid-cell:nth-child(3n-1):not(:last-child) {
+			width: 34%;
+		}
+		// Last orphan
+		.grid-third#{$suffix} .grid-cell:nth-child(3n+1):last-child {
+			width: 34%;
+			margin-left: 33%;
+		}
+		// Two last orphans
+		.grid-third#{$suffix} .grid-cell:nth-child(3n+1):nth-last-child(2) {
+			margin-left: 17%;
+		}
+
+	// Fourth-width
+	.grid-fourth#{$suffix} .grid-cell {
+		width: 25%;
+	}
+		// Last orphan
+		.grid-fourth#{$suffix} .grid-cell:nth-child(4n+1):last-child {
+			margin-left: 37.5%;
+		}
+		// Two last orphans
+		.grid-fourth#{$suffix} .grid-cell:nth-child(4n+1):nth-last-child(2) {
+			margin-left: 25%;
+		}
+		// Three last orphans
+		.grid-fourth#{$suffix} .grid-cell:nth-child(4n+1):nth-last-child(3) {
+			margin-left: 12.5%;
+		}
+
+	// Fifth-width
+	.grid-fifth#{$suffix} .grid-cell {
+		width: 20%;
+	}
+		// Last orphan
+		.grid-fifth#{$suffix} .grid-cell:nth-child(5n+1):last-child {
+			margin-left: 40%;
+		}
+		// Two last orphans
+		.grid-fifth#{$suffix} .grid-cell:nth-child(5n+1):nth-last-child(2) {
+			margin-left: 30%;
+		}
+		// Three last orphans
+		.grid-fifth#{$suffix} .grid-cell:nth-child(5n+1):nth-last-child(3) {
+			margin-left: 20%;
+		}
+		// Four last orphans
+		.grid-fifth#{$suffix} .grid-cell:nth-child(5n+1):nth-last-child(4) {
+			margin-left: 10%;
+		}
+
+	// Sixth-width
+	.grid-sixth#{$suffix} .grid-cell {
+		width: 17%;
+	}
+		// First and last cell of each row
+		.grid-sixth#{$suffix} .grid-cell:nth-child(6n-1),
+		.grid-sixth#{$suffix} .grid-cell:nth-child(6n+1) {
+			width: 16%;
+		}
+		// Last orphan
+		.grid-sixth#{$suffix} .grid-cell:nth-child(6n+1):last-child {
+			margin-left: 42%;
+		}
+		// Two last orphans
+		.grid-sixth#{$suffix} .grid-cell:nth-child(6n+1):nth-last-child(2) {
+			margin-left: 34%;
+		}
+		// Three last orphans, push and make middle one the same width
+		.grid-sixth#{$suffix} .grid-cell:nth-child(6n+2):nth-last-child(2) {
+			width: 16%;
+		}
+		.grid-sixth#{$suffix} .grid-cell:nth-child(6n+1):nth-last-child(3) {
+			margin-left: 26%;
+		}
+		// Four last orphans
+		.grid-sixth#{$suffix} .grid-cell:nth-child(6n+1):nth-last-child(4) {
+			margin-left: 16%;
+		}
+		// Five last orphans
+		.grid-sixth#{$suffix} .grid-cell:nth-child(6n+3):nth-last-child(3) {
+			width: 16%;
+		}
+		.grid-sixth#{$suffix} .grid-cell:nth-child(6n+1):nth-last-child(5) {
+			margin-left: 9%;
+		}
+
+	// Tenth-width
+	.grid-tenth#{$suffix} .grid-cell {
+		width: 10%;
+	}
+		// Last orphan
+		.grid-tenth#{$suffix} .grid-cell:nth-child(10n+1):last-child {
+			margin-left: 45%;
+		}
+		// Two last orphans
+		.grid-tenth#{$suffix} .grid-cell:nth-child(10n+1):nth-last-child(2) {
+			margin-left: 40%;
+		}
+		// Three last orphans
+		.grid-tenth#{$suffix} .grid-cell:nth-child(10n+1):nth-last-child(3) {
+			margin-left: 35%;
+		}
+		// Four last orphans
+		.grid-tenth#{$suffix} .grid-cell:nth-child(10n+1):nth-last-child(4) {
+			margin-left: 30%;
+		}
+		// Five last orphans
+		.grid-tenth#{$suffix} .grid-cell:nth-child(10n+1):nth-last-child(5) {
+			margin-left: 25%;
+		}
+		// Six last orphans
+		.grid-tenth#{$suffix} .grid-cell:nth-child(10n+1):nth-last-child(6) {
+			margin-left: 20%;
+		}
+		// Seven last orphans
+		.grid-tenth#{$suffix} .grid-cell:nth-child(10n+1):nth-last-child(7) {
+			margin-left: 15%;
+		}
+		// Eight last orphans
+		.grid-tenth#{$suffix} .grid-cell:nth-child(10n+1):nth-last-child(8) {
+			margin-left: 10%;
+		}
+		// Nine last orphans
+		.grid-tenth#{$suffix} .grid-cell:nth-child(10n+1):nth-last-child(9) {
+			margin-left: 5%;
+		}
+
+}

@@ -1,0 +1,38 @@
+.DS_Store
+*.esproj
+*.log
+.idea/
+*.orig
+*.lock
+
+# Local configuration
+/project-local.json
+
+# Vendor
+bower_components/
+node_modules/
+
+# Built core assets
+/cache/
+/core/
+
+# Browser version
+# /www/
+/window/
+
+
+
+# Cordova build stuff
+
+# Hooks allow tapping into cordova build pipeline but we handle everything with Gulp
+# Merges allow customizing contents of www after build, but we don't need them currently
+# Config will be generated from templates
+# Cordova will initialize each platform under platforms/
+# Cordova will fetch plugins to plugins/
+# The web app's Cordova build will go under www
+/cordova/hooks
+/cordova/merges
+/cordova/config.xml
+/cordova/platforms
+/cordova/plugins
+/cordova/www

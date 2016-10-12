@@ -1,0 +1,19 @@
+
+.view-icon {
+	width: 1em;
+	height: 1em;
+	display: inline-block;
+	vertical-align: middle;
+
+	svg {
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+
+	&.is-mono {
+		fill: currentColor;
+		// stroke: currentColor;
+	}
+
+}

@@ -1,0 +1,29 @@
+
+.view-splash {
+	@include fill;
+	opacity: 1;
+	transform: scale(1);
+
+	transition-duration: $transition-slow;
+	transition-property: transform, opacity;
+
+	// Transitions
+	// enter: start state for enter transition
+	// leave-active: end state for leave transition
+	&.v-enter,
+	&.v-leave-active {
+		opacity: 0;
+		transform: scale(0.9);
+		pointer-events: none;
+	}
+
+
+
+	// Content
+	.view-vector {
+		width: 10em;
+		@include keep-full-center;
+		display: block;
+	}
+
+}

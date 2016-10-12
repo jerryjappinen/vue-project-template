@@ -1,0 +1,131 @@
+
+// Generic
+
+@mixin viewport-under ($breakpoint) {
+	@media (max-width: ($breakpoint - 1px)) {
+		@content;
+	}
+}
+
+	@mixin viewport-over ($breakpoint) {
+		@media (min-width: ($breakpoint)) {
+			@content;
+		}
+	}
+
+@mixin viewport-height-under ($breakpoint) {
+	@media (max-height: ($breakpoint - 1px)) {
+		@content;
+	}
+}
+
+	@mixin viewport-height-over ($breakpoint) {
+		@media (min-height: ($breakpoint)) {
+			@content;
+		}
+	}
+
+
+
+// Predefined
+
+@mixin viewport-under-tiny {
+	@include viewport-under($breakpoint-tiny) {
+		@content;
+	}
+}
+	@mixin viewport-over-tiny {
+		@include viewport-over($breakpoint-tiny) {
+			@content;
+		}
+	}
+
+@mixin viewport-under-small {
+	@include viewport-under($breakpoint-small) {
+		@content;
+	}
+}
+	@mixin viewport-over-small {
+		@include viewport-over($breakpoint-small) {
+			@content;
+		}
+	}
+
+@mixin viewport-under-smallish {
+	@include viewport-under($breakpoint-smallish) {
+		@content;
+	}
+}
+	@mixin viewport-over-smallish {
+		@include viewport-over($breakpoint-smallish) {
+			@content;
+		}
+	}
+
+@mixin viewport-under-medium {
+	@include viewport-under($breakpoint-medium) {
+		@content;
+	}
+}
+	@mixin viewport-over-medium {
+		@include viewport-over($breakpoint-medium) {
+			@content;
+		}
+	}
+
+@mixin viewport-under-large {
+	@include viewport-under($breakpoint-large) {
+		@content;
+	}
+}
+	@mixin viewport-over-large {
+		@include viewport-over($breakpoint-large) {
+			@content;
+		}
+	}
+
+@mixin viewport-under-verylarge {
+	@include viewport-under($breakpoint-verylarge) {
+		@content;
+	}
+}
+	@mixin viewport-over-verylarge {
+		@include viewport-over($breakpoint-verylarge) {
+			@content;
+		}
+	}
+
+
+
+// Screen ratio
+@mixin viewport-portrait {
+	@media (max-aspect-ratio: 1/1) {
+		@content;
+	}
+}
+
+@mixin viewport-landscape {
+	@media (min-aspect-ratio: 1/1) {
+		@content;
+	}
+}
+
+
+
+// DPI
+// FIXME: add...
+
+
+
+// Media
+@mixin viewport-print {
+	@media print {
+		@content;
+	}
+}
+
+	@mixin viewport-not-print {
+		@media not print {
+			@content;
+		}
+	}

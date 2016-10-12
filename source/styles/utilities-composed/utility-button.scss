@@ -1,0 +1,103 @@
+
+.button,
+.button-plain,
+.button-stroke,
+.button-solid {
+	box-sizing: border-box;
+	display: inline-block;
+	@include cursor-pointer;
+	@include pad;
+	border-width: 2px;
+	min-width: 6em;
+	@include radius;
+	text-align: center;
+
+	border-color: transparent;
+	@include transition-hover;
+	transition-property: transform, border-color, background-color, box-shadow, color;
+
+	// Link color
+	color: $color-blue;
+	&:focus,
+	&:hover {
+		color: hue($color-blue);
+	}
+
+	// Disabled state
+	&.is-disabled,
+	&[disabled] {
+		@include cursor-default;
+	}
+
+}
+
+// Light background buttons
+.button,
+.button-plain {
+
+	// Text color
+	color: $color-blue;
+	&:hover {
+		color: hue($color-blue);
+	}
+
+	// Disabled state
+	&.is-disabled,
+	&[disabled] {
+		color: $color-grey;
+		&:hover {
+			color: $color-grey;
+		}
+	}
+
+}
+
+// Solid background buttons
+.button-solid {
+	color: $color-white;
+	border-color: $color-blue;
+	background-color: $color-blue;
+
+	&:hover {
+		border-color: hue($color-blue);
+	}
+
+	// Disabled state
+	&.is-disabled,
+	&[disabled] {
+		background-color: $color-grey;
+		&:hover {
+			background-color: $color-grey;
+		}
+	}
+
+}
+
+// Bordered look
+.button-stroke {
+	border-color: $color-verylightgrey;
+
+	&:hover {
+		border-color: $color-lightgrey;
+	}
+
+}
+
+// No border
+.button-plain {
+	border-color: transparent;
+
+	&:hover {
+		border-color: $color-verylightgrey;
+		transition-duration: $transition-slow;
+	}
+
+	// Disabled state
+	&.is-disabled,
+	&[disabled] {
+		&:hover {
+			border-color: transparent;
+		}
+	}
+
+}

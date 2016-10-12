@@ -1,0 +1,40 @@
+
+// Hide the background on iOS
+.view-frame:not(.is-ios) {
+	.view-statusbar-background {
+		display: none;
+	}
+}
+
+.view-statusbar-background {
+	@include fill-width;
+	height: $height-statusbar;
+	top: 0;
+	z-index: $z-os;
+	background-color: $color-blue;
+	transform: translate3d(0, 0, 0);
+
+	transition-duration: $transition-slow;
+	transition-property: background-color, transform;
+	transition-timing-function: $easing-bounce;
+
+	// &.is-default {
+	// }
+
+	// &.is-transparent {
+	// 	transition-duration: $transition-fast;
+	// 	// transform: translate3d(0, -100%, 0);
+	// 	background-color: $color-green;
+	// }
+
+	// &.is-dark {
+	// 	transition-duration: $transition-fast;
+	// 	background-color: $color-verydark;
+	// }
+
+	// // Connection missing
+	// &.not-online {
+	// 	background-color: hue($color-red);
+	// }
+
+}
