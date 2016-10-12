@@ -1,0 +1,79 @@
+
+.view-checkbox {
+	position: relative;
+	display: inline-block;
+	// vertical-align: middle;
+	width: 1em;
+	height: 1em;
+	background-color: $color-lightgrey;
+	@include radius-tight;
+
+	transition-property: background-color;
+
+	&.is-on {
+		background-color: $color-green;
+
+		.view-checkbox-icon {
+			opacity: 1;
+		}
+
+	}
+
+	&:not(.is-disabled) {
+		@include cursor-pointer;
+
+		&:hover {
+			background-color: hue($color-lightgrey);
+		}
+
+		&.is-on {
+			&:hover {
+				background-color: hue($color-green);
+			}
+		}
+
+	}
+
+	&.is-disabled {
+
+		.view-checkbox-icon {
+			color: $color-midgrey;
+		}
+
+		&.is-on {
+			background-color: $color-grey;
+
+			.view-checkbox-icon {
+				color: $color-midgrey;
+			}
+
+		}
+
+	}
+
+}
+
+.view-checkbox-icon {
+	width: 1em;
+	height: 1em;
+	@include radius-round;
+	color: $color-white;
+
+	opacity: 0;
+	transition-property: opacity;
+
+	&.view-icon {
+		vertical-align: baseline;
+	}
+
+}
+
+.view-checkbox,
+.view-checkbox-icon {
+	transition-duration: $transition-slow;
+}
+
+.view-checkbox.is-on,
+.view-checkbox.is-on .view-checkbox-icon {
+	transition-duration: $transition-fast;
+}

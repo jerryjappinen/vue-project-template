@@ -22,6 +22,10 @@ V.views['toggle-switch'] = {
 	// Computed properties
 	computed: {
 
+		isOff: function () {
+			return !this.isOn;
+		},
+
 		state: function () {
 			return {
 				on: this.value,
