@@ -55,7 +55,7 @@ V.views['pic'] = {
 		// l('pic isLoaded', this.url, selector);
 
 		// Fancy loading
-		if (imagesLoaded && !this.noDefer) {	
+		if (window.imagesLoaded && !this.noDefer) {	
 			selector
 				.imagesLoaded(options)
 				.done(function() {

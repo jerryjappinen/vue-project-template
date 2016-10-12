@@ -38,18 +38,18 @@ body,
 
 // No text selection
 
-body {
-	user-select: none;
-}
+// body {
+// 	user-select: none;
+// }
 
 
 
 // Prevent normal body scroll
 
-html,
-body,
-#vueapp {
-	width: 100%;
-	height: 100%;
-	@include overflow-hidden;
-}
+// html,
+// body,
+// #vueapp {
+// 	width: 100%;
+// 	height: 100%;
+// 	@include overflow-hidden;
+// }

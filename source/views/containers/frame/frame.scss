@@ -2,22 +2,25 @@
 // Prevent scrolling in views that shouldn't scroll
 .view-frame,
 .view-frame-content {
-	@include overflow-hidden;
+	// @include overflow-hidden;
 }
 
 // Absolute positioning, filling of viewport
 .view-frame {
-	@include fill;
+	// @include fill;
 }
 
 .view-frame-content {
-	@include fill-relative;
+	// @include fill-relative;
 
 	.view-splash {
+		// @include fill;
 		z-index: $z-splash;
 	}
 
-	.view-game {
+	.view-home {
+		// @include fill;
+		// @include keep-horizontal-center;
 		z-index: $z-main;
 	}
 

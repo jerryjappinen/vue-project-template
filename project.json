@@ -51,11 +51,11 @@
 			// Global plugins (JS objects under `window`) to be imported to `app.plugins`
 			// NOTE: init callbacks go under `P.js`
 			"plugins": {
+				"hello": "hello",
 				"log": "log",
 				"localforage": "localforage",
 				"mainLoop": "MainLoop",
 				"modernizr": "Modernizr",
-				"hello": "Hello",
 				"pizzicato": "Pizzicato"
 			},
 

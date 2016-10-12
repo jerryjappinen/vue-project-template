@@ -1,10 +1,7 @@
 
 .view-home {
+	@include keep-center;
 	max-width: $width-iphone6plus;
-	@include fill;
-	@include keep-horizontal-center;
-
-
 
 	// Transitions
 	// enter: start state for enter transition

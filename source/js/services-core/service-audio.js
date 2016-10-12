@@ -17,7 +17,7 @@ V.services.audio = {
 
 	computed: {
 
-		supportsWebAudio: function () {
+		isAvailable: function () {
 			return app.plugins.pizzicato && app.plugins.pizzicato.context ? true : false;
 		},
 
@@ -269,7 +269,7 @@ V.services.audio = {
 				this.preloadAllNative().done(function () { dfd.resolve(); });
 
 			// Web assets loaded with web API
-			} else if (this.supportsWebAudio) {
+			} else if (this.isAvailable) {
 				this.preloadAllWeb().done(function () { dfd.resolve(); });
 			}
 

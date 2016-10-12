@@ -1,6 +1,14 @@
 
 V.services.storage = {
 
+	computed: {
+
+		isAvailable: function () {
+			return app.plugins.localforage ? true : false;
+		}
+
+	},
+
 	methods: {
 
 		// API
@@ -40,22 +48,28 @@ V.services.storage = {
 		proxyLocalforage: function (func, args) {
 			var dfd = jQuery.Deferred();
 
-			if (!args) {
-				args = [];
-			}
+			if (this.isAvailable) {
 
-			// Proxy for promises
-			args.push(function (error, value) {
-				l(error, value);
-				if (!error) {
-					dfd.resolve(value);
-				} else {
-					dfd.reject(error);
+				if (!args) {
+					args = [];
 				}
-			});
 
-			// Run a localstorage function with arguments and callback
-			app.plugins.localforage[func].apply(app.plugins.localforage, args);
+				// Proxy for promises
+				args.push(function (error, value) {
+					l(error, value);
+					if (!error) {
+						dfd.resolve(value);
+					} else {
+						dfd.reject(error);
+					}
+				});
+
+				// Run a localstorage function with arguments and callback
+				app.plugins.localforage[func].apply(app.plugins.localforage, args);
+
+			} else {
+				dfd.reject();
+			}
 
 			return dfd.promise();
 		},

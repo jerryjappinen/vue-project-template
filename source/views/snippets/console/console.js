@@ -20,8 +20,10 @@ V.views['console'] = {
 			return {
 
 				// Services
+				audio: app.audio.isAvailable,
 				auth: app.auth.isAvailable,
 				loop: app.loop.isAvailable,
+				storage: app.storage.isAvailable,
 
 				// Info
 				env: app.env.is,
