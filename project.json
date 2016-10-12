@@ -52,6 +52,8 @@
 			// NOTE: init callbacks go under `P.js`
 			"plugins": {
 				"log": "log",
+				"localforage": "localforage",
+				"mainLoop": "MainLoop",
 				"modernizr": "Modernizr",
 				"hello": "Hello",
 				"pizzicato": "Pizzicato"
@@ -91,6 +93,17 @@
 				}
 
 			],
+
+			// Auth service
+			"audio": {
+				"simple": {
+					"on": "on",
+					"off": "off"
+				},
+				"complex": {
+					"music": "music"
+				}
+			},
 
 			// Auth service
 			"auth": {
@@ -160,7 +173,7 @@
 				"device": "device",
 				"geolocation": "navigator.geolocation",
 				"globalization": "navigator.globalization",
-				"nativeAudio": "plugins.NativeAudio",
+				// "nativeAudio": "plugins.NativeAudio",
 				"notification": "navigator.notification",
 				"notificationBadge": "cordova.plugins.notification.badge",
 				"splashScreen": "navigator.splashscreen",

@@ -4,6 +4,7 @@ V.views['pic'] = {
 	props: [
 		'width',
 		'height',
+		'noDefer',
 		'alt',
 		'src',
 		'background',
@@ -40,7 +41,7 @@ V.views['pic'] = {
 	},
 
 	mounted: function () {
-		var self = this;
+		var vm = this;
 		var options = {};
 		var selector;
 
@@ -52,14 +53,22 @@ V.views['pic'] = {
 		}
 
 		// l('pic isLoaded', this.url, selector);
-		selector
-			.imagesLoaded(options)
-			.done(function() {
-				self.isLoaded = true;
-			})
-			.fail(function() {
-				self.isFailed = true;
-			});
+
+		// Fancy loading
+		if (imagesLoaded && !this.noDefer) {	
+			selector
+				.imagesLoaded(options)
+				.done(function() {
+					vm.isLoaded = true;
+				})
+				.fail(function() {
+					vm.isFailed = true;
+				});
+
+		// Show immediately
+		} else {
+			vm.isLoaded = true;
+		}
 
 	}
 

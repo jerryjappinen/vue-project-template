@@ -13,7 +13,7 @@ V.services.auth = {
 
 	computed: {
 
-		isSupported: function () {
+		isAvailable: function () {
 			if (this.hello && !_.isEmpty(this.serviceConfig)) {
 				return true;
 			}
@@ -21,7 +21,7 @@ V.services.auth = {
 		},
 
 		services: function () {
-			if (this.isSupported) {
+			if (this.isAvailable) {
 				return this.consumeHelloServiceList(this.hello.services);
 			}
 			return {};
@@ -97,7 +97,7 @@ V.services.auth = {
 
 		onInit: function () {
 
-			if (this.isSupported) {
+			if (this.isAvailable) {
 				this.connect();
 			}
 

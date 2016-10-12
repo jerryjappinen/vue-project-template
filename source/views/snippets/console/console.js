@@ -19,6 +19,10 @@ V.views['console'] = {
 		platformInfo: function () {
 			return {
 
+				// Services
+				auth: app.auth.isAvailable,
+				loop: app.loop.isAvailable,
+
 				// Info
 				env: app.env.is,
 				browser: app.env.browser,
@@ -44,7 +48,7 @@ V.views['console'] = {
 	methods: {
 
 		reset: function () {
-			app.game.loadState(app.game.getInitialState());
+			app.state.loadState(app.state.getInitialState());
 		},
 
 		testLoop: function () {

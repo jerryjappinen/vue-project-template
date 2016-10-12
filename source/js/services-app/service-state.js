@@ -75,22 +75,23 @@ V.services.state = {
 
 		afterLoad: function () {
 			var dfd = jQuery.Deferred();
+			var vm = this;
 
 			// Load fetched state
 			this.fetchStoredState().done(function (state) {
 				if (state) {
-					this.loadState(state);
+					vm.loadState(state);
 				} else {
-					this.loadState(this.getInitialState());
+					vm.loadState(vm.getInitialState());
 				}
 
 			// Load initial state
 			}).fail(function () {
-				this.loadState(this.getInitialState());
+				vm.loadState(vm.getInitialState());
 
 			// Resolve either way
 			}).always(function () {
-				this.hasState = true;
+				vm.hasState = true;
 				dfd.resolve();
 			});
 
