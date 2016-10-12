@@ -4,7 +4,7 @@ V.views['pic'] = {
 	props: [
 		'width',
 		'height',
-		'noDefer',
+		'defer',
 		'alt',
 		'src',
 		'background',
@@ -55,7 +55,7 @@ V.views['pic'] = {
 		// l('pic isLoaded', this.url, selector);
 
 		// Fancy loading
-		if (window.imagesLoaded && !this.noDefer) {	
+		if (window.imagesLoaded && this.defer) {	
 			selector
 				.imagesLoaded(options)
 				.done(function() {

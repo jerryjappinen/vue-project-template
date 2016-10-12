@@ -1,0 +1,51 @@
+
+.view-styles-colors {
+
+	li {
+		display: inline-block;
+	}
+
+	.view-styles-colors-airbnb { color: $color-airbnb; }
+	.view-styles-colors-android { color: $color-android; }
+	.view-styles-colors-facebook { color: $color-facebook; }
+	.view-styles-colors-googleplay { color: $color-googleplay; }
+	.view-styles-colors-instagram { color: $color-instagram; }
+	.view-styles-colors-instapaper { color: $color-instapaper; }
+	.view-styles-colors-ios { color: $color-ios; }
+	.view-styles-colors-messenger { color: $color-messenger; }
+	.view-styles-colors-pinterest { color: $color-pinterest; }
+	.view-styles-colors-twitter { color: $color-twitter; }
+	.view-styles-colors-whatsapp { color: $color-whatsapp; }
+	.view-styles-colors-white { color: $color-white; }
+	.view-styles-colors-verylightgrey { color: $color-verylightgrey; }
+	.view-styles-colors-lightgrey { color: $color-lightgrey; }
+	.view-styles-colors-grey { color: $color-grey; }
+	.view-styles-colors-dark { color: $color-dark; }
+	.view-styles-colors-verydark { color: $color-verydark; }
+	.view-styles-colors-black { color: $color-black; }
+	.view-styles-colors-blue-light { color: $color-blue-light; }
+	.view-styles-colors-blue { color: $color-blue; }
+	.view-styles-colors-blue-dark { color: $color-blue-dark; }
+	.view-styles-colors-blue-verydark { color: $color-blue-verydark; }
+	.view-styles-colors-green { color: $color-green; }
+	.view-styles-colors-yellow { color: $color-yellow; }
+	.view-styles-colors-red { color: $color-red; }
+
+}
+
+.view-styles-bitmap {
+	.view-pic {
+		width: 75px;
+	}
+}
+
+.view-styles-svg {
+	color: $color-red;
+
+	.view-vector,
+	.view-icon {
+		width: 1em;
+		height: 1em;
+	}
+
+}

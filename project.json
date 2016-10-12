@@ -81,15 +81,15 @@
 				// Splash screen, start state
 				{
 					"path": "/",
-					"name": "splash",
-					"component": "splash"
+					"name": "home",
+					"component": "home"
 				},
 
 				// Root
 				{
-					"path": "/home",
-					"name": "home",
-					"component": "home"
+					"path": "/styles",
+					"name": "styles",
+					"component": "styles"
 				}
 
 			],

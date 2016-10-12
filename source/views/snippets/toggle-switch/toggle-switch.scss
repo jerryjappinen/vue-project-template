@@ -1,0 +1,82 @@
+
+.view-toggle-switch {
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+	width: 2.2em;
+	height: 1.2em;
+	background-color: $color-lightgrey;
+	@include radius-round;
+
+	transition-property: background-color;
+
+	&.is-on {
+		background-color: $color-green;
+
+		.view-toggle-switch-knob {
+			@include shadow;
+			transform: translate3d(0, 0, 0);
+		}
+
+	}
+
+	&:not(.is-disabled) {
+		@include cursor-pointer;
+
+		&:hover {
+			background-color: hue($color-lightgrey);
+		}
+
+		&.is-on {
+			&:hover {
+				background-color: hue($color-green);
+			}
+		}
+
+	}
+
+	&.is-disabled {
+
+		.view-toggle-switch-knob {
+			background-color: $color-midgrey;
+		}
+
+		&.is-on {
+			background-color: $color-grey;
+
+			.view-toggle-switch-knob {
+				background-color: $color-midgrey;
+			}
+
+		}
+
+	}
+
+}
+
+.view-toggle-switch-knob {
+	position: relative;
+	box-sizing: border-box;
+	display: block;
+	top: 0.2em;
+	left: 1.2em;
+	width: 0.8em;
+	height: 0.8em;
+	@include radius-round;
+	@include shadow-transparent;
+	background-color: $color-white;
+
+	transform: translate3d(-1em, 0, 0);
+
+	transition-property: background-color, box-shadow, transform;
+}
+
+.view-toggle-switch,
+.view-toggle-switch-knob {
+	transition-duration: $transition-slow;
+}
+
+.view-toggle-switch.is-on,
+.view-toggle-switch.is-on .view-toggle-switch-knob {
+	transition-duration: $transition-fast;
+}

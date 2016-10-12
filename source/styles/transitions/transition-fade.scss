@@ -1,0 +1,39 @@
+
+// Vue transition: top-level router (only 'main' for now so never used)
+// FLAG: should this be generic, not specific to a view? Or is it ok to have both?
+
+// Shared, defaults
+.transition-fade-enter,
+.transition-fade-enter-active,
+.transition-fade-leave,
+.transition-fade-leave-active {
+	opacity: 1;
+	transition-property: opacity;
+}
+
+// In
+.transition-fade-enter-active,
+.transition-fade-leave {
+}
+
+// Out
+.transition-fade-enter,
+.transition-fade-leave-active {
+	opacity: 0;
+}
+
+// Out, entering
+.transition-fade-enter {}
+
+// In, entered
+.transition-fade-enter-active {
+	transition-duration: $transition-slow;
+}
+
+// In, exiting
+.transition-fade-leave {}
+
+// Out, exit state
+.transition-fade-leave-active {
+	transition-duration: $transition-fast;
+}

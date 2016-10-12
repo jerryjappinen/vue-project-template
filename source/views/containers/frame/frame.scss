@@ -11,6 +11,9 @@
 }
 
 .view-frame-content {
+	@include keep-center;
+	@include buffer-relative;
+	@include limit-medium;
 	// @include fill-relative;
 
 	.view-splash {

@@ -4,7 +4,7 @@ pre code {
 	@include radius-loose;
 	background-color: $color-verylightgrey;
 	padding: 1.6em;
-	border-width: 2px;
-	border-color: $color-lightgrey;
-	line-height: $line-height-tight;
+	border-width: 1px;
+	// border-color: $color-lightgrey;
+	// line-height: $line-height-tight;
 }

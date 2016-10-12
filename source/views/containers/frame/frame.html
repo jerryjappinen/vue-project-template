@@ -2,20 +2,27 @@
 <div class="view-frame" :class="classes">
 
 	<!-- Global elements -->
-	<!-- <network-indicator :online="state.online"></network-indicator> -->
+	<network-indicator :online="state.online"></network-indicator>
 
-	<!-- Top-level router outlet switches between splash and main view -->
-	<!-- <router-link class="button" :to="{ name: 'home' }">Foooo</router-link>
+	<!-- Test links -->
+	<router-link class="button" :to="{ name: 'home' }">Home</router-link>
+	<router-link class="button" :to="{ name: 'console' }">Console</router-link>
+	<router-link class="button" :to="{ name: 'styles' }">Styles</router-link>
+
+	<!-- Frame content -->
 	<div class="view-frame-content">
 		<transition appear>
-			<router-view></router-view>
-		</transition>
-	</div> -->
 
-	<div class="view-frame-content">
-		<transition appear>
+			<!-- Splash screen that covers router content -->
 			<splash v-if="shouldRenderSplash"></splash>
-			<home v-if="shouldRenderHome"></home>
+
+			<!-- Top-level router outlet switches between splash and main view -->
+			<div v-if="!shouldRenderSplash" class="view-frame-router">
+				<transition name="transition-fade" mode="out-in">
+					<router-view></router-view>
+				</transition>
+			</div>
+
 		</transition>
 	</div>
 

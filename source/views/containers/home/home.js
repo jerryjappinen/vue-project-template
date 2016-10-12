@@ -4,11 +4,11 @@ V.views['home'] = {
 	// Incoming
 	// props: [],
 
-	// // Properties
-	// data: function () {
-	// 	return {
-	// 	};
-	// },
+	// Properties
+	data: function () {
+		return {
+		};
+	},
 
 	// Computed properties
 	computed: {
@@ -37,7 +37,6 @@ V.views['home'] = {
 
 	// Behavior
 	methods: {
-
 	},
 
 

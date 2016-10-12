@@ -1,0 +1,88 @@
+<div class="view-styles">
+
+
+
+	<h2>Body text</h2>
+
+	<p>I do product design, development and consulting in diverse teams, for a diverse set of clients. HTML5 is my bread and butter. After over 9 years of UX design in web, mobile & games projects, I still create cool things while teaching myself and others every day.</p>
+
+	<p>I currently work as a senior designer at GoEuro in Berlin, Germany. I'm also available for interesting freelance projects either locally or remotely.</p>
+
+
+
+	<h2>Colors</h2>
+
+	<p>As defined in <code>constants.scss</code>.</p>
+
+	<ul class="view-styles-colors">
+
+		<li class="view-styles-colors-airbnb"><code>airbnb</code></li>
+		<li class="view-styles-colors-android"><code>android</code></li>
+		<li class="view-styles-colors-facebook"><code>facebook</code></li>
+		<li class="view-styles-colors-googleplay"><code>googleplay</code></li>
+		<li class="view-styles-colors-instagram"><code>instagram</code></li>
+		<li class="view-styles-colors-instapaper"><code>instapaper</code></li>
+		<li class="view-styles-colors-ios"><code>ios</code></li>
+		<li class="view-styles-colors-messenger"><code>messenger</code></li>
+		<li class="view-styles-colors-pinterest"><code>pinterest</code></li>
+		<li class="view-styles-colors-twitter"><code>twitter</code></li>
+		<li class="view-styles-colors-whatsapp"><code>whatsapp</code></li>
+		<li class="view-styles-colors-white"><code>white</code></li>
+		<li class="view-styles-colors-verylightgrey"><code>verylightgrey</code></li>
+		<li class="view-styles-colors-lightgrey"><code>lightgrey</code></li>
+		<li class="view-styles-colors-grey"><code>grey</code></li>
+		<li class="view-styles-colors-dark"><code>dark</code></li>
+		<li class="view-styles-colors-verydark"><code>verydark</code></li>
+		<li class="view-styles-colors-black"><code>black</code></li>
+
+		<li class="view-styles-colors-blue-light"><code>blue-light</code></li>
+		<li class="view-styles-colors-blue"><code>blue</code></li>
+		<li class="view-styles-colors-blue-dark"><code>blue-dark</code></li>
+		<li class="view-styles-colors-blue-verydark"><code>blue-verydark</code></li>
+
+		<li class="view-styles-colors-green"><code>green</code></li>
+		<li class="view-styles-colors-yellow"><code>yellow</code></li>
+		<li class="view-styles-colors-red"><code>red</code></li>
+
+	</ul>
+
+
+
+	<h2>Inputs</h2>
+
+	<ul>
+		<li>Value 1 <toggle-switch v-model="testSwitchValue1"></toggle-switch></li>
+		<li>Value 1 <toggle-switch v-model="testSwitchValue1"></toggle-switch> (synced)</li>
+		<li>Value 2 <toggle-switch v-model="testSwitchValue2"></toggle-switch></li>
+		<li>Value 2 <toggle-switch v-model="testSwitchValue2" disabled="true"></toggle-switch> (disabled)</li>
+	</ul>
+
+
+
+	<h2>Bitmap</h2>
+
+	<pre><code>&lt;pic src="icons/150.png"&gt;&lt;/pic&gt;
+&lt;pic src="icons/150.png" class="radius-loose"&gt;&lt;/pic&gt;
+&lt;pic src="icons/150.png" defer="true" class="radius-round"&gt;&lt;/pic&gt;</code></pre>
+
+	<p>If the <code>imagesLoaded</code> plugin loaded, pics with <code>defer</code> set will be transitioned in after they're loaded.</p>
+
+	<p class="view-styles-bitmap">
+		<pic src="icons/150.png"></pic>
+		<pic src="icons/150.png" class="radius-loose"></pic>
+		<pic src="icons/150.png" class="radius-round" defer="true"></pic>
+	</p>
+
+	<h2>SVG</h2>
+
+	<pre><code>&lt;vector src="chevron-left"&gt;&lt;/vector&gt;
+&lt;icon src="chevron-left" is-mono="true"&gt;&lt;/icon&gt;</code></pre>
+
+	<div class="view-styles-svg">
+		<vector src="chevron-left"></vector>
+		<icon src="chevron-left"></icon>
+		<vector src="chevron-right"></vector>
+		<icon src="chevron-right"></icon>
+	</div>
+
+</div>

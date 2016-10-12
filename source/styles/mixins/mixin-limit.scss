@@ -1,4 +1,10 @@
 
+@mixin limit ($breakpoint) {
+	@include viewport-over($breakpoint) {
+		max-width: $breakpoint;
+	}
+}
+
 @mixin limit-max {
 	max-width: 100%;
 }
