@@ -1,0 +1,36 @@
+
+.view-debug-menu {
+	position: fixed;
+	border-width: 1px;
+	@include shadow;
+	@include radius;
+	z-index: $z-debug;
+	right: 1em;
+	bottom: 1em;
+
+	@include no-push-vertical;
+
+	a {
+		color: $color-blue;
+		display: block;
+		@include pad;
+
+		&:after {
+			content: ' ';
+			display: inline-block;
+			margin-left: 0.5em;
+			width: 4px;
+			height: 4px;
+			@include radius-round;
+			background-color: $color-blue;
+		}
+
+		&:not(.is-active) {
+			&:after {
+				opacity: 0;
+			}
+		}
+
+	}
+
+}
