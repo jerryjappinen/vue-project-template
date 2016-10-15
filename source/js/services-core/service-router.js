@@ -1,5 +1,5 @@
 
-V.services.navigation = {
+V.services.router = {
 
 	data: function () {
 		return {
