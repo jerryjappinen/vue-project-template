@@ -47,6 +47,18 @@ All gulp tasks can be found under `gulp/`.
 
 
 
+## Build pipeline
+
+The build pipeline is quite powerful and supports multiple targets. `source/` is compiled into `core/`, the latter of which is then still recompiled for various build targets - along with `public/` assets.
+
+The gulp tasks you are supposed to be using are found under `gulp/routines/`. These serve as an API for running the individual subtasks that are needed for each use case. Routines only depend on subtasks, not each other, and contain no logic other than running subtasks.
+
+For example, there is a subtask for building the browser version, but the *routine* actually knows how to prune the project folder before building a new version. Things get more complicated with dependencies between build targets and watching for changed source files in order to automatically recompile.
+
+You should use the *npm sripts* listed in `package.json` though, these will run the correct routines for you.
+
+
+
 ## Bower
 
 Bower is a separate dependency management for fetching client-side libraries that will be delivered to users as part of the app package. You can and should (un)install these components during development as you change what libraries the client logic relies on.
@@ -164,43 +176,15 @@ iOS relies on an extensive set of specifically named and sized PNG icons and spl
 
 
 
-# DEPRECATED BELOW THIS LINE!!
-
-See `do/` for scripts that handle project-level tasks while developing.
-
-Normally you probably want to use `do/watch` to watch for changes in the source code and automatically build a browser version as you make changes.
-
-## Project dependencies
-
-- Base dependencies and build pipeline: `npm`
-- For launching iOS emulator from command line: `ios-sim`
-- For installing and debug iPhone apps from the command line: `ios-deploy`
-
-## Client-side libraries
-
-See `bower.json` and `source/`.
-
-
-
-## Build pipeline
-
-The build pipeline is quite powerful and supports multiple targets. `source/` is compiled into `core/`, the latter of which is then still recompiled for various build targets - along with `public/` assets.
-
-The gulp tasks you are supposed to be using are found under `gulp/routines/`. These serve as an API for running the individual subtasks that are needed for each use case. Routines only depend on subtasks, not each other, and contain no logic other than running subtasks.
-
-For example, there is a subtask for building the browser version, but the *routine* actually knows how to prune the project folder before building a new version. Things get more complicated with dependencies between build targets and watching for changed source files in order to automatically recompile.
-
-
-
 ## Deployment
 
-Using [Flightplan](https://github.com/pstadler/flightplan) for deploying browser version to remote servers?
+Currently no web deployment pipeline is integrated. Perhaps [Flightplan](https://github.com/pstadler/flightplan) works?
 
 When deploying the browser version on a server, make sure that the server is equipped to serve all the static assets with correct mime types. Especially the *appcache* manifest file.
 
 	AddType text/cache-manifest .appcache
 
-*UPDATE:* `.appcache` is deprecated, and toggled of in gulp.
+*UPDATE:* Ok so `.appcache` is deprecated, and toggled of in gulp.
 
 ### iOS
 
