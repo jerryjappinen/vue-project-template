@@ -17,6 +17,7 @@ V.services.env = {
 			platformNames: {
 				'blackberry 10': 'blackberry',
 				'browser': 'web',
+				'i os': 'ios',
 				'wince': 'windows',
 				'win32nt': 'windows',
 				'mac os x': 'mac'
