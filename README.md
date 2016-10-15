@@ -45,6 +45,10 @@ If you wish to run individual gulp tasks without the abstraction provided by `pa
 
 All gulp tasks can be found under `gulp/`.
 
+### project.json
+
+`project.json` is the master configuration for your project. Use this file to configure the build pipeline, set your apps meta data, routes and Cordova plugins.
+
 
 
 ## Build pipeline
