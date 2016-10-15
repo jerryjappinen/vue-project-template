@@ -2,6 +2,7 @@
 <div class="view-frame" :class="classes">
 
 	<!-- Global elements -->
+	<statusbar-background v-if="showStatusBarBackground"></statusbar-background>
 	<network-indicator :online="state.online"></network-indicator>
 
 	<!-- Test links -->

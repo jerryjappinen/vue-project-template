@@ -28,6 +28,10 @@ V.views['frame'] = {
 			return !this.shouldRenderSplash;
 		},
 
+		showStatusbarBackground: function () {
+			return app.env.isIos;
+		},
+
 
 
 		// Bindings

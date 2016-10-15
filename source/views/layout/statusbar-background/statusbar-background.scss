@@ -1,22 +1,16 @@
 
-// Hide the background on iOS
-.view-frame:not(.is-ios) {
-	.view-statusbar-background {
-		display: none;
-	}
-}
-
 .view-statusbar-background {
 	@include fill-width;
 	height: $height-statusbar;
 	top: 0;
 	z-index: $z-os;
 	background-color: $color-blue;
-	transform: translate3d(0, 0, 0);
 
-	transition-duration: $transition-slow;
-	transition-property: background-color, transform;
-	transition-timing-function: $easing-bounce;
+	// transform: translate3d(0, 0, 0);
+
+	// transition-duration: $transition-slow;
+	// transition-property: background-color, transform;
+	// transition-timing-function: $easing-bounce;
 
 	// &.is-default {
 	// }
