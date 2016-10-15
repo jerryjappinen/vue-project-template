@@ -1,0 +1,26 @@
+
+.body {
+
+	ul,
+	ol {
+		padding-left: 2em;
+	}
+
+	ul {
+		list-style-type: disc;
+	}
+
+	ol {
+		list-style-type: decimal;
+	}
+
+	a {
+		text-decoration: underline;
+		color: $color-blue;
+		&:focus,
+		&:hover {
+			color: hue($color-blue);
+		}
+	}
+
+}
