@@ -1,6 +1,6 @@
-# I Am Legend
+# Vue project template for web, Electron and Cordova
 
-Post-apocalyptic simulation game inspired by the novel I Am Legend.
+Opinionated project template with a full-featured build pipeline for Vue, Cordova and Electron.
 
 
 
@@ -173,6 +173,7 @@ iOS relies on an extensive set of specifically named and sized PNG icons and spl
 - Copying the app icons and launch images to the app package while deploying sometimes fails. Redeploying should help.
 - When deploying to an iOS device, usually the script hangs and the app freezes. There seems to be a bug in Cordova related to hiding the splash screen. Kill the script, the app process on the device and remove the cable, and you can launch the app.
 - The preferences `DisallowOverscroll`, `SuppressesLongPressGesture` and `Suppresses3DTouchGesture` might cause issues with event handling/triggering. If you have issues with click events not firing, try messing with those.
+- Cordova is a really hacky and unstable system. Sometimes you get weird errors and you just need to `rm -rf` the entire Cordova folder, create a new one and things then work if you `init-cordova` and `build-ios` again.
 
 
 
@@ -189,5 +190,3 @@ When deploying the browser version on a server, make sure that the server is equ
 ### iOS
 
 Use `npm run` commands to deploy the Cordova build to a simulator or device.
-
-When deploying, app icons are sometimes not updated. Keep building and deploying, eventually they'll update.
