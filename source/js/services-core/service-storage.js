@@ -4,7 +4,7 @@ V.services.storage = {
 	computed: {
 
 		isAvailable: function () {
-			return app.plugins.localforage ? true : false;
+			return window.localStorage || app.plugins.localforage ? true : false;
 		}
 
 	},
@@ -15,40 +15,40 @@ V.services.storage = {
 
 		clear: function (confirm) {
 			if (confirm) {
-				return this.proxyLocalforage('clear');
+				return this.proxy('clear');
 			}
 			return l('Really clear everything?', this.list());
 		},
 
 		map: function (callback) {
-			return this.proxyLocalforage('iterate', [callback ? callback : function (value, key, index) {
+			return this.proxy('iterate', [callback ? callback : function (value, key, index) {
 				l(value, key, index);
 			}]);
 		},
 
 		list: function () {
-			return this.proxyLocalforage('keys');
+			return this.proxy('keys');
 		},
 
 		get: function (key) {
-			return this.proxyLocalforage('getItem', [key]);
+			return this.proxy('getItem', [key]);
 		},
 
 		set: function (key, value) {
-			return this.proxyLocalforage('setItem', [key, value]);
+			return this.proxy('setItem', [key, value]);
 		},
 
 		remove: function (key) {
-			return this.proxyLocalforage('removeItem', [key]);
+			return this.proxy('removeItem', [key]);
 		},
 
 
 
 		// Wrap the library in use
-		proxyLocalforage: function (func, args) {
+		proxy: function (func, args) {
 			var dfd = jQuery.Deferred();
 
-			if (this.isAvailable) {
+			if (app.plugins.localforage) {
 
 				if (!args) {
 					args = [];
@@ -66,6 +66,10 @@ V.services.storage = {
 
 				// Run a localstorage function with arguments and callback
 				app.plugins.localforage[func].apply(app.plugins.localforage, args);
+
+			// Vanilla support
+			} else if (window.localStorage && window.localStorage[func]) {
+				window.localStorage[func].apply(window.localStorage, args);
 
 			} else {
 				dfd.reject();
