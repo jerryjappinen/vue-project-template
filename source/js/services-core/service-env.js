@@ -119,12 +119,12 @@ V.services.env = {
 
 		// Use these to check for a specific platform
 
-		isMac: function () { return (this.isCordova && this.cordovaPlatform === 'mac'); },
-		isTizen: function () { return (this.isCordova && this.cordovaPlatform === 'tizen'); },
-		isBlackberry: function () { return (this.isCordova && this.cordovaPlatform === 'blackberry'); },
-		isIos: function () { return (this.isCordova && this.cordovaPlatform === 'ios'); },
-		isAndroid: function () { return (this.isCordova && this.cordovaPlatform === 'android'); },
-		isWindows: function () { return (this.isCordova && this.cordovaPlatform === 'wince'); },
+		isMac: function () { return (this.platform === 'mac'); },
+		isTizen: function () { return (this.platform === 'tizen'); },
+		isBlackberry: function () { return (this.platform === 'blackberry'); },
+		isIos: function () { return (this.platform === 'ios'); },
+		isAndroid: function () { return (this.platform === 'android'); },
+		isWindows: function () { return (this.platform === 'wince'); },
 
 
 

@@ -1,10 +1,8 @@
 
 .view-statusbar-background {
-	@include fill-width;
+	@include fill-width-relative;
 	height: $height-statusbar;
-	top: 0;
 	z-index: $z-os;
-	background-color: $color-blue;
 
 	// transform: translate3d(0, 0, 0);
 
@@ -31,4 +29,12 @@
 	// 	background-color: hue($color-red);
 	// }
 
+}
+
+.view-statusbar-background-content {
+	@include fill-width;
+	height: $height-statusbar;
+	top: 0;
+	position: fixed;
+	background-color: $color-blue;
 }
