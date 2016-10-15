@@ -22,33 +22,8 @@ Since the config.xml is now built by the cordova init script, we should have a w
 
 ## Vue
 
-- [ ] Upgrade to 2.0
-- [ ] Touch
 - [ ] Localization via custom bindings? https://github.com/kazupon/vue-i18n
 - [ ] Investigate plugins
-- [ ] Resources
-
-
-
-## App
-
-- [ ] Titlebar
-	- [ ] Remove unneeded buttons
-	- [ ] Include back and close buttons
-	- [ ] Remove back and close buttons from views
-	- [ ] Remove unneeded search view handling
-	- [ ] Move search to search view
-- [ ] App objects
-	- [ ] Integrate overloading in veight
-	- [ ] Get rid of need to mess with prototype names in app code
-	- [ ] Add `.type` in contentTypes with overloader
-	- [ ] Name wrapper divs in article view for content items and use them to target layout
-- [ ] New content types
-	- [ ] Map
-	- [ ] Video
-	- [ ] Instagram embed
-	- [ ] Page break
-	- [ ] Quote
 
 ## Pipeline
 
@@ -83,8 +58,5 @@ Since the config.xml is now built by the cordova init script, we should have a w
 	- Platform merges: make sure they work, use Gulp to copy
 	- after-build platform-merges (should we copy from source?)
 	- Should deploy or run script send to device?
-- `build-core-ko-bindings` subtask
-- `build-core-ko-extenders` subtask
 - Bugs
 	- When globbing for tasks, files with similar basenames get overridden
-	- Electron build don't run (log and FastClick aren't exposed)
