@@ -1,12 +1,44 @@
 <div class="view-styles">
 
 
+	<div class="body">
 
-	<h2>Body text</h2>
+		<h1>Active styles reference</h1>
 
-	<p>I do product design, development and consulting in diverse teams, for a diverse set of clients. HTML5 is my bread and butter. After over 9 years of UX design in web, mobile & games projects, I still create cool things while teaching myself and others every day.</p>
+		<h2>Body text <code>.body</code></h2>
 
-	<p>I currently work as a senior designer at GoEuro in Berlin, Germany. I'm also available for interesting freelance projects either locally or remotely.</p>
+		<h3>Something something h3</h3>
+
+		<h4>Something something h4</h4>
+
+		<h5>Something something h5</h5>
+
+		<p>The path of the righteous man is beset on all sides by the iniquities of the selfish and the tyranny of evil men. Blessed is he who, in the name of charity and good will, shepherds the weak through the valley of darkness, for he is truly his brother's keeper and the <a href="http://slipsum.com/">finder of lost children</a>. And I will strike down upon thee with great vengeance and furious anger those who would attempt to poison and destroy My brothers. And you will know My name is the Lord when I lay My vengeance upon thee. </p>
+
+		<p>Your bones don't break, mine do. That's clear. Your cells react to bacteria and viruses differently than mine. You don't get sick, I do. That's also clear. But for some reason, you and I react the exact same way to water. We swallow it too fast, we choke. We get some in our lungs, we drown. However unreal it may seem, we are connected, you and I. We're on the same curve, just on opposite ends. </p>
+
+		<p>The path of the righteous man is beset on all sides by the iniquities of the selfish and the tyranny of evil men. Blessed is he who, in the name of charity and good will, shepherds the weak through the valley of darkness, for he is truly his brother's keeper and the finder of lost children. And I will strike down upon thee with great vengeance and furious anger those who would attempt to poison and destroy My brothers. And you will know My name is the Lord when I lay My vengeance upon thee. </p>
+
+		<ul>
+			<li>List item</li>
+			<li>List item</li>
+			<li>List item</li>
+			<li>List item</li>
+		</ul>
+
+		<ol>
+			<li>List item</li>
+			<li>List item</li>
+			<li>List item</li>
+			<li>List item</li>
+		</ol>
+
+		<dt>
+			<dt>Definition</dt>
+			<dd>List</dd>
+		</dt>
+
+	</div>
 
 
 
@@ -49,6 +81,13 @@
 
 
 	<h2>Inputs</h2>
+
+	<ul>
+		<li>Value 1 <textinput v-model="testInputValue1"></textinput></li>
+		<li>Value 1 <textinput v-model="testInputValue1" placeholder="Bar"></textinput> (synced)</li>
+		<li>Value 2 <textinput v-model="testInputValue2" multiline="true"></textinput></li>
+		<li>Value 2 <textinput v-model="testInputValue2" disabled="true"></textinput> (disabled)</li>
+	</ul>
 
 	<ul>
 		<li>Value 1 <toggle-switch v-model="testSwitchValue1"></toggle-switch></li>

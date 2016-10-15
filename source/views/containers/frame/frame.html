@@ -5,10 +5,8 @@
 	<statusbar-background v-if="showStatusbarBackground"></statusbar-background>
 	<network-indicator :online="state.online"></network-indicator>
 
-	<!-- Test links -->
-	<router-link class="button" :to="{ name: 'home' }">Home</router-link>
-	<router-link class="button" :to="{ name: 'console' }">Console</router-link>
-	<router-link class="button" :to="{ name: 'styles' }">Styles</router-link>
+	<!-- Debug -->
+	<debug-menu v-if="app.options.debug"></debug-menu>
 
 	<!-- Frame content -->
 	<div class="view-frame-content">
