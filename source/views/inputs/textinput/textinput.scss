@@ -1,0 +1,40 @@
+
+.view-textinput {
+	vertical-align: middle;
+	display: inline-block;
+	@include cursor-pointer;
+
+	input,
+	textarea {
+		cursor: inherit;
+		display: block;
+
+		box-sizing: border-box;
+		border-width: 2px;
+		@include pad;
+
+		@include radius-tight;
+		background-color: $color-verylightgrey;
+		border-color: $color-verylightgrey;
+
+		&:hover {
+			border-color: $color-lightgrey;
+		}
+
+	}
+
+	&.is-focused {
+		@include cursor-default;
+
+		input,
+		textarea {
+			border-color: $color-lightgrey;
+			background-color: $color-white;
+		}
+
+	}
+
+	&.is-multiline {
+	}
+
+}

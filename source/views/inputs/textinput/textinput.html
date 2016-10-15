@@ -1,0 +1,17 @@
+<span class="view-textinput" :class="classes">
+
+	<textarea type="text"
+		v-if="multiline"
+		v-model.trim="ownValue"
+		:placeholder="placeholder"
+		@focus="onFocus"
+		@focusout="onFocusOut"></textarea>
+
+	<input type="text"
+		v-else
+		v-model.trim="ownValue"
+		:placeholder="placeholder"
+		@focus="onFocus"
+		@focusout="onFocusOut" />
+
+</span>
