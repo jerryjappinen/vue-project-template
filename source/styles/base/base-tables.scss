@@ -1,10 +1,16 @@
 
-// Horizontal
+table,
+th,
+td {
+	border-width: 1px;
+}
+
 table {
 }
 
 th,
 td {
+	@include pad;
 }
 
 th {
