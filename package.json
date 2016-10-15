@@ -90,7 +90,7 @@
     "ios-5": "cd cordova && cordova emulate ios --nobuild --target=iPhone-5s",
     "ios-6": "cd cordova && cordova emulate ios --nobuild --target=iPhone-6s",
     "ios-6p": "cd cordova && cordova emulate ios --nobuild --target=iPhone-6s-Plus",
-    "requirements": "cd cordova && cordova requirements"
+    "info": "cd cordova && cordova info && cordova requirements"
   },
   "repository": {
     "type": "git",

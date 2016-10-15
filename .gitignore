@@ -33,6 +33,7 @@ node_modules/
 /cordova/hooks
 /cordova/merges
 /cordova/config.xml
+/cordova/info.txt
 /cordova/platforms
 /cordova/plugins
 /cordova/www
