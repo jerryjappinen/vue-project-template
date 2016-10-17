@@ -39,7 +39,7 @@ V.services.data = {
 
 		// Fetch data from files under public
 		fetch: function (fileName, json) {
-			var dfd = jQuery.Deferred();
+			var dfd = app.plugins.jQuery.Deferred();
 
 			// Default to JSON
 			if (!this.useCsv || json) {
@@ -58,7 +58,7 @@ V.services.data = {
 
 			// Handle request callbacks
 			var self = this;
-			jQuery.ajax(options).done(function (data, textStatus, jqXHR) {
+			app.plugins.jQuery.ajax(options).done(function (data, textStatus, jqXHR) {
 
 				// Parse as CSV
 				if (self.useCsv) {
@@ -84,7 +84,7 @@ V.services.data = {
 		// Life cycle
 
 		onLoad: function () {
-			var dfd = jQuery.Deferred();
+			var dfd = app.plugins.jQuery.Deferred();
 			var vm = this;
 
 			var promises = [];
@@ -102,7 +102,7 @@ V.services.data = {
 			}
 
 			// Mark onLoad done
-			jQuery.when.apply(jQuery, promises).done(function () {
+			app.plugins.jQuery.when.apply(app.plugins.jQuery, promises).done(function () {
 				vm.isLoading = false;
 				dfd.resolve();
 			});

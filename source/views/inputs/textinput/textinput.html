@@ -3,6 +3,7 @@
 	<textarea type="text"
 		v-if="multiline"
 		v-model.trim="ownValue"
+		:name="name"
 		:placeholder="placeholder"
 		@focus="onFocus"
 		@focusout="onFocusOut"></textarea>
@@ -10,6 +11,7 @@
 	<input type="text"
 		v-else
 		v-model.trim="ownValue"
+		:name="name"
 		:placeholder="placeholder"
 		@focus="onFocus"
 		@focusout="onFocusOut" />

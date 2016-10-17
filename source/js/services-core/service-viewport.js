@@ -46,7 +46,7 @@ V.services.viewport = {
 		// };
 
 		// Bind resize listener
-		jQuery(window).on('resize', _.throttle(this.updateDimensions, 50, {
+		app.plugins.jQuery(window).on('resize', _.throttle(this.updateDimensions, 50, {
 			leading: true
 		}));
 

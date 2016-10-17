@@ -51,6 +51,7 @@
 			// Global plugins (JS objects under `window`) to be imported to `app.plugins`
 			// NOTE: init callbacks go under `P.js`
 			"plugins": {
+				"jQuery": "jQuery",
 				"hello": "hello",
 				"log": "log",
 				"localforage": "localforage",
@@ -644,6 +645,7 @@
 			// Vue app, inclusing services, views etc.
 			"source/js/plugins/**/*.js",
 			"source/js/app.js",
+			"source/js/directives/**/*.js",
 			"source/js/services-core/**/*.js",
 			"source/js/services-app/**/*.js",
 			"source/js/content-types/**/*.js",

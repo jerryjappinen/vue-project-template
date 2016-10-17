@@ -37,7 +37,7 @@ V.app = {
 
 		// Run any arbitrary method of all child services that provide it, with a promise returned
 		runServiceRoutine: function (callbackName) {
-			var dfd = jQuery.Deferred();
+			var dfd = app.plugins.jQuery.Deferred();
 
 			// Collect child service callbacks that are available
 			var deferreds = [];
@@ -50,7 +50,7 @@ V.app = {
 			}
 
 			// Wait for callbacks to have run
-			jQuery.when.apply(jQuery, deferreds).done(function() {
+			app.plugins.jQuery.when.apply(app.plugins.jQuery, deferreds).done(function() {
 				dfd.resolve();
 
 			// Fail message
@@ -76,7 +76,7 @@ V.app = {
 		// Init services after Vue instance is alive
 		initServices: function () {
 			var vm = this;
-			var dfd = jQuery.Deferred();
+			var dfd = app.plugins.jQuery.Deferred();
 
 			// Initialize services
 			vm.runServiceRoutine('onInit').done(function () {
@@ -120,7 +120,7 @@ V.app = {
 		// Run all start-up logic
 		run: function () {
 			var vm = this;
-			var dfd = jQuery.Deferred();
+			var dfd = app.plugins.jQuery.Deferred();
 
 			this.constructServices().initServices().done(function () {
 				vm.mount();

@@ -54,7 +54,7 @@ V.services.contentType = {
 		},
 
 		onObjectLoad: function (obj, data) {
-			var dfd = jQuery.Deferred();
+			var dfd = app.plugins.jQuery.Deferred();
 
 			// Add parameter values
 			for (var key in data) {

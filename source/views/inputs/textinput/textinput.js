@@ -8,6 +8,7 @@ V.views['textinput'] = {
 
 	// Incoming
 	props: [
+		'name',
 		'placeholder',
 		'multiline',
 		'value',

@@ -90,7 +90,7 @@ V.services.audio = {
 		// Web
 
 		preloadAllWeb: function () {
-			var dfd = jQuery.Deferred();
+			var dfd = app.plugins.jQuery.Deferred();
 			var callbackPromises = [];
 
 			// Load complex and simple sounds separately
@@ -102,7 +102,7 @@ V.services.audio = {
 			}
 
 			// Report self complete only after all children are ok
-			jQuery.when.apply(jQuery, callbackPromises).done(function () {
+			app.plugins.jQuery.when.apply(app.plugins.jQuery, callbackPromises).done(function () {
 				dfd.resolve();
 			}).fail(function () {
 				dfd.reject();
@@ -112,7 +112,7 @@ V.services.audio = {
 		},
 
 		preloadWeb: function (key, loop) {
-			var dfd = jQuery.Deferred();
+			var dfd = app.plugins.jQuery.Deferred();
 
 			var path = this.getPath(key, (loop ? true : false));
 
@@ -166,7 +166,7 @@ V.services.audio = {
 		// .nativeAudio API
 
 		preloadAllNative: function () {
-			var dfd = jQuery.Deferred();
+			var dfd = app.plugins.jQuery.Deferred();
 			var callbackPromises = [];
 
 			// Load each asset
@@ -178,7 +178,7 @@ V.services.audio = {
 			}
 
 			// Report self complete only after all children are ok
-			jQuery.when.apply(jQuery, callbackPromises).done(function () {
+			app.plugins.jQuery.when.apply(app.plugins.jQuery, callbackPromises).done(function () {
 				dfd.resolve();
 			}).fail(function () {
 				dfd.reject();
@@ -188,7 +188,7 @@ V.services.audio = {
 		},
 
 		preloadComplexNative: function (key) {
-			var dfd = jQuery.Deferred();
+			var dfd = app.plugins.jQuery.Deferred();
 
 			// Preload audio resources
 			// (id, assetPath, volume, voices, delay, successCallback, errorCallback)
@@ -211,7 +211,7 @@ V.services.audio = {
 		},
 
 		preloadSimpleNative: function (key) {
-			var dfd = jQuery.Deferred();
+			var dfd = app.plugins.jQuery.Deferred();
 
 			// (id, assetPath, successCallback, errorCallback)
 			app.plugins.nativeAudio.preloadSimple(
@@ -262,7 +262,7 @@ V.services.audio = {
 
 		// Preloading some assets
 		afterLoad: function () {
-			var dfd = jQuery.Deferred();
+			var dfd = app.plugins.jQuery.Deferred();
 
 			// Native assets that support preloading
 			if (this.supportsNativeAudioPlugin) {

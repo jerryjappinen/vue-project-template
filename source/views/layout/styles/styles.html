@@ -84,23 +84,50 @@
 	<h2>Inputs</h2>
 
 	<ul>
-		<li>Value 1 <textinput v-model="testInputValue1"></textinput></li>
-		<li>Value 1 <textinput v-model="testInputValue1" placeholder="Bar"></textinput> (synced)</li>
-		<li>Value 2 <textinput v-model="testInputValue2" multiline="true"></textinput></li>
-		<li>Value 2 <textinput v-model="testInputValue2" disabled="true"></textinput> (disabled)</li>
-	</ul>
-
-	<ul>
-		<li>Value 1 <toggle-switch v-model="testSwitchValue1"></toggle-switch></li>
-		<li>Value 1 <toggle-switch v-model="testSwitchValue1"></toggle-switch> (synced)</li>
-		<li>Value 2 <toggle-switch v-model="testSwitchValue2"></toggle-switch></li>
-		<li>Value 2 <toggle-switch v-model="testSwitchValue2" disabled="true"></toggle-switch> (disabled)</li>
-	</ul>
-
-	<ul>
-		<li><checkbox v-model="testCheckboxValue1" own-value="foo"></checkbox> Foo</li>
-		<li><checkbox v-model="testCheckboxValue1" own-value="bar"></checkbox> Bar</li>
-		<li><checkbox v-model="testCheckboxValue2" own-value="blah" radio="true"></checkbox> Blah</li>
+		<tr>
+			<td>Value 1</td>
+			<td><textinput v-model="testInputValue1"></textinput></td>
+		</tr>
+		<tr>
+			<td>Value 1</td>
+			<td><textinput v-model="testInputValue1" placeholder="Bar"></textinput> (synced)</td>
+		</tr>
+		<tr>
+			<td>Value 2</td>
+			<td><textinput v-model="testInputValue2" multiline="true"></textinput></td>
+		</tr>
+		<tr>
+			<td>Value 2</td>
+			<td><textinput v-model="testInputValue2" disabled="true"></textinput> (disabled)</td>
+		</tr>
+		<tr>
+			<td>Value 1</td>
+			<td><toggle-switch v-model="testSwitchValue1"></toggle-switch></td>
+		</tr>
+		<tr>
+			<td>Value 1</td>
+			<td><toggle-switch v-model="testSwitchValue1"></toggle-switch> (synced)</td>
+		</tr>
+		<tr>
+			<td>Value 2</td>
+			<td><toggle-switch v-model="testSwitchValue2"></toggle-switch></td>
+		</tr>
+		<tr>
+			<td>Value 2</td>
+			<td><toggle-switch v-model="testSwitchValue2" disabled="true"></toggle-switch> (disabled)</td>
+		</tr>
+		<tr>
+			<td>testCheckboxValue1</td>
+			<td><checkbox v-model="testCheckboxValue1" own-value="foo"></checkbox> Foo</td>
+		</tr>
+		<tr>
+			<td>testCheckboxValue1</td>
+			<td><checkbox v-model="testCheckboxValue1" own-value="bar"></checkbox> Bar</td>
+		</tr>
+		<tr>
+			<td>testCheckboxValue2</td>
+			<td><checkbox v-model="testCheckboxValue2" own-value="blah" radio="true"></checkbox> Blah</td>
+		</tr>
 	</ul>
 
 	<h2>Bitmap</h2>

@@ -46,7 +46,7 @@ V.services.storage = {
 
 		// Wrap the library in use
 		proxy: function (func, args) {
-			var dfd = jQuery.Deferred();
+			var dfd = app.plugins.jQuery.Deferred();
 
 			if (app.plugins.localforage) {
 

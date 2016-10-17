@@ -15,6 +15,10 @@ var V = {
 	// Generic content types
 	contentTypes: {},
 
+	// Custom directives
+	// https://vuejs.org/guide/custom-directive.html
+	directives: {},
+
 	// Routes will go here once treated, based on manifest
 	// See https://github.com/vuejs/vue-router/blob/next-doc/docs/en/advanced-routing/nested.md
 	// NOTE:
@@ -73,6 +77,14 @@ var V = {
 		return this;
 	},
 
+	// Register directive blueprints in Vue
+	bootstrapDirectives: function () {
+		for (var directiveName in this.directives) {
+			Vue.directive(directiveName, this.directives[directiveName]);
+		}
+		return this;
+	},
+
 	// Turn registered service blueprints into Vue object prototypes
 	bootstrapServices: function () {
 		for (var serviceName in this.services) {
@@ -116,6 +128,7 @@ var V = {
 	bootstrap: function (clientConfig) {
 		return this
 			.bootstrapConfig(clientConfig)
+			.bootstrapDirectives()
 			.bootstrapViews()
 			.bootstrapServices()
 			.bootstrapContentTypes()

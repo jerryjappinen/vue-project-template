@@ -4,7 +4,7 @@ V.services.battery = {
 	methods: {
 
 		getIsPlugged: function () {
-			var dfd = jQuery.Deferred();
+			var dfd = app.plugins.jQuery.Deferred();
 
 			// Cordova plugin
 			if (app.plugins.batteryStatus) {
@@ -12,7 +12,7 @@ V.services.battery = {
 
 			// Web API
 			} else if (navigator.getBattery) {
-				jQuery.when(navigator.getBattery()).done(function (data) {
+				app.plugins.jQuery.when(navigator.getBattery()).done(function (data) {
 					dfd.resolve(data.charging);
 				});
 
@@ -25,7 +25,7 @@ V.services.battery = {
 		},
 
 		getLevel: function () {
-			var dfd = jQuery.Deferred();
+			var dfd = app.plugins.jQuery.Deferred();
 
 			// Cordova plugin
 			if (app.plugins.batteryStatus) {
@@ -33,7 +33,7 @@ V.services.battery = {
 
 			// Web API
 			} else if (navigator.getBattery) {
-				jQuery.when(navigator.getBattery()).done(function (data) {
+				app.plugins.jQuery.when(navigator.getBattery()).done(function (data) {
 					dfd.resolve(data.level);
 				});
 

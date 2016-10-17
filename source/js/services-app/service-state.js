@@ -74,7 +74,7 @@ V.services.state = {
 		// Life cycle
 
 		afterLoad: function () {
-			var dfd = jQuery.Deferred();
+			var dfd = app.plugins.jQuery.Deferred();
 			var vm = this;
 
 			// Load fetched state

@@ -115,7 +115,7 @@ V.views['frame'] = {
 		// URL link clicks within this frame
 		// NOTE: we treat <a> tag as links, as they should be. Other elements are buttons.
 		// FLAG: is this the best place to make this binding?
-		jQuery(this.$el).on('click', 'a[href]', this.linkBinding);
+		app.plugins.jQuery(this.$el).on('click', 'a[href]', this.linkBinding);
 
 		// Only show smart banner when it's needed
 		if (app.env.isWeb) {
@@ -125,7 +125,7 @@ V.views['frame'] = {
 	},
 
 	beforeDestroy: function () {
-		jQuery(this.$el).off('click', 'a', this.linkBinding);
+		app.plugins.jQuery(this.$el).off('click', 'a', this.linkBinding);
 	}
 
 };

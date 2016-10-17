@@ -56,7 +56,7 @@ V.views['swiper'] = {
 
 			// HTML
 			// Pagination
-			pagination: jQuery(this.$el).find('.swiper-pagination')[0],
+			pagination: app.plugins.jQuery(this.$el).find('.swiper-pagination')[0],
 			paginationType: 'bullets',
 			// paginationHide: false,
 			// paginationElement: 'span',

@@ -47,9 +47,9 @@ V.views['pic'] = {
 
 		if (this.background) {
 			options.background = true;
-			selector = jQuery(this.$el);
+			selector = app.plugins.jQuery(this.$el);
 		} else {
-			selector = jQuery(this.$el).find('img');
+			selector = app.plugins.jQuery(this.$el).find('img');
 		}
 
 		// l('pic isLoaded', this.url, selector);

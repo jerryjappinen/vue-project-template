@@ -83,15 +83,3 @@ self.swiper.appendSlide([
 	'<span></span>'
 ]);
 ``
-
-
-
-# Knockout
-
-## Dispose of event handler when view is removed
-
-```js
-ko.utils.domNodeDisposal.addDisposeCallback(element, function() {
-	jQuery(window).off('keydown', handler);
-});
-```

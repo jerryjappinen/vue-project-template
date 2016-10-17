@@ -2,9 +2,10 @@
 .view-checkbox {
 	position: relative;
 	display: inline-block;
-	// vertical-align: middle;
-	width: 1em;
-	height: 1em;
+	vertical-align: middle;
+	width: 1.0em;
+	height: 1.0em;
+	padding: 0.1em;
 	background-color: $color-lightgrey;
 	@include radius-tight;
 
@@ -76,4 +77,10 @@
 .view-checkbox.is-on,
 .view-checkbox.is-on .view-checkbox-icon {
 	transition-duration: $transition-fast;
+}
+
+.view-checkbox-input {
+	width: 0;
+	height: 0;
+	overflow: hidden;
 }
