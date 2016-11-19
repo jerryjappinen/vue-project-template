@@ -87,7 +87,6 @@ V.views['swiper'] = {
 
 	beforeDestroy: function () {
 		if (this.swiperInstance) {
-			l('Swiper destroyed');
 			this.swiperInstance.destroy();
 		}
 	}

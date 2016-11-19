@@ -128,6 +128,21 @@
 
 			},
 
+			// Name of data files under public/json, will be loaded by JSON service
+			"json": [
+				"data"
+			],
+
+			// Paths accessed by JS
+			"paths": {
+				"public": "public/",
+				"audio": "public/audio/",
+				"fonts": "public/fonts/",
+				"images": "public/images/",
+				"json": "public/json/",
+				"svg": "public/sprite.svg"
+			},
+
 			// Service: router
 			"routerOptions": {
 				"hashbang": true,

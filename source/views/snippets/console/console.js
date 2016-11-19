@@ -7,7 +7,8 @@ V.views['console'] = {
 		return {
 			loopFps: 0,
 			loopIndex: 0,
-			promiseTestValues: ['foo', 'foo', 'foo', 'foo']
+			promiseTestValues: ['foo', 'foo', 'foo', 'foo'],
+			battery: ''
 		};
 	},
 
@@ -40,6 +41,7 @@ V.views['console'] = {
 				version: app.env.version,
 				uuid: app.env.uuid,
 				viewport: app.viewport.width + ' x ' + app.viewport.height,
+				battery: this.battery,
 
 				// Booleans
 				isWeb: app.env.isWeb,
@@ -72,7 +74,7 @@ V.views['console'] = {
 
 				// Track loop FPS
 				app.loop.onFrameUpdate(function () {
-					l('updating frame');
+					app.log.info('updating frame');
 					vm.loopFps = app.loop.getFps();
 					vm.loopIndex++;
 				});
@@ -80,7 +82,7 @@ V.views['console'] = {
 				// Start loop
 				app.loop.start();
 
-				l('Loop started');
+				app.log.info('Loop started');
 
 			}
 
@@ -99,11 +101,16 @@ V.views['console'] = {
 	mounted: function () {
 		var vm = this;
 
+		// Battery
+		Promise.all([app.battery.getIsPlugged(), app.battery.getLevel()]).then(function (values) {
+			this.battery = '' + values.join(', ');
+		});
+
 		var returnPromise = function () {
 			return new Promise(function (resolve, reject) {
 				setTimeout(function () {
 					var fail = _.random(0, 1);
-					l(fail ? 'fail' : 'success');
+					app.log.info(fail ? 'fail' : 'success');
 					if (fail) {
 						reject(new Error('Error message'));
 					} else {
@@ -129,11 +136,11 @@ V.views['console'] = {
 			returnPromise(),
 			returnPromise()
 		]).then(function (values) {
-			l('All success', values);
+			app.log.info('All success', values);
 			vm.setPromiseTestValue(2, values[0]);
 			vm.setPromiseTestValue(3, values[1]);
 		}, function (error) {
-			console.log(error.message);
+			app.log.error(error.message);
 		});
 
 	}

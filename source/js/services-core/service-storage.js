@@ -13,16 +13,13 @@ V.services.storage = {
 
 		// API
 
-		clear: function (confirm) {
-			if (confirm) {
-				return this.proxy('clear');
-			}
-			return l('Really clear everything?', this.list());
+		clearAll: function () {
+			return this.proxy('clear');
 		},
 
 		map: function (callback) {
 			return this.proxy('iterate', [callback ? callback : function (value, key, index) {
-				l(value, key, index);
+				app.log.info(value, key, index);
 			}]);
 		},
 
@@ -46,36 +43,38 @@ V.services.storage = {
 
 		// Wrap the library in use
 		proxy: function (func, args) {
-			var dfd = app.plugins.jQuery.Deferred();
+			var vm = this;
+			return new Promise(function (resolve, reject) {
 
-			if (app.plugins.localforage) {
+				if (app.plugins.localforage) {
 
-				if (!args) {
-					args = [];
+					if (!args) {
+						args = [];
+					}
+
+					// Proxy for promises
+					args.push(function (error, value) {
+						if (error) {
+							reject(error);
+						} else {
+							resolve(value);
+						}
+					});
+
+					// Run a localstorage function with arguments and callback
+					app.plugins.localforage[func].apply(app.plugins.localforage, args);
+
+				// Vanilla support
+				} else if (window.localStorage && window.localStorage[func]) {
+					window.localStorage[func].apply(window.localStorage, args);
+					resolve();
+
+				} else {
+					reject(new Error('localstorage is not supported in this browser.'));
 				}
 
-				// Proxy for promises
-				args.push(function (error, value) {
-					l(error, value);
-					if (!error) {
-						dfd.resolve(value);
-					} else {
-						dfd.reject(error);
-					}
-				});
+			});
 
-				// Run a localstorage function with arguments and callback
-				app.plugins.localforage[func].apply(app.plugins.localforage, args);
-
-			// Vanilla support
-			} else if (window.localStorage && window.localStorage[func]) {
-				window.localStorage[func].apply(window.localStorage, args);
-
-			} else {
-				dfd.reject();
-			}
-
-			return dfd.promise();
 		},
 
 

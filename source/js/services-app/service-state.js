@@ -3,23 +3,11 @@ V.services.state = {
 
 	data: function () {
 		return {
-			hasState: false
+			isLoaded: false
 		};
 	},
 
-	computed: {
-
-		isLoaded: function () {
-			if (
-				!app.data.isLoading &&
-				this.hasState
-			) {
-				return true;
-			}
-			return false;
-		}
-
-	},
+	// computed: {},
 
 	methods: {
 
@@ -33,7 +21,7 @@ V.services.state = {
 			// Basic format
 			var state = {};
 
-			l('initial state', state);
+			// app.log.info('initial state', state);
 
 			return state;
 		},
@@ -73,29 +61,34 @@ V.services.state = {
 
 		// Life cycle
 
-		afterLoad: function () {
-			var dfd = app.plugins.jQuery.Deferred();
+		afterMount: function () {
 			var vm = this;
+			return new Promise(function (resolve, reject) {
 
-			// Load fetched state
-			this.fetchStoredState().done(function (state) {
-				if (state) {
-					vm.loadState(state);
-				} else {
+				// Load fetched state
+				vm.fetchStoredState().then(function (state) {
+					if (state) {
+						vm.loadState(state);
+					} else {
+						vm.loadState(vm.getInitialState());
+					}
+
+					// Resolve either way
+					vm.isLoaded = true;
+					resolve();
+
+				// Load initial state if that fails
+				}, function () {
 					vm.loadState(vm.getInitialState());
-				}
 
-			// Load initial state
-			}).fail(function () {
-				vm.loadState(vm.getInitialState());
+					// Resolve either way
+					vm.isLoaded = true;
+					resolve();
 
-			// Resolve either way
-			}).always(function () {
-				vm.hasState = true;
-				dfd.resolve();
+				});
+
 			});
 
-			return dfd.promise();
 		}
 
 	}

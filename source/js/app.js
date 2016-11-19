@@ -37,28 +37,27 @@ V.app = {
 
 		// Run any arbitrary method of all child services that provide it, with a promise returned
 		runServiceRoutine: function (callbackName) {
-			var dfd = app.plugins.jQuery.Deferred();
+			var vm = this;
+			return new Promise(function (resolve, reject) {
 
-			// Collect child service callbacks that are available
-			var deferreds = [];
+				// Collect child service callbacks that are available
+				var promises = [];
 
-			// Run each callback
-			for (var key in V.services) {
-				if (this[key][callbackName]) {
-					deferreds.push(this[key][callbackName]());
+				// Run each callback
+				for (var key in V.services) {
+					if (vm[key][callbackName]) {
+						promises.push(vm[key][callbackName]());
+					}
 				}
-			}
 
-			// Wait for callbacks to have run
-			app.plugins.jQuery.when.apply(app.plugins.jQuery, deferreds).done(function() {
-				dfd.resolve();
+				// Return wrapper promise
+				Promise.all(promises).then(function () {
+					resolve();
+				}, function (error) {
+					reject(error);
+				});
 
-			// Fail message
-			}, function (e) {
-				dfd.reject('Child service callback failed');
 			});
-
-			return dfd.promise();
 		},
 
 
@@ -76,14 +75,16 @@ V.app = {
 		// Init services after Vue instance is alive
 		initServices: function () {
 			var vm = this;
-			var dfd = app.plugins.jQuery.Deferred();
+			return new Promise(function (resolve, reject) {
 
-			// Initialize services
-			vm.runServiceRoutine('onInit').done(function () {
-				dfd.resolve();
+				// Initialize services
+				vm.runServiceRoutine('onInit').then(function () {
+					resolve();
+				}, function (error) {
+					reject(error);
+				});
+				
 			});
-
-			return dfd.promise();
 		},
 
 
@@ -93,19 +94,17 @@ V.app = {
 		mount: function () {
 			var vm = this;
 
-			// if (app.options.debug) { l('Mounting app...'); }
+			app.log.info('Mounting app...');
 
 			// Load crucial data after first render
-			vm.runServiceRoutine('beforeMount').done(function () {
+			vm.runServiceRoutine('beforeMount').then(function () {
 
-				// Mount to DOM
+				// Mount app to DOM
 				vm.$mount(app.options.appContainer);
 
 				// Load crucial data after first render
 				vm.$nextTick(function () {
-					vm.runServiceRoutine('onLoad').done(function () {
-						vm.runServiceRoutine('afterLoad');
-					});
+					vm.runServiceRoutine('afterMount');
 				});
 
 			});
@@ -118,14 +117,17 @@ V.app = {
 		// Run all start-up logic
 		run: function () {
 			var vm = this;
-			var dfd = app.plugins.jQuery.Deferred();
+			return new Promise(function (resolve, reject) {
 
-			this.constructServices().initServices().done(function () {
-				vm.mount();
-				dfd.resolve();
+				vm.constructServices().initServices().then(function () {
+					vm.mount();
+					resolve(vm);
+				}, function (error) {
+					reject(error);
+				});
+
 			});
 
-			return dfd.promise();
 		}
 
 	}

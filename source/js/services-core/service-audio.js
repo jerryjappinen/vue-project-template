@@ -4,6 +4,8 @@ V.services.audio = {
 	data: function () {
 		return {
 
+			isLoaded: false,
+
 			// Simple one-time sounds under `app.paths.audio`
 			toPreloadSimple: app.options.audio.simple,
 
@@ -90,58 +92,61 @@ V.services.audio = {
 		// Web
 
 		preloadAllWeb: function () {
-			var dfd = app.plugins.jQuery.Deferred();
-			var callbackPromises = [];
+			var vm = this;
+			return new Promise(function (resolve, reject) {
 
-			// Load complex and simple sounds separately
-			for (var key1 in this.toPreloadSimple) {
-				callbackPromises.push(this.preloadWeb(this.toPreloadSimple[key1]));
-			}
-			for (var key2 in this.toPreloadComplex) {
-				callbackPromises.push(this.preloadWeb(this.toPreloadComplex[key2], true));
-			}
+				var promises = [];
 
-			// Report self complete only after all children are ok
-			app.plugins.jQuery.when.apply(app.plugins.jQuery, callbackPromises).done(function () {
-				dfd.resolve();
-			}).fail(function () {
-				dfd.reject();
+				// Load complex and simple sounds separately
+				for (var key1 in vm.toPreloadSimple) {
+					promises.push(vm.preloadWeb(vm.toPreloadSimple[key1]));
+				}
+				for (var key2 in vm.toPreloadComplex) {
+					promises.push(vm.preloadWeb(vm.toPreloadComplex[key2], true));
+				}
+
+				// Report self complete only after all children are ok
+				Promise.all(promises).then(function () {
+					resolve();
+				}, function (error) {
+					reject(error);
+				});
+
 			});
-
-			return dfd.promise();
 		},
 
 		preloadWeb: function (key, loop) {
-			var dfd = app.plugins.jQuery.Deferred();
+			var vm = this;
+			return new Promise(function (resolve, reject) {
 
-			var path = this.getPath(key, (loop ? true : false));
+				var path = vm.getPath(key, (loop ? true : false));
 
-			var sound = new app.plugins.pizzicato.Sound({
-				source: 'file',
-				options: {
+				var sound = new app.plugins.pizzicato.Sound({
+					source: 'file',
+					options: {
 
-					// Defaults
-					// volume: 1,
-					// sustain: 0,
-					// attack: 0.4,
+						// Defaults
+						// volume: 1,
+						// sustain: 0,
+						// attack: 0.4,
 
-					loop: (loop ? true : false),
-					path: path
-				}
+						loop: (loop ? true : false),
+						path: path
+					}
 
-			}, function (error) {
-				if (error) {
-					l('Error preloading audio assets (web): ' + error);
-					dfd.reject();
-				} else {
-					dfd.resolve();
-				}
+				}, function (error) {
+					if (error) {
+						reject(error);
+					} else {
+						resolve();
+					}
+				});
+
+				// Store preloaded sound
+				vm.webSoundInstances[key] = sound;
+
 			});
 
-			// Store preloaded sound
-			this.webSoundInstances[key] = sound;
-
-			return dfd.promise();
 		},
 
 		// Playback
@@ -166,67 +171,70 @@ V.services.audio = {
 		// .nativeAudio API
 
 		preloadAllNative: function () {
-			var dfd = app.plugins.jQuery.Deferred();
-			var callbackPromises = [];
+			var vm = this;
+			return new Promise(function (resolve, reject) {
 
-			// Load each asset
-			for (var key1 in this.toPreloadSimple) {
-				callbackPromises.push(this.preloadSimpleNative(key1));
-			}
-			for (var key2 in this.toPreloadComplex) {
-				callbackPromises.push(this.preloadComplexNative(key2));
-			}
+				var promises = [];
 
-			// Report self complete only after all children are ok
-			app.plugins.jQuery.when.apply(app.plugins.jQuery, callbackPromises).done(function () {
-				dfd.resolve();
-			}).fail(function () {
-				dfd.reject();
+				// Load each asset
+				for (var key1 in vm.toPreloadSimple) {
+					promises.push(vm.preloadSimpleNative(key1));
+				}
+				for (var key2 in vm.toPreloadComplex) {
+					promises.push(vm.preloadComplexNative(key2));
+				}
+
+				// Report self complete only after all children are ok
+				Promise.all(promises).then(function () {
+					resolve();
+				}, function (error) {
+					reject(error);
+				});
+
 			});
 
-			return dfd.promise();
 		},
 
 		preloadComplexNative: function (key) {
-			var dfd = app.plugins.jQuery.Deferred();
+			var vm = this;
+			return new Promise(function (resolve, reject) {
 
-			// Preload audio resources
-			// (id, assetPath, volume, voices, delay, successCallback, errorCallback)
-			app.plugins.nativeAudio.preloadComplex(
-				key,
-				this.getPath(key, true),
-				1, // volume
-				1, // voices (to allow overlapping) (2)
-				0, // delay when crossfading (2 * 1000)
-				function (message) {
-					dfd.resolve();
-				},
-				function(error) {
-					l('Error preloading audio assets (native): ' + error);
-					dfd.reject(error);
-				}
-			);
+				// Preload audio resources
+				// (id, assetPath, volume, voices, delay, successCallback, errorCallback)
+				app.plugins.nativeAudio.preloadComplex(
+					key,
+					vm.getPath(key, true),
+					1, // volume
+					1, // voices (to allow overlapping) (2)
+					0, // delay when crossfading (2 * 1000)
+					function (message) {
+						resolve();
+					},
+					function (error) {
+						reject(error);
+					}
+				);
 
-			return dfd.promise();
+			});
 		},
 
 		preloadSimpleNative: function (key) {
-			var dfd = app.plugins.jQuery.Deferred();
+			var vm = this;
+			return new Promise(function (resolve, reject) {
 
-			// (id, assetPath, successCallback, errorCallback)
-			app.plugins.nativeAudio.preloadSimple(
-				key,
-				this.getPath(key),
-				function (message) {
-					dfd.resolve();
-				},
-				function (error) {
-					l('Error preloading audio assets (native): ' + error);
-					dfd.reject(error);
-				}
-			);
+				// (id, assetPath, successCallback, errorCallback)
+				app.plugins.nativeAudio.preloadSimple(
+					key,
+					vm.getPath(key),
+					function (message) {
+						resolve();
+					},
+					function (error) {
+						reject(error);
+					}
+				);
 
-			return dfd.promise();
+			});
 		},
 
 
@@ -260,20 +268,25 @@ V.services.audio = {
 
 		// Life cycle
 
+		setIsLoaded: function () {		
+			this.isLoaded = true;
+		},
+
 		// Preloading some assets
-		afterLoad: function () {
-			var dfd = app.plugins.jQuery.Deferred();
+		afterMount: function () {
 
 			// Native assets that support preloading
 			if (this.supportsNativeAudioPlugin) {
-				this.preloadAllNative().done(function () { dfd.resolve(); });
+				this.preloadAllNative().then(this.setIsLoaded);
 
 			// Web assets loaded with web API
 			} else if (this.isAvailable) {
-				this.preloadAllWeb().done(function () { dfd.resolve(); });
+				this.preloadAllWeb().then(this.setIsLoaded);
+
+			} else {
+				this.setIsLoaded();
 			}
 
-			return dfd.promise();
 		}
 
 

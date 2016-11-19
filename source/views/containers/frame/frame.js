@@ -118,7 +118,7 @@ V.views['frame'] = {
 	},
 
 	beforeDestroy: function () {
-		app.plugins.jQuery(this.$el).off('click', 'a', this.linkBinding);
+		this.$el.removeEventListener('click', this.onClick);
 	}
 
 };
