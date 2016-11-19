@@ -6,6 +6,7 @@ V.services.lifecycle = {
 
 			// Lifecycle events to tap into
 			callbacks: {
+				blur: [], // Also fired on `resign` on iOS
 				pause: [], // Also fired on `resign` on iOS
 				resume: [], // Also fired on `active` on iOS
 				menu: [],
@@ -44,7 +45,7 @@ V.services.lifecycle = {
 		},
 
 		// Remove callback from the set of callbacks fired with these events
-		unRegister: function (event, callback) {
+		unregister: function (event, callback) {
 			var bucket = this.callbacks[event];
 			if (bucket && _.isFunction(callback)) {
 				var i = bucket.indexOf(callback);
@@ -71,6 +72,10 @@ V.services.lifecycle = {
 
 
 		// Service callbacks
+
+		onBlur: function () {
+			this.runCallbacks('blur');
+		},
 
 		onPause: function () {
 			this.runCallbacks('pause');
@@ -111,7 +116,17 @@ V.services.lifecycle = {
 			document.addEventListener('resume', this.onResume, false);
 
 			// Generic
+			document.addEventListener('blur', this.onBlur, false);
 			document.addEventListener('resize', this.onResize, false);
+
+			// Keyboard helpers
+			document.addEventListener('keyup', function (event) {
+				console.log('keyup');
+				if (event.keyCode == 27) {
+					console.log('esc');
+					document.dispatchEvent(new Event('blur'));
+				}
+			});
 
 		}
 

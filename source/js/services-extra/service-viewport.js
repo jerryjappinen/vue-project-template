@@ -4,7 +4,8 @@ V.services.viewport = {
 	data: function () {
 		return {
 			width: 0,
-			height: 0
+			height: 0,
+			callback: null
 		};
 	},
 
@@ -46,14 +47,14 @@ V.services.viewport = {
 		// };
 
 		// Bind resize listener
-		window.addEventListener('resize', _.throttle(this.updateDimensions, 50, {
+		this.callback = app.lifecycle.register('resize', _.throttle(this.updateDimensions, 50, {
 			leading: true
 		}));
 
 	},
 
 	beforeDestroy: function () {
-		window.removeEventListener('resize', this.updateDimensions);
+		app.lifecycle.unregister('resize', this.callback);
 	}
 
 };

@@ -7,7 +7,7 @@
 	position: absolute;
 	transition-property: opacity;
 
-	@include viewport-under-smallish {
+	@include viewport-under-medium {
 		@include fill;
 		position: fixed;
 		background-color: hint($color-dark);
@@ -23,11 +23,11 @@
 
 	transition-property: transform;
 
-	@include viewport-over-smallish {
+	@include viewport-over-medium {
 		min-width: 16em;
 	}
 
-	@include viewport-under-smallish {
+	@include viewport-under-medium {
 		box-sizing: border-box;
 		@include keep-center;
 		top: 20vh;

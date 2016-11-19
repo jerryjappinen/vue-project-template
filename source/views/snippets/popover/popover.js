@@ -2,13 +2,14 @@
 V.views['popover'] = {
 
 	props: [
-		'show',
+		'value', // shouldBeShown
 		'fixed',
 		'inPlace'
 	],
 
 	data: function () {
 		return {
+			callback: null
 		};
 	},
 
@@ -24,7 +25,7 @@ V.views['popover'] = {
 
 		state: function () {
 			return {
-				shown: this.show,
+				shown: this.value,
 				fixed: this.isFixed,
 				inPlace: this.isInPlace
 			};
@@ -42,6 +43,31 @@ V.views['popover'] = {
 			return classes.join(' ');
 		}
 
-	}, mounted: function () { window.popover = this; }
+	},
+
+	methods: {
+
+		onBackgroundClick: function (event) {
+			if (event.target == this.$refs.background) {
+				event.stopPropagation();
+				this.close();
+			}
+		},
+
+		close: function () {
+			this.$emit('input', false);
+		}
+
+	},
+
+	mounted: function () {
+		this.callback = app.lifecycle.register('blur', this.close);
+	},
+
+	beforeDestroy: function () {
+		if (this.callback) {
+			app.lifecycle.unregister('blur', this.close);
+		}
+	}
 
 };

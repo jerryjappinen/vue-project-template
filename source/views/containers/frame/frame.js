@@ -86,7 +86,7 @@ V.views['frame'] = {
 			var el = event.target;
 
 			if (
-				el.tagName === 'A' &&
+				el.tagName.toLowerCase() === 'a' &&
 				app.util.linkIsExternal(el)
 			) {
 				el.target = '_blank';

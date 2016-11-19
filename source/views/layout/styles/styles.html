@@ -8,14 +8,12 @@
 
 	<toggle v-model="popupShouldBeShown" class="inline-block">Toggle</toggle>
 
-	<popover :show="popupShouldBeShown">
-
+	<popover v-model="popupShouldBeShown">
 		<div class="bodytext">
 			<h2 class="no-push-top">Foo</h2>
 			<p>Yay!</p>
 			<toggle v-model="popupShouldBeShown">Close</toggle>
 		</div>
-
 	</popover>
 
 
