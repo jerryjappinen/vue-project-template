@@ -80,7 +80,7 @@ V.views['swiper'] = {
 			_.merge(options, this.options);
 		}
 
-		this.swiperInstance = new Swiper(this.$el, options);
+		this.swiperInstance = new app.plugins.swiper(this.$el, options);
 		this.swiperInstance.update();
 
 	},

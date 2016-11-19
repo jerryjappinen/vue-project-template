@@ -23,7 +23,6 @@ V.services.json = {
 
 		beforeMount: function () {
 			if (window.D) {
-				app.log.info('json', window.D);
 				this.all = window.D;
 			}
 		}

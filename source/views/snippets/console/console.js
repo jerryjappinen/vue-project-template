@@ -107,19 +107,18 @@ V.views['console'] = {
 		// Battery
 		if (app.battery) {
 			Promise.all([app.battery.getIsPlugged(), app.battery.getLevel()]).then(function (values) {
-				this.battery = '' + values.join(', ');
+				vm.battery = '' + values.join(', ');
 			});
 		}
 
 		var returnPromise = function () {
 			return new Promise(function (resolve, reject) {
 				setTimeout(function () {
-					var fail = _.random(0, 1);
-					app.log.info(fail ? 'fail' : 'success');
+					var fail = !_.random(1, 1);
 					if (fail) {
 						reject(new Error('Error message'));
 					} else {
-						resolve('esa');
+						resolve('bar');
 					}
 				}, _.random(1000, 3000));
 			});
@@ -129,7 +128,7 @@ V.views['console'] = {
 
 		// Run
 
-		vm.setPromiseTestValue(0, 'immediate');
+		vm.setPromiseTestValue(0, 'bar');
 
 		returnPromise().then(function (value) {
 			vm.setPromiseTestValue(1, value);
@@ -141,11 +140,10 @@ V.views['console'] = {
 			returnPromise(),
 			returnPromise()
 		]).then(function (values) {
-			app.log.info('All success', values);
 			vm.setPromiseTestValue(2, values[0]);
 			vm.setPromiseTestValue(3, values[1]);
 		}, function (error) {
-			app.log.error(error.message);
+			// app.log.error(error.message);
 		});
 
 	}

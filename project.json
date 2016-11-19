@@ -52,7 +52,7 @@
 			// NOTE: init callbacks go under `P.js`
 			// NOTE: Promise and _ are core requirements
 			"plugins": {
-				"promiscuous": "Promise",
+				"smartBanner": "SmartBanner",
 				"imagesLoaded": "imagesLoaded",
 				"fastclick": "FastClick",
 				"hammer": "Hammer",
@@ -62,7 +62,10 @@
 				"localforage": "localforage",
 				"mainLoop": "MainLoop",
 				"modernizr": "Modernizr",
-				"pizzicato": "Pizzicato"
+				"pizzicato": "Pizzicato",
+				"swiper": "Swiper",
+				"velocity": "Velocity",
+				"zing": "ZingTouch"
 			},
 
 			// Rendering
