@@ -46,7 +46,6 @@ V.app = {
 				// Run each callback
 				for (var key in V.services) {
 					if (vm[key][callbackName]) {
-						app.log.info('runServiceRoutine', key, callbackName);
 						promises.push(vm[key][callbackName]());
 					}
 				}
@@ -100,16 +99,11 @@ V.app = {
 			// Load crucial data after first render
 			vm.runServiceRoutine('beforeMount').then(function () {
 
-				app.log.trace('beforeMount');
-
 				// Mount app to DOM
 				vm.$mount(app.options.appContainer);
 
 				// Load crucial data after first render
 				vm.$nextTick(function () {
-
-				app.log.trace('afterMount');
-
 					vm.runServiceRoutine('afterMount');
 				});
 
