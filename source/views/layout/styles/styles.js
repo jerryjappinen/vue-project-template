@@ -10,7 +10,9 @@ V.views['styles'] = {
 			testCheckboxValue2: false,
 
 			testInputValue1: 'Foo',
-			testInputValue2: 'Foo'
+			testInputValue2: 'Foo',
+
+			testRadioValue: null
 
 		};
 	},

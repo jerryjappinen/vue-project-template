@@ -155,6 +155,18 @@
 			<td>testCheckboxValue2</td>
 			<td><toggle v-model="testCheckboxValue2"><checkbox :value="testCheckboxValue2"></checkbox> Blah</toggle></td>
 		</tr>
+		<tr>
+			<td>testRadioValue</td>
+			<td><set v-model="testRadioValue" to="BlahValue"><radio :value="testRadioValue" selected-on="BlahValue"></radio> Blah</set></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><set v-model="testRadioValue" to="FooValue"><radio :value="testRadioValue" selected-on="FooValue"></radio> Foo</set></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><label>{{ testRadioValue }}</label></td>
+		</tr>
 	</table>
 
 </div>

@@ -3,10 +3,11 @@
 	position: relative;
 	display: inline-block;
 	vertical-align: middle;
-	width: 2.2em;
-	height: 1.2em;
+	top: -1px;
+	width: 2.4em;
+	height: 1.4em;
 	background-color: $color-lightgrey;
-	@include radius-round;
+	border-radius: 0.7em;
 
 	transition-property: background-color;
 
@@ -60,8 +61,8 @@
 	display: block;
 	top: 0.2em;
 	left: 1.2em;
-	width: 0.8em;
-	height: 0.8em;
+	width: 1.0em;
+	height: 1.0em;
 	@include radius-round;
 	@include shadow-transparent;
 	background-color: $color-white;

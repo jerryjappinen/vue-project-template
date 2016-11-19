@@ -1,0 +1,7 @@
+
+.view-set {
+	@include cursor-pointer;
+	&.is-disabled {
+		@include cursor-inherit;
+	}
+}

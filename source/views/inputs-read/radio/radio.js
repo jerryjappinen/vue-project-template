@@ -4,10 +4,11 @@
 // State of the input is kept track of internally, and the result is $emitted to parent scope
 // http://vuejs.org/guide/components.html#Form-Input-Components-using-Custom-Events
 
-V.views['checkbox'] = {
+V.views['radio'] = {
 
 	// Incoming
 	props: [
+		'selectedOn',
 		'value',
 		'disabled'
 	],
@@ -15,16 +16,19 @@ V.views['checkbox'] = {
 	// Properties
 	data: function () {
 		return {
-			isOn: this.value,
 		};
 	},
 
 	// Computed properties
 	computed: {
 
+		isOn: function () {
+			return this.value === this.selectedOn ? true : false;
+		},
+
 		state: function () {
 			return {
-				on: this.value,
+				on: this.isOn,
 				disabled: this.disabled
 			};
 		},

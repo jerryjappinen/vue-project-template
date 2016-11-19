@@ -22,10 +22,6 @@ V.views['toggle'] = {
 	// Computed properties
 	computed: {
 
-		isOff: function () {
-			return !this.isOn;
-		},
-
 		state: function () {
 			return {
 				on: this.value,
@@ -71,26 +67,11 @@ V.views['toggle'] = {
 		},
 
 		click: function () {
-			app.log.info('click');
 			if (!this.disabled) {
 				this.toggle();
 			}
 			return this;
 		}
-
-	},
-
-
-
-	// Life cycle
-
-	mounted: function () {
-
-		// Do something when first starting up
-		// var vm = this;
-		// _.defer(function () {
-		// 	vm.open(vm.getInitialCard());
-		// });
 
 	}
 

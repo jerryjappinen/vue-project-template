@@ -1,5 +1,5 @@
 
-.view-checkbox {
+.view-radio {
 	position: relative;
 	display: inline-block;
 	vertical-align: middle;
@@ -8,14 +8,14 @@
 	height: 0.8em;
 	padding: 0.2em;
 	background-color: $color-lightgrey;
-	@include radius-tight;
+	@include radius-round;
 
 	transition-property: background-color;
 
 	&.is-on {
 		background-color: $color-green;
 
-		.view-checkbox-icon {
+		.view-radio-icon {
 			opacity: 1;
 		}
 
@@ -38,14 +38,14 @@
 
 	&.is-disabled {
 
-		.view-checkbox-icon {
+		.view-radio-icon {
 			color: $color-midgrey;
 		}
 
 		&.is-on {
 			background-color: $color-grey;
 
-			.view-checkbox-icon {
+			.view-radio-icon {
 				color: $color-midgrey;
 			}
 
@@ -55,7 +55,7 @@
 
 }
 
-.view-checkbox-icon {
+.view-radio-icon {
 	color: $color-white;
 
 	opacity: 0;
@@ -69,11 +69,11 @@
 
 }
 
-.view-checkbox,
-.view-checkbox-icon {
+.view-radio,
+.view-radio-icon {
 	transition-duration: $transition-fast;
 }
 
-// .view-checkbox.is-on,
-// .view-checkbox.is-on .view-checkbox-icon {
+// .view-radio.is-on,
+// .view-radio.is-on .view-radio-icon {
 // }
