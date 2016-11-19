@@ -139,7 +139,6 @@
 				"audio": "public/audio/",
 				"fonts": "public/fonts/",
 				"images": "public/images/",
-				"json": "public/json/",
 				"svg": "public/sprite.svg"
 			},
 
@@ -538,7 +537,7 @@
 	// Build target locations for the client web app
 	"targets": {
 
-		// Where core assets are dumped before beinf compiled to final build targets
+		// Where core assets are dumped before being compiled to final build targets
 		"core": "core/",
 
 		// Where public assets are put in each build targets
@@ -656,9 +655,14 @@
 
 		],
 
+		"json": [
+			"source/json/**/*.json"
+		],
+
 		"js": [
 
 			// Bootstrap infra
+			"source/js/D.js",
 			"source/js/P.js",
 			"source/js/V.js",
 

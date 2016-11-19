@@ -51,7 +51,10 @@ V.views['console'] = {
 				isAndroid: app.env.isAndroid,
 				isWindows: app.env.isWindows,
 				isMac: app.env.isMac,
-				isTizen: app.env.isTizen
+				isTizen: app.env.isTizen,
+
+				// JSON
+				json: app.json ? JSON.stringify(app.json.all) : 'none'
 
 			};
 		}
