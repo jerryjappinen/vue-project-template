@@ -46,12 +46,9 @@ V.services.viewport = {
 		// };
 
 		// Bind resize listener
-		app.plugins.jQuery(window).on('resize', _.throttle(this.updateDimensions, 50, {
+		window.addEventListener('resize', _.throttle(this.updateDimensions, 50, {
 			leading: true
 		}));
-
-		// Bind FastClick
-		FastClick.attach(document.body);
 
 	},
 

@@ -25,12 +25,19 @@ V.views['console'] = {
 				loop: app.loop.isAvailable,
 				storage: app.storage.isAvailable,
 
+				// Plugins
+				'app': _.keys(app).join(', '),
+				'app.plugins': _.keys(app.plugins).join(', '),
+				'_': typeof _,
+				'Promise': typeof Promise,
+
 				// Info
 				env: app.env.is,
 				browser: app.env.browser,
 				platform: app.env.platform,
 				version: app.env.version,
 				uuid: app.env.uuid,
+				viewport: app.viewport.width + ' x ' + app.viewport.height,
 
 				// Booleans
 				isWeb: app.env.isWeb,

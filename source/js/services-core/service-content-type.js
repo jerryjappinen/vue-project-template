@@ -34,17 +34,12 @@ V.services.contentType = {
 
 				// Load data passively
 				if (passive) {
-					this.onObjectLoad(obj, inputData).done(function () {
-						if (obj.onLoad && _.isFunction(obj.onLoad)) {
-							obj.onLoad(inputData);
-						}
-					});
+					this.onObjectLoad(obj, inputData);
+				}
 
-				// Run only custom logic
-				} else {
-					if (obj.onLoad && _.isFunction(obj.onLoad)) {
-						obj.onLoad(inputData);
-					}
+				// Run content type's custom logic
+				if (obj.onLoad && _.isFunction(obj.onLoad)) {
+					obj.onLoad(inputData);
 				}
 
 				return obj;
@@ -54,7 +49,6 @@ V.services.contentType = {
 		},
 
 		onObjectLoad: function (obj, data) {
-			var dfd = app.plugins.jQuery.Deferred();
 
 			// Add parameter values
 			for (var key in data) {
@@ -63,9 +57,7 @@ V.services.contentType = {
 				}
 			}
 
-			dfd.resolve();
-
-			return dfd.promise();
+			return this;
 		}
 
 	}

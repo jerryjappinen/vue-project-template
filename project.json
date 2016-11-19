@@ -50,7 +50,11 @@
 
 			// Global plugins (JS objects under `window`) to be imported to `app.plugins`
 			// NOTE: init callbacks go under `P.js`
+			// NOTE: Promise and _ are core requirements
 			"plugins": {
+				"imagesLoaded": "imagesLoaded",
+				"fastclick": "FastClick",
+				"hammer": "Hammer",
 				"jQuery": "jQuery",
 				"hello": "hello",
 				"log": "log",

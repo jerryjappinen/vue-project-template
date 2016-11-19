@@ -1,9 +1,36 @@
 <div class="view-styles">
 
+	<h1>Active styles reference</h1>
+
+
+
+	<h2>Bitmap</h2>
+
+	<pre><code>&lt;pic src="icons/150.png"&gt;&lt;/pic&gt;
+&lt;pic src="icons/150.png" class="radius-loose"&gt;&lt;/pic&gt;
+&lt;pic src="icons/150.png" defer="true" class="radius-round"&gt;&lt;/pic&gt;</code></pre>
+
+	<p>If the <code>imagesLoaded</code> plugin loaded, pics with <code>defer</code> set will be transitioned in after they're loaded.</p>
+
+	<p class="view-styles-bitmap">
+		<pic src="icons/150.png"></pic>
+		<pic src="icons/150.png" class="radius-loose"></pic>
+		<pic src="icons/150.png" class="radius-round" defer="true"></pic>
+	</p>
+
+	<h2>SVG</h2>
+
+	<pre><code>&lt;vector src="chevron-left"&gt;&lt;/vector&gt;
+&lt;icon src="chevron-left" is-mono="true"&gt;&lt;/icon&gt;</code></pre>
+
+	<div class="view-styles-svg">
+		<vector src="chevron-left"></vector>
+		<icon src="chevron-left"></icon>
+		<vector src="chevron-right"></vector>
+		<icon src="chevron-right"></icon>
+	</div>
 
 	<div class="body">
-
-		<h1>Active styles reference</h1>
 
 		<h2>Body text <code>.body</code></h2>
 
@@ -129,31 +156,5 @@
 			<td><checkbox v-model="testCheckboxValue2" own-value="blah" radio="true"></checkbox> Blah</td>
 		</tr>
 	</ul>
-
-	<h2>Bitmap</h2>
-
-	<pre><code>&lt;pic src="icons/150.png"&gt;&lt;/pic&gt;
-&lt;pic src="icons/150.png" class="radius-loose"&gt;&lt;/pic&gt;
-&lt;pic src="icons/150.png" defer="true" class="radius-round"&gt;&lt;/pic&gt;</code></pre>
-
-	<p>If the <code>imagesLoaded</code> plugin loaded, pics with <code>defer</code> set will be transitioned in after they're loaded.</p>
-
-	<p class="view-styles-bitmap">
-		<pic src="icons/150.png"></pic>
-		<pic src="icons/150.png" class="radius-loose"></pic>
-		<pic src="icons/150.png" class="radius-round" defer="true"></pic>
-	</p>
-
-	<h2>SVG</h2>
-
-	<pre><code>&lt;vector src="chevron-left"&gt;&lt;/vector&gt;
-&lt;icon src="chevron-left" is-mono="true"&gt;&lt;/icon&gt;</code></pre>
-
-	<div class="view-styles-svg">
-		<vector src="chevron-left"></vector>
-		<icon src="chevron-left"></icon>
-		<vector src="chevron-right"></vector>
-		<icon src="chevron-right"></icon>
-	</div>
 
 </div>
