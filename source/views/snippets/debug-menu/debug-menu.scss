@@ -4,6 +4,7 @@
 	border-width: 1px;
 	@include shadow;
 	@include radius;
+	@include overflow-hidden;
 	z-index: $z-debug;
 	right: 1em;
 	bottom: 1em;
@@ -30,6 +31,16 @@
 			&:after {
 				opacity: 0;
 			}
+		}
+
+		@include transition-active;
+		@include transition-hover;
+		transition-property: background-color;
+		&:hover {
+			color: hue($color-blue);
+		}
+		&:active {
+			background-color: $color-verylightgrey;
 		}
 
 	}

@@ -9,7 +9,7 @@
 	<debug-menu v-if="app.options.debug"></debug-menu>
 
 	<!-- Frame content -->
-	<div class="view-frame-content" v-keep-scroll>
+	<div class="view-frame-content">
 		<!-- <transition appear> -->
 		<transition>
 
@@ -20,7 +20,8 @@
 			<div v-if="!shouldRenderSplash" class="view-frame-router">
 				<transition name="transition-fade" mode="out-in">
 					<keep-alive>
-						<router-view v-keep-scroll-position></router-view>
+						<!-- <router-view v-keep-scroll-position></router-view> -->
+						<router-view></router-view>
 					</keep-alive>
 				</transition>
 			</div>

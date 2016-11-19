@@ -161,20 +161,20 @@ dfn[title] {
 	cursor: help;
 }
 
-// a,
-// label,
-// button,
-// textarea,
+label,
+button,
+// option
 // input,
+// textarea,
 // select,
-// option {
-// 	@include cursor-pointer;
+a {
+	@include cursor-pointer;
 
-// 	&[disabled] {
-// 		@include cursor-default;
-// 	}
+	&[disabled] {
+		@include cursor-default;
+	}
 
-// }
+}
 
 input,
 textarea {
