@@ -93,9 +93,7 @@ V.app = {
 		mount: function () {
 			var vm = this;
 
-			if (app.options.debug) {
-				l('Mounting app...');
-			}
+			// if (app.options.debug) { l('Mounting app...'); }
 
 			// Load crucial data after first render
 			vm.runServiceRoutine('beforeMount').done(function () {

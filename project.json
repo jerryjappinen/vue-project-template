@@ -52,6 +52,7 @@
 			// NOTE: init callbacks go under `P.js`
 			// NOTE: Promise and _ are core requirements
 			"plugins": {
+				"promiscuous": "Promise",
 				"imagesLoaded": "imagesLoaded",
 				"fastclick": "FastClick",
 				"hammer": "Hammer",

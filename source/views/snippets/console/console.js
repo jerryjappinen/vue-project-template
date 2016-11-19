@@ -6,7 +6,8 @@ V.views['console'] = {
 	data: function () {
 		return {
 			loopFps: 0,
-			loopIndex: 0
+			loopIndex: 0,
+			promiseTestValues: ['foo', 'foo', 'foo', 'foo']
 		};
 	},
 
@@ -18,6 +19,7 @@ V.views['console'] = {
 
 		platformInfo: function () {
 			return {
+				'promiseTestValues': this.promiseTestValues.join(', '),
 
 				// Services
 				audio: app.audio.isAvailable,
@@ -86,7 +88,53 @@ V.views['console'] = {
 
 		testSound: function () {
 			app.audio.play('on');
+		},
+
+		setPromiseTestValue: function (index, val) {
+			this.$set(this.promiseTestValues, index, val);
 		}
+
+	},
+
+	mounted: function () {
+		var vm = this;
+
+		var returnPromise = function () {
+			return new Promise(function (resolve, reject) {
+				setTimeout(function () {
+					var fail = _.random(0, 1);
+					l(fail ? 'fail' : 'success');
+					if (fail) {
+						reject(new Error('Error message'));
+					} else {
+						resolve('esa');
+					}
+				}, _.random(1000, 3000));
+			});
+		};
+
+
+
+		// Run
+
+		vm.setPromiseTestValue(0, 'immediate');
+
+		returnPromise().then(function (value) {
+			vm.setPromiseTestValue(1, value);
+		}, function (error) {
+			vm.setPromiseTestValue(1, error.message);
+		});
+
+		Promise.all([
+			returnPromise(),
+			returnPromise()
+		]).then(function (values) {
+			l('All success', values);
+			vm.setPromiseTestValue(2, values[0]);
+			vm.setPromiseTestValue(3, values[1]);
+		}, function (error) {
+			console.log(error.message);
+		});
 
 	}
 
