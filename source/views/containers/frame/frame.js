@@ -82,27 +82,21 @@ V.views['frame'] = {
 			return this;
 		},
 
-		// Bindings
-		linkBinding: function (event) {
-			var link = event.target;
+		onClick: function (event) {
+			var el = event.target;
 
+			if (
+				el.tagName === 'A' &&
+				app.util.linkIsExternal(el)
+			) {
+				el.target = '_blank';
 
-			// Check for metakey, navigate
-			var external = (app.util.eventHasMetaKey(event) || app.browser.linkIsExternal(link));
-			var url = link.getAttribute('href');
-
-			// We touch our handler so much that we prevent the link from even working in these cases
-			if (external || !url.length) {
-				event.preventDefault();
-			}
-
-			// External URL (new tab or new in-app browser panel)
-			if (external) {
-				var system = false;
-				if (app.env.isCordova && link.getAttribute('data-system')) {
-					system = true;
+				// App
+				if (app.env.isCordova) {
+					event.preventDefault();
+					app.browser.open(el.href, true, el.getAttribute('data-system'));
 				}
-				app.browser.open(url, external, system);
+
 			}
 
 		}
@@ -114,8 +108,7 @@ V.views['frame'] = {
 
 		// URL link clicks within this frame
 		// NOTE: we treat <a> tag as links, as they should be. Other elements are buttons.
-		// FLAG: is this the best place to make this binding?
-		app.plugins.jQuery(this.$el).on('click', 'a[href]', this.linkBinding);
+		this.$el.addEventListener('click', this.onClick);
 
 		// Only show smart banner when it's needed
 		if (app.env.isWeb) {

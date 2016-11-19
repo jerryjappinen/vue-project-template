@@ -116,34 +116,6 @@ V.services.browser = {
 
 		},
 
-		// Some heuristics to determine whether a LINK ELEMENT is external or not
-		linkIsExternal: function (link) {
-			if (link) {
-
-				// Get some important parameters
-				// var href = link.getAttribute('href');
-				var target = link.getAttribute('target');
-				var magicInternalAttribute = link.getAttribute('data-internal');
-				var targetIsBlank = target && target === '_blank';
-				var hostnameMatches = link.hostname === location.hostname;
-
-				// Magical attribute makes the link internal
-				if (magicInternalAttribute) {
-					return false;
-
-				// Otherwise go by specified target
-				} else if (targetIsBlank) {
-					return true;
-
-				// ...or compare to hostname on web
-				} else if (app.env.isWeb && !hostnameMatches) {
-					return true;
-				}
-
-			}
-			return null;
-		},
-
 		onInit: function () {
 			if (this.missingBrowserHandler) {
 				log.warn('Missing the in-app browser plugin - unable to handle links on this device.');

@@ -29,10 +29,27 @@ V.services.util = {
 
 
 
+		// DOM
+
+		linkIsExternal: function (el) {
+			if (
+				el.href &&                             // Is link
+				(el.hostname !== location.hostname) && // Is external
+				!app.util.eventHasMetaKey(event) &&    // Not using meta key
+				(!el.target || el.target === '') &&    // No target specified
+				(el.protocol.substr(0,4) === 'http')   // Is an http link
+			) {
+				return true;
+			}
+			return false;
+		},
+
+
+
 		// Events
 
 		eventHasMetaKey: function (event) {
-			return event.ctrlKey || event.metaKey ? true : false;
+			return (event.ctrlKey || event.metaKey || event.shiftKey);
 		},
 
 	}
