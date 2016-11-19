@@ -8,7 +8,7 @@ V.views['console'] = {
 			loopFps: 0,
 			loopIndex: 0,
 			promiseTestValues: ['foo', 'foo', 'foo', 'foo'],
-			battery: ''
+			battery: null
 		};
 	},
 
@@ -102,9 +102,11 @@ V.views['console'] = {
 		var vm = this;
 
 		// Battery
-		Promise.all([app.battery.getIsPlugged(), app.battery.getLevel()]).then(function (values) {
-			this.battery = '' + values.join(', ');
-		});
+		if (app.battery) {
+			Promise.all([app.battery.getIsPlugged(), app.battery.getLevel()]).then(function (values) {
+				this.battery = '' + values.join(', ');
+			});
+		}
 
 		var returnPromise = function () {
 			return new Promise(function (resolve, reject) {

@@ -92,7 +92,7 @@ V.views['frame'] = {
 				el.target = '_blank';
 
 				// App
-				if (app.env.isCordova) {
+				if (app.env.isCordova && app.browser) {
 					event.preventDefault();
 					app.browser.open(el.href, true, el.getAttribute('data-system'));
 				}

@@ -667,6 +667,7 @@
 			"source/js/app.js",
 			"source/js/directives/**/*.js",
 			"source/js/services-core/**/*.js",
+			"source/js/services-extra/**/*.js",
 			"source/js/services-app/**/*.js",
 			"source/js/content-types/**/*.js",
 			"source/views/**/*.js",

@@ -50,7 +50,7 @@ V.services.util = {
 
 		eventHasMetaKey: function (event) {
 			return (event.ctrlKey || event.metaKey || event.shiftKey);
-		},
+		}
 
 	}
 

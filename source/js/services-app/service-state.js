@@ -65,27 +65,43 @@ V.services.state = {
 			var vm = this;
 			return new Promise(function (resolve, reject) {
 
-				// Load fetched state
-				vm.fetchStoredState().then(function (state) {
-					if (state) {
-						vm.loadState(state);
-					} else {
+				if (app.storage) {
+
+					// Fetched saved state
+					vm.fetchStoredState().then(function (state) {
+						if (state) {
+							vm.loadState(state);
+						} else {
+
+							// Load initial state if that fails
+							vm.loadState(vm.getInitialState());
+
+						}
+
+						vm.isLoaded = true;
+						resolve();
+
+					}, function () {
+
+						// Load initial state if that fails
 						vm.loadState(vm.getInitialState());
-					}
 
-					// Resolve either way
-					vm.isLoaded = true;
-					resolve();
+						// Resolve either way
+						vm.isLoaded = true;
+						resolve();
 
-				// Load initial state if that fails
-				}, function () {
+					});
+
+				} else {
+
+					// Load initial state if that fails
 					vm.loadState(vm.getInitialState());
 
 					// Resolve either way
 					vm.isLoaded = true;
 					resolve();
 
-				});
+				}
 
 			});
 
