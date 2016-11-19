@@ -12,7 +12,8 @@ V.views['styles'] = {
 			testInputValue1: 'Foo',
 			testInputValue2: 'Foo',
 
-			testRadioValue: null
+			testRadioValue: null,
+			popupShouldBeShown: true
 
 		};
 	},

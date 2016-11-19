@@ -1,0 +1,9 @@
+<div class="view-popover" :class="classes">
+	<transition>
+		<div class="view-popover-background" v-show="show">
+			<div class="view-popover-content">
+				<slot></slot>
+			</div>
+		</div>
+	</div>
+</div>

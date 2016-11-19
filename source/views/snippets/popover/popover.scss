@@ -1,0 +1,106 @@
+
+.view-popover {
+	position: absolute;
+}
+
+.view-popover-background {
+	position: absolute;
+	transition-property: opacity;
+
+	@include viewport-under-smallish {
+		@include fill;
+		position: fixed;
+		background-color: hint($color-dark);
+	}
+}
+
+.view-popover-content {
+	position: relative;
+	@include buffer;
+	background-color: $color-white;
+	@include radius;
+	@include shadow;
+
+	transition-property: transform;
+
+	@include viewport-over-smallish {
+		min-width: 16em;
+	}
+
+	@include viewport-under-smallish {
+		box-sizing: border-box;
+		@include keep-center;
+		top: 20vh;
+		width: 90%;
+		min-height: 16em;
+	}
+
+}
+
+
+
+
+
+// Transition
+.view-popover {
+
+	// Shared, defaults
+	.v-enter,
+	.v-enter-active,
+	.v-leave,
+	.v-leave-active {
+
+		.view-popover-background {
+			opacity: 1;
+		}
+
+		.view-popover-content {
+			transform: scale(1);
+		}
+
+	}
+
+	// In
+	.v-enter-active,
+	.v-leave {
+	}
+
+	// Out
+	.v-enter,
+	.v-leave-active {
+
+		&.view-popover-background {
+			opacity: 0;
+		}
+
+		.view-popover-content {
+			transform: scale(0.98);
+		}
+
+	}
+
+	// Out, entering
+	.v-enter {}
+
+	// In, entered
+	.v-enter,
+	.v-enter-active {
+		&.view-popover-background,
+		.view-popover-content {
+			transition-duration: $transition-medium;
+		}
+	}
+
+	// In, exiting
+	.v-leave {}
+
+	// Out, exit state
+	.v-leave,
+	.v-enter-active {
+		&.view-popover-background,
+		.view-popover-content {
+			transition-duration: $transition-veryfast;
+		}
+	}
+
+}

@@ -4,6 +4,22 @@
 
 
 
+	<h2>Responsive popover</h2>
+
+	<toggle v-model="popupShouldBeShown" class="inline-block">Toggle</toggle>
+
+	<popover :show="popupShouldBeShown">
+
+		<div class="bodytext">
+			<h2 class="no-push-top">Foo</h2>
+			<p>Yay!</p>
+			<toggle v-model="popupShouldBeShown">Close</toggle>
+		</div>
+
+	</popover>
+
+
+
 	<h2>Bitmap</h2>
 
 	<pre><code>&lt;pic src="icons/150.png"&gt;&lt;/pic&gt;
