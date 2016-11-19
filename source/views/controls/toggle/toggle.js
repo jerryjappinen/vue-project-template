@@ -4,11 +4,10 @@
 // State of the input is kept track of internally, and the result is $emitted to parent scope
 // http://vuejs.org/guide/components.html#Form-Input-Components-using-Custom-Events
 
-V.views['checkbox'] = {
+V.views['toggle'] = {
 
 	// Incoming
 	props: [
-		'radio',
 		'value',
 		'disabled'
 	],
@@ -16,7 +15,7 @@ V.views['checkbox'] = {
 	// Properties
 	data: function () {
 		return {
-			isOn: this.value,
+			isOn: this.value
 		};
 	},
 
@@ -30,7 +29,6 @@ V.views['checkbox'] = {
 		state: function () {
 			return {
 				on: this.value,
-				radio: this.radio,
 				disabled: this.disabled
 			};
 		},
@@ -69,17 +67,11 @@ V.views['checkbox'] = {
 		},
 
 		toggle: function () {
-
-			// Radio buttons can't be toggled off
-			if (this.radio) {
-				return this.isOff ? this.toggleOn() : this;
-			}
-
-			// Checkboxes can be toggle on and off by default
 			return this.isOn ? this.toggleOff() : this.toggleOn();
 		},
 
 		click: function () {
+			app.log.info('click');
 			if (!this.disabled) {
 				this.toggle();
 			}

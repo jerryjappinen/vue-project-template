@@ -22,15 +22,15 @@ Since the config.xml is now built by the cordova init script, we should have a w
 
 ## Frontend
 
-- [ ] Localization via custom bindings? https://github.com/kazupon/vue-i18n
+- [ ] Localization via custom bindings? `https://github.com/kazupon/vue-i18n`
 - [ ] Investigate plugins
-- [ ] <click>: Separate manipulation logic from visualization in inputs
+- [ ] `<click>`: Separate manipulation logic from visualization in inputs
 - [ ] rename inputs with `input-` prefix
-= [ ] rename `data` service to `localConfig` or something
 - [ ] move some initiation handling to <frame> so first render is as fast as possible and easily customizable
 
 ## Pipeline
 
+- [ ] Watch `/json`
 - [ ] Automated scaling for iOS app icons
 - [ ] Automated `.icns` generation
 - [ ] Support loading env-specific vendor scripts

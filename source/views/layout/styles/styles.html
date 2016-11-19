@@ -110,51 +110,51 @@
 
 	<h2>Inputs</h2>
 
-	<ul>
+	<table class="view-styles-inputs">
 		<tr>
 			<td>Value 1</td>
-			<td><textinput v-model="testInputValue1"></textinput></td>
-		</tr>
-		<tr>
-			<td>Value 1</td>
-			<td><textinput v-model="testInputValue1" placeholder="Bar"></textinput> (synced)</td>
-		</tr>
-		<tr>
-			<td>Value 2</td>
-			<td><textinput v-model="testInputValue2" multiline="true"></textinput></td>
-		</tr>
-		<tr>
-			<td>Value 2</td>
-			<td><textinput v-model="testInputValue2" disabled="true"></textinput> (disabled)</td>
+			<td><label><textinput v-model="testInputValue1"></textinput></label></td>
 		</tr>
 		<tr>
 			<td>Value 1</td>
-			<td><toggle-switch v-model="testSwitchValue1"></toggle-switch></td>
+			<td><label><textinput v-model="testInputValue1" placeholder="Bar"></textinput> (synced)</label></td>
+		</tr>
+		<tr>
+			<td>Value 2</td>
+			<td><label><textinput v-model="testInputValue2" multiline="true"></textinput></label></td>
+		</tr>
+		<tr>
+			<td>Value 2</td>
+			<td><label><textinput v-model="testInputValue2" :disabled="true"></textinput> (disabled)</label></td>
 		</tr>
 		<tr>
 			<td>Value 1</td>
-			<td><toggle-switch v-model="testSwitchValue1"></toggle-switch> (synced)</td>
+			<td><toggle v-model="testSwitchValue1"><on-off-switch :value="testSwitchValue1"></on-off-switch> Value description</toggle></td>
+		</tr>
+		<tr>
+			<td>Value 1</td>
+			<td><toggle v-model="testSwitchValue1"><on-off-switch :value="testSwitchValue1"></on-off-switch> (synced)</toggle></td>
 		</tr>
 		<tr>
 			<td>Value 2</td>
-			<td><toggle-switch v-model="testSwitchValue2"></toggle-switch></td>
+			<td><toggle v-model="testSwitchValue2"><on-off-switch :value="testSwitchValue2"></on-off-switch> Another value</toggle></td>
 		</tr>
 		<tr>
 			<td>Value 2</td>
-			<td><toggle-switch v-model="testSwitchValue2" disabled="true"></toggle-switch> (disabled)</td>
+			<td><toggle v-model="testSwitchValue2" :disabled="true"><on-off-switch :value="testSwitchValue2" :disabled="true"></on-off-switch> (disabled)</toggle></td>
 		</tr>
 		<tr>
 			<td>testCheckboxValue1</td>
-			<td><checkbox v-model="testCheckboxValue1" own-value="foo"></checkbox> Foo</td>
+			<td><toggle v-model="testCheckboxValue1"><checkbox :value="testCheckboxValue1"></checkbox> Foo</toggle></td>
 		</tr>
 		<tr>
 			<td>testCheckboxValue1</td>
-			<td><checkbox v-model="testCheckboxValue1" own-value="bar"></checkbox> Bar</td>
+			<td><toggle v-model="testCheckboxValue1"><checkbox :value="testCheckboxValue1"></checkbox> Bar</toggle></td>
 		</tr>
 		<tr>
 			<td>testCheckboxValue2</td>
-			<td><checkbox v-model="testCheckboxValue2" own-value="blah" radio="true"></checkbox> Blah</td>
+			<td><toggle v-model="testCheckboxValue2"><checkbox :value="testCheckboxValue2"></checkbox> Blah</toggle></td>
 		</tr>
-	</ul>
+	</table>
 
 </div>

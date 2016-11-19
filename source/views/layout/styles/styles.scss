@@ -49,3 +49,34 @@
 	}
 
 }
+
+.view-styles-inputs {
+
+	td,
+	th {
+		@include buffer-tight-even;
+
+		&:last-child {
+			@include no-buffer;
+		}
+	}
+
+	label,
+	.view-toggle {
+		@include buffer-tight-even;
+
+		@include transition-active;
+		@include transition-hover;
+		transition-property: background-color;
+
+		&:hover {
+			background-color: hint($color-lightgrey);
+		}
+
+		&:active {
+			background-color: $color-verylightgrey;
+		}
+
+	}
+
+}

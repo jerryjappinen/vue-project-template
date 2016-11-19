@@ -1,5 +1,5 @@
 
-.view-toggle-switch {
+.view-on-off-switch {
 	position: relative;
 	display: inline-block;
 	vertical-align: middle;
@@ -13,7 +13,7 @@
 	&.is-on {
 		background-color: $color-green;
 
-		.view-toggle-switch-knob {
+		.view-on-off-switch-knob {
 			@include shadow;
 			transform: translate3d(0, 0, 0);
 		}
@@ -37,14 +37,14 @@
 
 	&.is-disabled {
 
-		.view-toggle-switch-knob {
+		.view-on-off-switch-knob {
 			background-color: $color-midgrey;
 		}
 
 		&.is-on {
 			background-color: $color-grey;
 
-			.view-toggle-switch-knob {
+			.view-on-off-switch-knob {
 				background-color: $color-midgrey;
 			}
 
@@ -54,7 +54,7 @@
 
 }
 
-.view-toggle-switch-knob {
+.view-on-off-switch-knob {
 	position: relative;
 	box-sizing: border-box;
 	display: block;
@@ -71,12 +71,12 @@
 	transition-property: background-color, box-shadow, transform;
 }
 
-.view-toggle-switch,
-.view-toggle-switch-knob {
+.view-on-off-switch,
+.view-on-off-switch-knob {
 	transition-duration: $transition-slow;
 }
 
-.view-toggle-switch.is-on,
-.view-toggle-switch.is-on .view-toggle-switch-knob {
+.view-on-off-switch.is-on,
+.view-on-off-switch.is-on .view-on-off-switch-knob {
 	transition-duration: $transition-fast;
 }

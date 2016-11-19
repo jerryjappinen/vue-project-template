@@ -1,0 +1,7 @@
+
+.view-toggle {
+	@include cursor-pointer;
+	&.is-disabled {
+		@include cursor-inherit;
+	}
+}
