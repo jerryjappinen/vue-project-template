@@ -6,14 +6,14 @@ P.callbacks.log = function (debug) {
 
 	// Global shorthand
 	// FLAG: shouldn't do this probably but this makes development much less painful
-	window.l = log.trace;
+	window.l = window.log.trace;
 
 	// Allow tracing things easily with the loglevel plugin
 	// log.trace .debug .info .warn .error
 	if (debug) {
-		log.setLevel(log.levels.TRACE, false);
+		window.log.setLevel(window.log.levels.TRACE, false);
 	} else {
-		log.setLevel(log.levels.SILENT, false);
+		window.log.setLevel(window.log.levels.SILENT, false);
 	}
 
 };
