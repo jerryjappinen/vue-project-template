@@ -4,15 +4,21 @@
 
 
 
-	<h2>Responsive popover</h2>
+	<h2>Responsive popovers</h2>
 
-	<toggle v-model="popupShouldBeShown" class="inline-block">Toggle</toggle>
+	<p><toggle v-model="popupShouldBeShown1" class="inline-block">Toggle</toggle></p>
 
-	<popover v-model="popupShouldBeShown">
+	<popover v-model="popupShouldBeShown1">
 		<div class="bodytext">
-			<h2 class="no-push-top">Foo</h2>
 			<p>Yay!</p>
-			<toggle v-model="popupShouldBeShown">Close</toggle>
+		</div>
+	</popover>
+
+	<p><toggle v-model="popupShouldBeShown2" class="inline-block">Toggle (in-place)</toggle></p>
+
+	<popover v-model="popupShouldBeShown2" fullscreen>
+		<div class="bodytext">
+			<p>Yay!</p>
 		</div>
 	</popover>
 

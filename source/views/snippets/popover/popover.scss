@@ -1,17 +1,48 @@
 
 .view-popover {
 	position: absolute;
+
+	@mixin fullscreen-background {
+		@include fill;
+		position: fixed;
+		background-color: hint($color-dark);
+	}
+
+	@mixin fullscreen-content {
+		box-sizing: border-box;
+		@include keep-center;
+		top: 20vh;
+		width: 90%;
+		min-height: 16em;
+	}
+
+	&.is-fullscreen {
+		.view-popover-background {
+			@include fullscreen-background;
+		}
+		.view-popover-content {
+			@include fullscreen-content;
+		}
+	}
+
+	@include viewport-under-medium {
+		&:not(.is-in-place) {
+			.view-popover-background {
+				@include fullscreen-background;
+			}
+			.view-popover-content {
+				@include fullscreen-content;
+			}
+		}
+	}
+
+	// &.is-in-place {}
+
 }
 
 .view-popover-background {
 	position: absolute;
 	transition-property: opacity;
-
-	@include viewport-under-medium {
-		@include fill;
-		position: fixed;
-		background-color: hint($color-dark);
-	}
 }
 
 .view-popover-content {
@@ -20,21 +51,10 @@
 	background-color: $color-white;
 	@include radius;
 	@include shadow;
+	min-width: 16em;
+	max-width: 36em;
 
 	transition-property: transform;
-
-	@include viewport-over-medium {
-		min-width: 16em;
-	}
-
-	@include viewport-under-medium {
-		box-sizing: border-box;
-		@include keep-center;
-		top: 20vh;
-		width: 90%;
-		min-height: 16em;
-	}
-
 }
 
 

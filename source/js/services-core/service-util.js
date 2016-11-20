@@ -7,6 +7,18 @@ V.services.util = {
 
 		// String management
 
+		getStateClassNames: function (stateHash) {
+			var classes = [];
+
+			// State classes
+			for (var key in stateHash) {
+				var className = _.kebabCase(key.substr(0, 2) == 'is' ? key.substr(2) : key);
+				classes.push((stateHash[key] ? 'is-' : 'not-') + className);
+			}
+
+			return classes.join(' ');
+		},
+
 		trimWhitespace: function (string) {
 			return _.trim(string).replace(/\s\s+/g, ' ');
 		},

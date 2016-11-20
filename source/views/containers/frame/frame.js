@@ -82,9 +82,18 @@ V.views['frame'] = {
 			return this;
 		},
 
+		shouldBlur: function (event) {
+
+			app.log.info(event);
+
+			// ...
+
+		},
+
 		onClick: function (event) {
 			var el = event.target;
 
+			// Link handling
 			if (
 				el.tagName.toLowerCase() === 'a' &&
 				app.util.linkIsExternal(el)
@@ -99,6 +108,11 @@ V.views['frame'] = {
 
 			}
 
+			// Fire blur event
+			if (this.shouldBlur(event)) {
+				app.lifecycle.onBlur();
+			}
+
 		}
 
 	},
@@ -108,7 +122,7 @@ V.views['frame'] = {
 
 		// URL link clicks within this frame
 		// NOTE: we treat <a> tag as links, as they should be. Other elements are buttons.
-		this.$el.addEventListener('click', this.onClick);
+		// this.$el.addEventListener('click', this.onClick);
 
 		// Only show smart banner when it's needed
 		if (app.env.isWeb) {
@@ -118,7 +132,7 @@ V.views['frame'] = {
 	},
 
 	beforeDestroy: function () {
-		this.$el.removeEventListener('click', this.onClick);
+		// this.$el.removeEventListener('click', this.onClick);
 	}
 
 };

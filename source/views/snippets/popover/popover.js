@@ -3,7 +3,7 @@ V.views['popover'] = {
 
 	props: [
 		'value', // shouldBeShown
-		'fixed',
+		'fullscreen',
 		'inPlace'
 	],
 
@@ -15,8 +15,8 @@ V.views['popover'] = {
 
 	computed: {
 
-		isFixed: function () {
-			return !_.isUndefined(this.fixed);
+		isFullscreen: function () {
+			return !_.isUndefined(this.fullscreen);
 		},
 
 		isInPlace: function () {
@@ -26,21 +26,13 @@ V.views['popover'] = {
 		state: function () {
 			return {
 				shown: this.value,
-				fixed: this.isFixed,
+				fullscreen: this.isFullscreen,
 				inPlace: this.isInPlace
 			};
 		},
 
 		classes: function () {
-			var classes = [];
-
-			// State classes
-			for (var key in this.state) {
-				var className = _.kebabCase(key.substr(0, 2) == 'is' ? key.substr(2) : key);
-				classes.push((this.state[key] ? 'is-' : 'not-') + className);
-			}
-
-			return classes.join(' ');
+			return app.util.getStateClassNames(this.state);
 		}
 
 	},

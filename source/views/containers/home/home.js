@@ -22,15 +22,7 @@ V.views['home'] = {
 		},
 
 		classes: function () {
-			var classes = [];
-
-			// State classes
-			for (var key in this.state) {
-				var className = _.kebabCase(key.substr(0, 2) == 'is' ? key.substr(2) : key);
-				classes.push((this.state[key] ? 'is-' : 'not-') + className);
-			}
-
-			return classes.join(' ');
+			return app.util.getStateClassNames(this.state);
 		}
 
 	},
