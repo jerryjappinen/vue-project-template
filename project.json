@@ -323,6 +323,9 @@
 				// https://www.npmjs.com/package/cordova-plugin-inappbrowser
 				"cordova-plugin-inappbrowser",
 
+				// https://github.com/apache/cordova-plugin-media-capture
+				// "cordova-plugin-media-capture",
+
 				// https://www.npmjs.com/package/cordova-plugin-network-information
 				"cordova-plugin-network-information",
 
