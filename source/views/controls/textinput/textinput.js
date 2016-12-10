@@ -10,6 +10,7 @@ V.views['textinput'] = {
 	props: [
 		'name',
 		'placeholder',
+		'sanitize',
 		'multiline',
 		'value',
 		'disabled'
@@ -45,6 +46,13 @@ V.views['textinput'] = {
 	// Behavior
 	methods: {
 
+		sanitizeValue: function (value) {
+			if (this.sanitize) {
+				return app.util.trimWhitespace('' + value);
+			}
+			return '' + value;
+		},
+
 		onFocus: function () {
 			this.isFocused = true;
 		},
@@ -66,7 +74,7 @@ V.views['textinput'] = {
 
 			if (this.value !== newValue) {
 
-				this.$emit('input', newValue);
+				this.$emit('input', this.sanitizeValue(newValue));
 
 				if (this.isPristine) {
 					this.isPristine = false;

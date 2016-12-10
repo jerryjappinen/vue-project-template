@@ -8,12 +8,13 @@
 	textarea {
 		cursor: inherit;
 		display: block;
-
 		box-sizing: border-box;
+		width: 100%;
+
 		border-width: 2px;
 		@include pad;
 
-		@include radius-tight;
+		@include radius;
 		background-color: $color-verylightgrey;
 		border-color: $color-verylightgrey;
 
