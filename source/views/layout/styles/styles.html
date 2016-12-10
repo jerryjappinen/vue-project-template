@@ -6,23 +6,13 @@
 
 	<h2>Responsive popovers</h2>
 
-	<p><toggle v-model="popupShouldBeShown1" class="inline-block">Toggle</toggle></p>
+	<p><toggle v-model="popupShouldBeShown1" class="inline-block pad">Toggle popover (use <code>fullscreen</code> or <code>in-place</code> if you want)</toggle></p>
 
 	<popover v-model="popupShouldBeShown1">
 		<div class="bodytext">
-			<p>Yay!</p>
+			<p>You can press esc to close the popup. This works through the global blur handling from <code>app.lifecycle</code>.</p>
 		</div>
 	</popover>
-
-	<p><toggle v-model="popupShouldBeShown2" class="inline-block">Toggle (in-place)</toggle></p>
-
-	<popover v-model="popupShouldBeShown2" fullscreen>
-		<div class="bodytext">
-			<p>Yay!</p>
-		</div>
-	</popover>
-
-
 
 	<h2>Bitmap</h2>
 
@@ -129,6 +119,10 @@
 
 
 	<h2>Inputs</h2>
+
+	<div class="bodytext">
+		<p>Inputs work with controls and visualizers. Use <code>&lt;set&gt;</code> and <code>&lt;toggle&gt;</code> to determine behavior of custom input elements.</p>
+	</div>
 
 	<table class="view-styles-inputs">
 		<tr>
