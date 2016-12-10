@@ -1,10 +1,4 @@
 
-// Project brand
-$color-securec-dark: #212529;
-$color-securec-red: #df2020;
-$color-securec-blue: #4c77e6;
-$color-securec: $color-securec-red;
-
 // Brand
 $color-airbnb: #fd5c63;
 $color-android: #a4c639;
@@ -36,10 +30,10 @@ $color-black: 				#000000;
 
 
 // Colors
-$color-blue-light: 			#6DB6EC;
 $color-blue: 				$color-ios;
-$color-blue-dark: 			#1F80CA;
-$color-blue-verydark: 		#1263A0;
+$color-blue-light: 			color-lighten($color-blue);
+$color-blue-dark: 			color-darken($color-blue);
+$color-blue-verydark: 		color-darken($color-blue-dark);
 
 $color-green: 				rgba(96, 220, 192, 1);
 $color-yellow: 				#FFF500;
