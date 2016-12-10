@@ -20,7 +20,7 @@
 	color: $color-blue;
 	&:focus,
 	&:hover {
-		color: hue($color-blue);
+		color: color-darken($color-blue);
 	}
 
 	// Disabled state
@@ -38,7 +38,7 @@
 	// Text color
 	color: $color-blue;
 	&:hover {
-		color: hue($color-blue);
+		color: color-darken($color-blue);
 	}
 
 	// Disabled state
@@ -59,7 +59,7 @@
 	background-color: $color-blue;
 
 	&:hover {
-		border-color: hue($color-blue);
+		border-color: color-darken($color-blue);
 	}
 
 	// Disabled state

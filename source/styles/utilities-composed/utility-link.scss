@@ -8,7 +8,7 @@
 	color: $color-blue;
 	&:focus,
 	&:hover {
-		color: hue($color-blue);
+		color: color-darken($color-blue);
 	}
 
 	// Disabled state

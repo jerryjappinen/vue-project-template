@@ -32,14 +32,14 @@
 		transition-duration: $transition-fast;
 
 		&::placeholder {
-			color: hue($color-grey);
+			color: color-darken($color-grey);
 			transition-duration: $transition-fast;
 		}
 
 	}
 
 	&:hover {
-		border-color: hint($color-lightgrey);
+		border-color: color-hint($color-lightgrey);
 	}
 
 	&:focus,

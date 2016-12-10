@@ -37,7 +37,7 @@
 		@include transition-hover;
 		transition-property: color, background-color;
 		&:hover {
-			color: hue($color-blue);
+			color: color-darken($color-blue);
 		}
 		&:active {
 			background-color: $color-verylightgrey;

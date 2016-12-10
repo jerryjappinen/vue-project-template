@@ -5,7 +5,7 @@
 	@mixin fullscreen-background {
 		@include fill;
 		position: fixed;
-		background-color: hint($color-dark);
+		background-color: color-hint($color-dark);
 	}
 
 	@mixin fullscreen-content {

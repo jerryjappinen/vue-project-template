@@ -71,7 +71,7 @@
 		transition-property: background-color;
 
 		&:hover {
-			background-color: hint($color-lightgrey);
+			background-color: color-hint($color-lightgrey);
 		}
 
 		&:active {

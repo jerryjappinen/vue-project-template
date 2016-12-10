@@ -25,12 +25,12 @@
 		@include cursor-pointer;
 
 		&:hover {
-			background-color: hue($color-lightgrey);
+			background-color: color-darken($color-lightgrey);
 		}
 
 		&.is-on {
 			&:hover {
-				background-color: hue($color-green);
+				background-color: color-darken($color-green);
 			}
 		}
 
